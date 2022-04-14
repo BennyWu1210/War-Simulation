@@ -15,6 +15,7 @@ public class Bandit extends Soldier
     public Bandit (int direction)
     {
         super(direction);
+        getImage().scale(50, 52);
     }
     public void act()
     {

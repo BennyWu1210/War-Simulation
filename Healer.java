@@ -15,7 +15,7 @@ public class Healer extends Soldier
     public Healer (int direction)
     {
         super(direction);
-        
+        getImage().scale(50, 52);
     }
     public void act()
     {
