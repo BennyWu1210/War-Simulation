@@ -8,16 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bandit extends Soldier
 {
-    /**
-     * Act - do whatever the Bandit wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int test = 0;
     public Bandit (int direction)
     {
+        // calls super constructor
         super(direction);
     }
     public void act()
     {
-        super.act();//hi
+        super.act();
     }
 }
