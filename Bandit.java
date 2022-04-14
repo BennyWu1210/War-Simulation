@@ -18,6 +18,6 @@ public class Bandit extends Soldier
     }
     public void act()
     {
-        super.act();
+        super.act();//hi
     }
 }
