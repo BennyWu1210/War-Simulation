@@ -13,6 +13,7 @@ public class Bandit extends Soldier
     {
         // calls super constructor
         super(direction);
+        getImage().scale(50, 52);
     }
     public void act()
     {

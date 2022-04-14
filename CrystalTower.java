@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Crystal here.
+ * Write a description of class CrystalTower here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Crystal extends Tower
+public class CrystalTower extends Tower
 {
     /**
-     * Act - do whatever the Crystal wants to do. This method is called whenever
+     * Act - do whatever the CrystalTower wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     

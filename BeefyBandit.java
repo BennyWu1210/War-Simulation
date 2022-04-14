@@ -15,6 +15,7 @@ public class BeefyBandit extends Soldier
     public BeefyBandit (int direction)
     {
         super(direction);
+        getImage().scale(80, 82);
     }
     public void act()
     {
