@@ -11,7 +11,7 @@ public class MyWorld extends World
 
     /**
      * Constructor for objects of class MyWorld.
-     * 
+     * fcgvbt
      */
     
     private GreenfootImage backgroundImage;
