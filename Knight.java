@@ -15,8 +15,11 @@ public class Knight extends Soldier
     public Knight (int direction)
     {
         super(direction);
+        image = new GreenfootImage("Knight.png");
         getImage().scale(50, 52);
     }
+  
+    
     public void act()
     {
         super.act();

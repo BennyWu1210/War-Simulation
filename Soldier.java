@@ -19,10 +19,10 @@ public abstract class Soldier extends Entity
     {
         this.direction = direction;
         this.side = direction;
-        if (this.direction == -1)
-        {
-            getImage().mirrorHorizontally();
-        }
+    }
+       
+    public void addedToWorld(World w){
+        if (direction == -1) getImage().mirrorHorizontally();
     }
     public void act()
     {

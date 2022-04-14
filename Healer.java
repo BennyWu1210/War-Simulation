@@ -15,8 +15,11 @@ public class Healer extends Soldier
     public Healer (int direction)
     {
         super(direction);
+        image = new GreenfootImage("Healer.png");
         getImage().scale(50, 52);
     }
+ 
+    
     public void act()
     {
         super.act();

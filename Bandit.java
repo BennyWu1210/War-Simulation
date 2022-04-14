@@ -13,8 +13,12 @@ public class Bandit extends Soldier
     {
         // calls super constructor
         super(direction);
+        setImage("Bandit.png");
+        image = new GreenfootImage("Bandit.png");
         getImage().scale(50, 52);
+        
     }
+    
     public void act()
     {
         super.act();

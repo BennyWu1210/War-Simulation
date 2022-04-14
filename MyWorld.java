@@ -22,27 +22,33 @@ public class MyWorld extends World
         backgroundImage = new GreenfootImage("Background.jpg");
         backgroundImage.scale(1000, 600);
         setBackground(backgroundImage);
+  
     }
     private void spawner(int yDirection){
         int direction = yDirection;
         if (Greenfoot.getRandomNumber(60) == 0){
             int soldierChoice = Greenfoot.getRandomNumber(4) + 1;
             int ySpawn = Greenfoot.getRandomNumber(10)*50 + 70;
-            int xSpawn = 50;
-            if (direction == -1)
-                xSpawn = 950;
+            int xSpawn = direction == 1 ? 50 : 950;
+            Soldier soldier;
+            
             if (soldierChoice == 1){
-                addObject(new Bandit(direction),xSpawn, ySpawn);
+                soldier = new Bandit(direction);
             }
             else if (soldierChoice == 2){
-                addObject(new Knight(direction), xSpawn, ySpawn);
+                soldier = new Knight(direction);
             }
             else if (soldierChoice == 3){
-                addObject(new Healer(direction), xSpawn, ySpawn);
+                soldier = new Healer(direction);
             }
             else if (soldierChoice == 4){
-                addObject(new BeefyBandit(direction), xSpawn, ySpawn);
+                soldier = new BeefyBandit(direction);
             }
+            else{
+                soldier = new Bandit(direction);
+            }
+            
+            addObject(soldier, xSpawn, ySpawn);
         }
     }
     public void act(){

@@ -33,6 +33,7 @@ public class Entity extends Actor
         // Add your action code here.
     }
     
+
     /**
      * Override getImage for gif purposes
      */
