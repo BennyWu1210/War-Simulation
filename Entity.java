@@ -24,6 +24,8 @@ public class Entity extends Actor
     protected double xPos, yPos;
     protected double speed;
     
+    
+    
     public Entity(){
         this.isGif = false;
     }

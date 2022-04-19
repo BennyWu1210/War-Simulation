@@ -24,4 +24,7 @@ public class BeefyBandit extends Soldier
     {
         super.act();
     }
+    private void touchPeople(){
+        
+    }
 }
