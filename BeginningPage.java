@@ -13,10 +13,27 @@ public class BeginningPage extends World
      * Constructor for objects of class BeginningPage.
      * 
      */
-    //hi
+    private GreenfootImage backgroundImage;
     public BeginningPage()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(1000, 600, 1); 
+        backgroundImage = new GreenfootImage("BeginningPage.jpg");
+        backgroundImage.scale(1000, 600);
+        setBackground(backgroundImage);
+
+        prepare();
+    }
+
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
+        StartButton startButton = new StartButton();
+        addObject(startButton,500,450);
+
+       
     }
 }

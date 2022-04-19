@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=StartButton
+comment0.text=\n\ Write\ a\ description\ of\ class\ StartButton\ here.\n\ This\ class\ is\ for\ user\ to\ play\ the\ game\ from\ the\ BeginingPage\ world\ to\ VehicleWorld.\ When\ the\ mouse\ move\ to\ this\ object,\ it\ will\ change\ colour.\n\ @Kevin\ Zhu\ (your\ name)\ \n\ @April\ 2,\ 2022\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=StartButton()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ initStartButton()
+comment3.text=\n\ Initializing\ the\ start\ button\ image\n
+comment4.params=
+comment4.target=void\ detectClick()
+comment4.text=\n\ Check\ if\ mouse\ clicks\ this\ button\n
+comment5.params=
+comment5.target=void\ checkHover()
+comment5.text=\n\ Check\ if\ mouse\ hovers\ on\ this\ button\n
+numComments=6
