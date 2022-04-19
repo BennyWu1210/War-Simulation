@@ -11,6 +11,12 @@ public abstract class Soldier extends Entity
     protected int direction;
     //Are you a left side soldier or right side soldier
     protected int side;
+    private StatBar hpBar;
+    private int hp;
+    private int maxHP;
+
+    private int mySpeed = 10;
+    private int myAge;
     /**
      * Act - do whatever the Soldiers wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -19,6 +25,7 @@ public abstract class Soldier extends Entity
     {
         this.direction = direction;
         this.side = direction;
+        hpBar = new StatBar (hp, this);
     }
        
     public void addedToWorld(World w){
