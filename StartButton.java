@@ -3,22 +3,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class StartButton here.
  * This class is for user to play the game from the BeginingPage world to VehicleWorld. When the mouse move to this object, it will change colour.
- * @Kevin Zhu (your name) 
+ * @Kevin Zhu, Benny Wu
  * @April 2, 2022 (a version number or a date)
  */
-public class StartButton extends Actor
+public class StartButton extends Button
 {
-    GreenfootImage[] startImage = new GreenfootImage[2]; //Stores "light" and "dark" of start button images
-
+    
     public StartButton()
     {
+        super();
         initStartButton();
     }
 
     public void act() 
     {
-        checkHover();
-        detectClick();
+        onHover();
+        onClick();
     }    
 
     /**
@@ -26,14 +26,15 @@ public class StartButton extends Actor
      */
     public void initStartButton()
     {
-        startImage[0] = new GreenfootImage("StartDark.png"); 
-        startImage[1] = new GreenfootImage("StartLight.png"); 
+        images[0] = new GreenfootImage("StartDark.png"); 
+        images[1] = new GreenfootImage("StartLight.png"); 
+        setImage(images[0]);
     }
 
     /**
      * Check if mouse clicks this button
      */
-    public void detectClick()
+    public void onClick()
     {
         if(Greenfoot.mouseClicked(this))
         {
@@ -41,21 +42,20 @@ public class StartButton extends Actor
             MyWorld vw = new MyWorld();
             Greenfoot.setWorld(vw);
         }
-
     }
 
     /**
      * Check if mouse hovers on this button
      */
-    public void checkHover()
+    public void onHover()
     {
         if (Greenfoot.mouseMoved(this))
         {
-            setImage(startImage[1]); //Dark
+            setImage(images[1]); //Dark
         }
         else if(Greenfoot.mouseMoved(null))
         {
-            setImage(startImage[0]); //Light
+            setImage(images[0]); //Light
         }
 
     }
