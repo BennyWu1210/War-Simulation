@@ -8,15 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Knight extends Soldier
 {
-    /**
-     * Act - do whatever the Knight wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private static final int initHp = 80;
     public Knight (int direction)
     {
-        super(direction);
+        super(direction, initHp);
         image = new GreenfootImage("Knight.png");
         getImage().scale(50, 52);
+        
+        // intialize hp bar
+        if (direction == 1) hpBar = new StatBar(100, 100, this, 32, 5, 35, Color.BLUE, Color.YELLOW, false);
+        else hpBar = new StatBar(100, 100, this, 32, 5, 35, Color.GREEN, Color.RED, false);
+        hpBar.initLevel(1, 10);
     }
   
     

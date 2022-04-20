@@ -57,6 +57,10 @@ public class StatBar extends Actor
     private Color[] missingColor;
     private Color borderColor;
 
+    // Display the level
+    private boolean hasLabel;
+    private Label levelLabel;
+    private int level;
     /**
      * Main constructor - A basic constructor that sets default values. Easy to use, not very flexible.
      */
@@ -122,7 +126,7 @@ public class StatBar extends Actor
      *  @param  hideAtMax   set to true to have this statBar hide itself when currVal == maxVal
      */
     public StatBar (int maxVal,  int currVal, Actor owner, int width, int height, int offset, Color filledColor, Color missingColor, boolean hideAtMax){
-        this (maxVal, currVal, owner, width, height, offset, filledColor, missingColor, true, null, 0);
+        this (maxVal, currVal, owner, width, height, offset, filledColor, missingColor, hideAtMax, null, 0);
     }
 
     /**
@@ -142,7 +146,6 @@ public class StatBar extends Actor
      */
     public StatBar (int maxVal,  int currVal, Actor owner, int width, int height, int offset, Color filledColor, Color missingColor, boolean hideAtMax, Color borderColor, int borderThickness){
         this (new int[]{maxVal}, new int[]{currVal}, owner, width, height, offset, new Color[] {filledColor}, new Color[] {missingColor}, hideAtMax, borderColor, borderThickness);
-
     }
 
     /**
@@ -240,6 +243,7 @@ public class StatBar extends Actor
         currVal = newCurrVal;
 
         if (hideAtMax){
+            System.out.println("WHAT");
             boolean full = true;
             for (int i = 0; i < barCount; i++){
                 if (currVal[i] != maxVal[i]){
@@ -294,5 +298,16 @@ public class StatBar extends Actor
             bar.fillRect(filledBarWidth + borderThickness, borderThickness + (i * barHeight), missingBarWidth, barHeight +extraHeight);
         }
 
+    }
+    
+    /**
+     * Intialize level property:
+     * 
+     * Expects text to be displayed & set required variables
+     */
+    
+    public void initLevel(int level, int size){
+        hasLabel = true;
+        levelLabel = new Label("Level " + level, size);
     }
 }
