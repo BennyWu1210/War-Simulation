@@ -14,6 +14,9 @@ public abstract class Projectile extends Entity
      */
     public void act()
     {
-        // Add your action code here.
+        move(8);
+        //If you are at edge delete yaself bozo
+        if(isAtEdge())
+            getWorld().removeObject(this);
     }
 }

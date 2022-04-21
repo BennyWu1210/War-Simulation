@@ -13,10 +13,13 @@ public abstract class Soldier extends Entity
     protected int side;
     protected StatBar hpBar;
     protected int hp;
-    protected int maxHP;
+    protected int maxHP = 5;
 
     protected int mySpeed = 10;
     protected int myAge;
+    
+    protected int timer = 0;
+    protected int timerTest = 30;
     /**
      * Act - do whatever the Soldiers wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -39,11 +42,26 @@ public abstract class Soldier extends Entity
         if (isAtEdge()){
             getWorld().removeObject(this);
         }
+        timer++;
+        hpBar.update(hp);
+        if (timer == timerTest){
+            hp -= 10;
+            timer = 0;
+        }
+        if (hp <= 0){
+            this.isDead();
+        }
     }
     public int getSide(){
         return side;
     }
     protected boolean touchSoldier(){
         return true;
+    }
+    //reminder to make this abstract
+    public void isDead(){
+        getWorld().addObject(new DeathEffect("BanditDead.png"), getX(), getY());
+        getWorld().removeObject(this);
+        
     }
 }

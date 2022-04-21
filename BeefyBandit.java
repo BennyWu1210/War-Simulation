@@ -26,7 +26,16 @@ public class BeefyBandit extends Soldier
     {
         super.act();
     }
-    private void touchPeople(){
+    public void isDead(){
+        getWorld().addObject(new DeathEffect("BanditDead.png"), getX(), getY());
+        getWorld().removeObject(this);
         
+    }
+    public void getHit(){
+        Actor projectile = getOneIntersectingObject(Projectile.class);
+        if (projectile != null){
+            hp = hp-1;
+            getWorld().removeObject(projectile);
+        }
     }
 }

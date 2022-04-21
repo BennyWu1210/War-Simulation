@@ -26,4 +26,16 @@ public class Healer extends Soldier
     {
         super.act();
     }
+    public void isDead(){
+        getWorld().addObject(new DeathEffect("GrayKnightDead.png"), getX(), getY());
+        getWorld().removeObject(this);
+        
+    }
+    public void getHit(){
+        Actor projectile = getOneIntersectingObject(Projectile.class);
+        if (projectile != null){
+            hp = hp-4;
+            getWorld().removeObject(projectile);
+        }
+    }
 }
