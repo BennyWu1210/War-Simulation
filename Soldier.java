@@ -19,7 +19,7 @@ public abstract class Soldier extends Entity
     protected int myAge;
     
     protected int timer = 0;
-    protected int timerTest = 60;
+    protected int timerTest = 30;
     /**
      * Act - do whatever the Soldiers wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -45,7 +45,7 @@ public abstract class Soldier extends Entity
         timer++;
         hpBar.update(hp);
         if (timer == timerTest){
-            hp--;
+            hp -= 10;
             timer = 0;
         }
         if (hp <= 0){

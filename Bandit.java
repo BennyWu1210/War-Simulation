@@ -28,16 +28,5 @@ public class Bandit extends Soldier
     {
         super.act();
     }
-    public void isDead(){
-        getWorld().addObject(new DeathEffect("BanditDead.png"), getX(), getY());
-        getWorld().removeObject(this);
-        
-    }
-    public void getHit(){
-        Actor projectile = getOneIntersectingObject(Projectile.class);
-        if (projectile != null){
-            hp = hp-2;
-            getWorld().removeObject(projectile);
-        }
-    }
+    
 }
