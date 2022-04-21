@@ -15,6 +15,6 @@ public abstract class Button extends Actor
         
     }
     
-    public abstract void onClick();
-    public abstract void onHover();
+    //public abstract void onClick();
+    //public abstract void onHover();
 }

@@ -31,8 +31,10 @@ public class TitlePage extends World
     private void prepare()
     {
         StartButton startButton = new StartButton();
-        addObject(startButton,500,450);
+        addObject(startButton,500,330);
 
-       
+        SettingButton settingButton = new SettingButton();
+        addObject(settingButton,932,532);
+        settingButton.setLocation(946,556);
     }
 }

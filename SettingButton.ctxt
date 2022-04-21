@@ -1,8 +1,9 @@
 #BlueJ class context
-comment0.target=StartButton
-comment0.text=\n\ Write\ a\ description\ of\ class\ StartButton\ here.\n\ This\ class\ is\ for\ user\ to\ play\ the\ game\ from\ the\ BeginingPage\ world\ to\ VehicleWorld.\ When\ the\ mouse\ move\ to\ this\ object,\ it\ will\ change\ colour.\n\ @Kevin\ Zhu,\ Benny\ Wu\n\ @April\ 2,\ 2022\ (a\ version\ number\ or\ a\ date)\n
+comment0.target=SettingButton
+comment0.text=\n\ Write\ a\ description\ of\ class\ SettingButton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=StartButton()
+comment1.target=SettingButton()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ SettingButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
