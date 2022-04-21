@@ -11,7 +11,8 @@ public class Modifier extends World
 
     
     private GreenfootImage backgroundImage;
-    private int count = 0, newCount = 0, timeValue = 0;
+    private int count = 0, newCount = 0;
+    public static int time=0;
     private boolean keyDown;
     
     public Modifier()
@@ -49,9 +50,11 @@ public class Modifier extends World
         String key = Greenfoot.getKey();
         
         if (key != null){
+            int value = Integer.parseInt(key);
             Label label = new Label(key, 35);
             addObject(label, 380 + count * 30, 220);
             count ++;
+            time=time*10+value;
         }
  
     }

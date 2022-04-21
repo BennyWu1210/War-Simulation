@@ -30,7 +30,7 @@ public class MyWorld extends World
         
         
         addObject(timeCount, 900, 50);
-        timeCount.setValue(120);
+        timeCount.setValue(Modifier.time);
     }
     private void spawner(int yDirection){
         int direction = yDirection;
