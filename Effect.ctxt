@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Effect
-comment0.text=\r\n\ The\ effect\ class,\ minimum\ changes\ from\ the\ original\r\n
+comment0.text=\n\ The\ effect\ class,\ minimum\ changes\ from\ the\ original\n
 comment1.params=totalActs
 comment1.target=Effect(int)
 comment2.params=totalActs\ fade

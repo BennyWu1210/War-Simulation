@@ -1,20 +1,20 @@
 #BlueJ class context
 comment0.target=Entity
-comment0.text=\r\n\ The\ Entity\ class\ controls\ most\ of\ the\ objects\ that\ will\ be\ displayed\ in\ the\ simulation.\r\n\ It\ implements\ gif\ methods\ as\ well\ as\ cost,\ health\ bar\ option,\ damage,\ upgrade,\ move,\ etc.\r\n\ \r\n\ @author\ (Benny\ Wu)\ \r\n\ @version\ April\ 14th,\ 2022\r\n
+comment0.text=\n\ The\ Entity\ class\ controls\ most\ of\ the\ objects\ that\ will\ be\ displayed\ in\ the\ simulation.\n\ It\ implements\ gif\ methods\ as\ well\ as\ cost,\ health\ bar\ option,\ damage,\ upgrade,\ move,\ etc.\n\ \n\ @author\ (Benny\ Wu)\ \n\ @version\ April\ 14th,\ 2022\n
 comment1.params=
 comment1.target=Entity()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=greenfoot.GreenfootImage\ getImage()
-comment3.text=\r\n\ Override\ getImage\ for\ gif\ purposes\r\n
+comment3.text=\n\ Override\ getImage\ for\ gif\ purposes\n
 comment4.params=x\ y
 comment4.target=double\ getDistance(double,\ double)
-comment4.text=\r\n\ Return\ distance\ from\ a\ coordinate\ \r\n\ \r\n\ @return\ double\ \ the\ distance\ from\ a\ location,\ as\ a\ double\r\n
+comment4.text=\n\ Return\ distance\ from\ a\ coordinate\ \n\ \n\ @return\ double\ \ the\ distance\ from\ a\ location,\ as\ a\ double\n
 comment5.params=actor
 comment5.target=double\ getDistance(greenfoot.Actor)
-comment5.text=\r\n\ Return\ distance\ from\ an\ actor\ \r\n\ \r\n\ @return\ double\ \ the\ distance\ from\ another\ actor,\ as\ a\ double\r\n
+comment5.text=\n\ Return\ distance\ from\ an\ actor\ \n\ \n\ @return\ double\ \ the\ distance\ from\ another\ actor,\ as\ a\ double\n
 comment6.params=x\ y
 comment6.target=void\ move(double,\ double)
-comment6.text=\r\n\ \r\n
+comment6.text=\n\ \n
 numComments=7

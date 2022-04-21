@@ -15,6 +15,10 @@ public class MyWorld extends World
      */
     
     private GreenfootImage backgroundImage;
+    SimpleTimer tim = new SimpleTimer();
+    Counter timeCount = new Counter();
+    int start =0;
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -22,7 +26,10 @@ public class MyWorld extends World
         backgroundImage = new GreenfootImage("Background.jpg");
         backgroundImage.scale(1000, 600);
         setBackground(backgroundImage);
-  
+        
+        
+        addObject(timeCount, 900, 50);
+        timeCount.setValue(120);
     }
     private void spawner(int yDirection){
         int direction = yDirection;
@@ -52,8 +59,16 @@ public class MyWorld extends World
         }
     }
     public void act(){
+        
+        //timeCount.setValue(tim.millisElapsed()/1000);
+        if(tim.millisElapsed()>1000){
+            timeCount.add(-1);
+            tim.mark();
+        }
         spawner(1);
         spawner(-1);
+        
+        
     }
     
 }
