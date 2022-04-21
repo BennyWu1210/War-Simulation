@@ -9,25 +9,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Modifier extends World
 {
 
-    /**
-     * Constructor for objects of class Modifier.
-     * 
-     */
+    
     private GreenfootImage backgroundImage;
-    private int count=0;
-    private int newCount=0;
-    private int timeValue=0;
+    private int count = 0, newCount = 0, timeValue = 0;
+    private boolean keyDown;
+    
     public Modifier()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1); 
-         backgroundImage = new GreenfootImage("Modifer.png");
+        backgroundImage = new GreenfootImage("Modifer.png");
         backgroundImage.scale(1000, 600);
         setBackground(backgroundImage);
         
         prepare();
         
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -47,17 +45,14 @@ public class Modifier extends World
     }
     
     public void input(){
-        if (Greenfoot.isKeyDown("1") ){
-            //count=newCount;
-            Label one = new Label(1, 40);
-            addObject(one, 380+count*30, 220);
-            count++;
-           
-            
-            
-        }
+       
+        String key = Greenfoot.getKey();
         
-            
-           
+        if (key != null){
+            Label label = new Label(key, 35);
+            addObject(label, 380 + count * 30, 220);
+            count ++;
+        }
+ 
     }
 }
