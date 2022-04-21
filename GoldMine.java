@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GoldMine extends Tower
 {
-    /**
-     * Act - do whatever the GoldMine wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public GoldMine(int direction){
+        super(direction);
+    }
+    
     public void act()
     {
         // Add your action code here.

@@ -5,7 +5,7 @@ import java.util.*;
  * It implements gif methods as well as cost, health bar option, damage, upgrade, move, etc.
  * 
  * @author (Benny Wu) 
- * @version April 14th, 2022
+ * @version April 21th, 2022
  */
 public class Entity extends Actor
 {
@@ -23,16 +23,27 @@ public class Entity extends Actor
     // coordinates and movements
     protected double xPos, yPos;
     protected double speed;
+    protected int direction;
     
     
     
-    public Entity(){
+    public Entity(int direction){
         this.isGif = false;
+        this.direction = direction;
+    }
+    
+    public Entity(boolean isGif){
+        this.direction = 1;
+        this.isGif = isGif;
     }
     
     public void act()
     {
         // Add your action code here.
+    }
+    
+    public void addedToWorld(){
+        if (direction == -1) getImage().mirrorHorizontally();
     }
     
 

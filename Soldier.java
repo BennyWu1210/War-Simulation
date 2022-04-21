@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Soldier extends Entity
 {
-    protected int direction;
+    
     //Are you a left side soldier or right side soldier
     protected int side;
     protected StatBar hpBar;
@@ -26,13 +26,17 @@ public abstract class Soldier extends Entity
      */
     public Soldier(int direction, int maxHP)
     {
+        super(direction);
         this.direction = direction; 
         this.side = direction;
         this.hp = this.maxHP = maxHP;
     }
+    
+    
        
     public void addedToWorld(World w){
-        if (direction == -1) getImage().mirrorHorizontally();
+        super.addedToWorld();
+        hpBar.initLevel(1, 15);
         w.addObject(hpBar, getX(), getY());
     }
     
