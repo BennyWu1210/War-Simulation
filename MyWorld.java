@@ -29,8 +29,12 @@ public class MyWorld extends World
         setBackground(backgroundImage);
         
         
-        addObject(timeCount, 900, 50);
-        timeCount.setValue(Modifier.time);
+        addObject(timeCount, 1100, 50);
+        if(Modifier.time==0){
+            timeCount.setValue(90);
+        }else{
+            timeCount.setValue(Modifier.time);
+        }
     }
     private void spawner(int yDirection){
         int direction = yDirection;
