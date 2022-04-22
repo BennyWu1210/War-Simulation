@@ -27,7 +27,7 @@ public class BeefyBandit extends Soldier
         super.act();
     }
     public void isDead(){
-        getWorld().addObject(new DeathEffect("BanditDead.png"), getX(), getY());
+        getWorld().addObject(new DeathEffect("BanditDead.png", direction), getX(), getY());
         getWorld().removeObject(this);
         
     }

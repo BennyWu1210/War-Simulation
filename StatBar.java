@@ -295,7 +295,7 @@ public class StatBar extends Actor
             bar.setColor(filledColor[i]);
             bar.fillRect(borderThickness, borderThickness + (i * barHeight), filledBarWidth, barHeight + extraHeight);
             bar.setColor(missingColor[i]);
-            bar.fillRect(filledBarWidth + borderThickness, borderThickness + (i * barHeight), missingBarWidth, barHeight +extraHeight);
+            bar.fillRect(filledBarWidth + borderThickness, borderThickness + (i * barHeight), missingBarWidth, barHeight + extraHeight);
         }
 
     }

@@ -64,8 +64,7 @@ public abstract class Soldier extends Entity
     }
     //reminder to make this abstract
     public void isDead(){
-        getWorld().addObject(new DeathEffect("BanditDead.png"), getX(), getY());
+        getWorld().addObject(new DeathEffect("BanditDead.png", direction), getX(), getY());
         getWorld().removeObject(this);
-        
     }
 }

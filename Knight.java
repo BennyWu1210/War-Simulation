@@ -27,7 +27,7 @@ public class Knight extends Soldier
         super.act();
     }
     public void isDead(){
-        getWorld().addObject(new DeathEffect("GrayKnightDead.png"), getX(), getY());
+        getWorld().addObject(new DeathEffect("GrayKnightDead.png", direction), getX(), getY());
         getWorld().removeObject(this);
         
     }
