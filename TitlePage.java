@@ -17,8 +17,8 @@ public class TitlePage extends World
     public TitlePage()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1000, 600, 1); 
-        backgroundImage.scale(1000, 600);
+        super(1200, 700, 1); 
+        backgroundImage.scale(1200, 700);
         setBackground(backgroundImage);
 
         prepare();
@@ -31,10 +31,10 @@ public class TitlePage extends World
     private void prepare()
     {
         StartButton startButton = new StartButton();
-        addObject(startButton,500,330);
+        addObject(startButton,600,400);
 
         SettingButton settingButton = new SettingButton();
-        addObject(settingButton,932,532);
-        settingButton.setLocation(946,556);
+        addObject(settingButton,1130,650);
+        
     }
 }

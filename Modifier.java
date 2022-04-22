@@ -15,12 +15,13 @@ public class Modifier extends World
     public static int time=0;
     private boolean keyDown;
     
+    
     public Modifier()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1000, 600, 1); 
-        backgroundImage = new GreenfootImage("Modifer.png");
-        backgroundImage.scale(1000, 600);
+        super(1200, 700, 1); 
+        backgroundImage = new GreenfootImage("background.png");
+        backgroundImage.scale(1200, 700);
         setBackground(backgroundImage);
         
         prepare();
@@ -42,6 +43,15 @@ public class Modifier extends World
     {
         BackButton backButton = new BackButton();
         addObject(backButton,71,53);
+
+        Text setting = new Text("Setting", 60);
+        addObject(setting, 600, 50);
+        
+        Text time = new Text("Time:",35);
+        addObject(time, 325, 220);
+        
+        getBackground().drawLine(370, 235, 700, 235);
+        
 
     }
     

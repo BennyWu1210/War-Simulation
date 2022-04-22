@@ -1,8 +1,7 @@
 #BlueJ class context
 comment0.target=GoldMine
 comment0.text=\n\ Write\ a\ description\ of\ class\ GoldMine\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=direction
-comment1.target=GoldMine(int)
-comment2.params=
-comment2.target=void\ act()
-numComments=3
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ GoldMine\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+numComments=2
