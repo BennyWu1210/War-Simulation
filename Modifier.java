@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class Modifier here.
  * 
@@ -11,9 +11,10 @@ public class Modifier extends World
 
     
     private GreenfootImage backgroundImage;
-    private int count = 0, newCount = 0;
-    public static int time=0;
+    public int count = 0;
+    
     private boolean keyDown;
+    public static Stack<Integer> timeList;
     
     
     public Modifier()
@@ -23,7 +24,7 @@ public class Modifier extends World
         backgroundImage = new GreenfootImage("background.png");
         backgroundImage.scale(1200, 700);
         setBackground(backgroundImage);
-        
+        timeList = new Stack<Integer>();
         prepare();
         
     }
@@ -56,15 +57,22 @@ public class Modifier extends World
     }
     
     public void input(){
-       
+        
         String key = Greenfoot.getKey();
         
         if (key != null){
-            int value = Integer.parseInt(key);
-            Label label = new Label(key, 35);
-            addObject(label, 380 + count * 30, 220);
-            count ++;
-            time=time*10+value;
+            if(key == "backspace"){
+                removeObjects(getObjectsAt(380+(count-1)*30, 220, null));
+                count--;
+                timeList.pop();
+            }else{
+                int value = Integer.parseInt(key);
+                timeList.push(value);
+                Label label = new Label(key, 35);
+                addObject(label, 380 + count * 30, 220);
+                count ++;
+                
+            }
         }
  
     }

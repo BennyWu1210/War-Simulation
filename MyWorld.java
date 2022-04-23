@@ -19,6 +19,7 @@ public class MyWorld extends World
     SimpleTimer tim = new SimpleTimer();
     Counter timeCount = new Counter();
     int start =0;
+    private int time =0;
     
     public MyWorld()
     {    
@@ -28,12 +29,15 @@ public class MyWorld extends World
         backgroundImage.scale(1200, 700);
         setBackground(backgroundImage);
         
-        
+        int length = Modifier.timeList.size();
+        for(int i=0;i<length;i++){
+            time=time*10+Modifier.timeList.get(i);
+        }
         addObject(timeCount, 1100, 50);
-        if(Modifier.time==0){
+        if(time==0){
             timeCount.setValue(90);
         }else{
-            timeCount.setValue(Modifier.time);
+            timeCount.setValue(time);
         }
     }
     private void spawner(int yDirection){
