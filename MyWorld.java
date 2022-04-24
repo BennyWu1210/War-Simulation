@@ -42,6 +42,7 @@ public class MyWorld extends World
     }
     private void spawner(int yDirection){
         int direction = yDirection;
+        
         if (Greenfoot.getRandomNumber(60) == 0){
             int soldierChoice = Greenfoot.getRandomNumber(4) + 1;
             int ySpawn = Greenfoot.getRandomNumber(10)*50 + 70;
@@ -57,7 +58,7 @@ public class MyWorld extends World
             else if (soldierChoice == 3){
                 soldier = new Healer(direction);
             }
-            else if (soldierChoice == 4){
+            else if (soldierChoice == 4 ){
                 soldier = new BeefyBandit(direction);
             }
             else{
@@ -67,10 +68,15 @@ public class MyWorld extends World
             addObject(soldier, xSpawn, ySpawn);
         }
     }
+   
     public void act(){
         
         //timeCount.setValue(tim.millisElapsed()/1000);
-        if(tim.millisElapsed()>1000){
+        if(timeCount.getValue()==0){
+            EndWorld ew = new EndWorld();
+            Greenfoot.setWorld(ew);
+        
+        }else if(tim.millisElapsed()>1000){
             timeCount.add(-1);
             tim.mark();
         }
