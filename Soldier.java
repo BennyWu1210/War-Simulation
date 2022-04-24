@@ -36,12 +36,13 @@ public abstract class Soldier extends Entity
        
     public void addedToWorld(World w){
         super.addedToWorld();
-        hpBar.initLevel(1, 15);
         w.addObject(hpBar, getX(), getY());
+        hpBar.initLevel(1, 15);
     }
     
     public void act()
     {
+        
         move (1*direction);
         if (isAtEdge()){
             getWorld().removeObject(this);
@@ -55,6 +56,8 @@ public abstract class Soldier extends Entity
         if (hp <= 0){
             this.isDead();
         }
+        
+        if (this == null && this.getWorld() == null && getX() >= 200 && getX() <= 600) getWorld().removeObject(this);
     }
     public int getSide(){
         return side;

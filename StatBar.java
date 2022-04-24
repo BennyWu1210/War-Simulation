@@ -198,6 +198,14 @@ public class StatBar extends Actor
     }
 
     /**
+     * Creates label once this stat bar is added to world
+     */
+    
+    public void addedToWorld(){
+        // initLevel();
+    }
+    
+    /**
      * The only purpose of the act method is to follow the target Actor. If you'd rather control this yourself,
      * delete this act() method and call moveMe() directly whenever your Actor moves. 
      */
@@ -216,10 +224,12 @@ public class StatBar extends Actor
         if (target != null && getWorld() != null){
             if (target.getWorld() != null)
             {
+                levelLabel.setLocation(target.getX() - 2 * offset, target.getY());
                 setLocation (target.getX(), target.getY() - offset);
             }
             else
             {
+                getWorld().removeObject(levelLabel);
                 getWorld().removeObject(this);
                 return;
             }
@@ -309,5 +319,6 @@ public class StatBar extends Actor
     public void initLevel(int level, int size){
         hasLabel = true;
         levelLabel = new Label("Level " + level, size);
+        getWorld().addObject(levelLabel, getX() - 2 * offset, getY());
     }
 }
