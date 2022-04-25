@@ -19,11 +19,13 @@ public class Effect extends Actor
     protected int gifCounter, gifIndex, gifChangeRate, gifCycle;
    
     public Effect (int totalActs){
+        this.isGif = false;
         this.totalActs = totalActs;
         actCounter = totalActs;
     }
    
     public Effect (int totalActs, boolean fade){
+        this.isGif = false;
         this.fade = fade;
         this.totalActs = totalActs;
         actCounter = totalActs;
@@ -38,6 +40,7 @@ public class Effect extends Actor
         this.gifCycle = gifCycle;
     }
    
+    
     public void act()
     {
         if (isGif){
@@ -57,7 +60,7 @@ public class Effect extends Actor
                 return;
             }
         } 
-        else{
+        else if (totalActs != -1){
             if (actCounter > 0){
                 actCounter--;
                 if (actCounter < 60 && fade == true){ // last second
@@ -67,7 +70,7 @@ public class Effect extends Actor
                 getWorld().removeObject(this);
                
             }
-        }
+        } 
     }
     
     public GreenfootImage getImage(){

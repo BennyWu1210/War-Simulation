@@ -22,7 +22,7 @@ public abstract class Soldier extends Entity
     protected int timerTest = 30;
     
     // attack variables
-    protected double attackSpeed, attackRange, damage;
+    protected double attackSpeed, attackRange, triggerRange, damage;
     
     
     /**
@@ -57,13 +57,14 @@ public abstract class Soldier extends Entity
         if (timer % 30 == 0) attack();
         
         if (target == null || target.getWorld() == null){
-            move((int)(speed*direction));
-        } else if (getDistance(target) > attackRange - 5){
+            move((int)((speed + 0.5) * direction));
+        } else if (getDistance(target) > attackRange){
             move(target);
         } 
         
         if (isAtEdge()){
             getWorld().removeObject(this);
+            return;
         }
         timer++;
         // hpBar.update(hp);
@@ -74,10 +75,11 @@ public abstract class Soldier extends Entity
         }
         */
         if (hp <= 0){
-            this.isDead();
+            this.die();
+            return;
         }
         
-        if (this == null && this.getWorld() == null && getX() >= 200 && getX() <= 600) getWorld().removeObject(this);
+        
     }
     
     /**
@@ -103,7 +105,6 @@ public abstract class Soldier extends Entity
             }
         
         } else{
-            System.out.println(getDistance(target) + " " + attackRange);
             if (getDistance(target) <= attackRange){
                 target.getHit(this.damage, null);
             }
@@ -112,7 +113,6 @@ public abstract class Soldier extends Entity
     }
     public void getHit(double hp, Effect effect){
         
-        System.out.println("attacking");
         this.hp -= hp;
         
         hpBar.update((int)this.hp);
@@ -144,8 +144,14 @@ public abstract class Soldier extends Entity
     }
     
     //reminder to make this abstract
-    public void isDead(){
-        getWorld().addObject(new DeathEffect("BanditDead.png", direction), getX(), getY());
+    
+    public void die(){
+        
+        this.getWorld().addObject(new DeathEffect("BanditDead.png", direction), getX(), getY());
+        removeSelf();
+    }
+    
+    public void removeSelf(){
         getWorld().removeObject(this);
     }
     

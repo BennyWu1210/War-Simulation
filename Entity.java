@@ -40,6 +40,10 @@ public class Entity extends Actor
         this.isGif = isGif;
     }
     
+    public Entity(Soldier target){
+        this.target = target;
+    }
+    
     public void act()
     {
         // Add your action code here.
@@ -84,7 +88,9 @@ public class Entity extends Actor
         double blocks = dis / speed;
         double xDif = (x - getX()) / blocks;
         double yDif = (y - getY()) / blocks;
-        setLocation(getX() + (int)xDif, getY() + (int)(yDif + 0.5));
+        setLocation(getX() + (int)(xDif + 0.5), getY() + (int)(yDif + 0.5));
+        
+        if (xDif == -1) getImage().mirrorVertically();
     }
     
     /**
@@ -93,6 +99,17 @@ public class Entity extends Actor
     public void move(Actor actor){
         move(actor.getX(), actor.getY());
     }
+
+    
+    /**
+     * Turn toward a specified 
+     */
+    public void turnTowards(Actor actor){
+        turnTowards(actor.getX(), actor.getY());
+    }
+    
+    
+   
     
     
 }

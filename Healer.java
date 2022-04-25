@@ -34,9 +34,10 @@ public class Healer extends Soldier
         
     }
     */
-    public void isDead(){
-        getWorld().addObject(new DeathEffect("GrayKnightDead.png", direction), getX(), getY());
-        getWorld().removeObject(this);
+    public void die(){
+        if (this == null || this.getWorld() == null) return;
+        this.getWorld().addObject(new DeathEffect("GrayKnightDead.png", direction), getX(), getY());
+        removeSelf();
         
     }
     public void getHit(){
@@ -46,5 +47,7 @@ public class Healer extends Soldier
             getWorld().removeObject(projectile);
         }
     }
+    
+
     
 }

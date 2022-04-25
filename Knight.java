@@ -32,9 +32,9 @@ public class Knight extends Soldier
     }
     */
     
-    public void isDead(){
-        getWorld().addObject(new DeathEffect("GrayKnightDead.png", direction), getX(), getY());
-        getWorld().removeObject(this);
+    public void die(){
+        this.getWorld().addObject(new DeathEffect("GrayKnightDead.png", direction), getX(), getY());
+        removeSelf();
         
     }
     public void getHit(){
@@ -44,4 +44,6 @@ public class Knight extends Soldier
             getWorld().removeObject(projectile);
         }
     }
+    
+    
 }

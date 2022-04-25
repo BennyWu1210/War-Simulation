@@ -10,7 +10,7 @@ import java.util.*;
 public class Bandit extends Soldier
 {
     private int test = 0;
-    private static final int initHp = 50;
+    private static final int initHp = 80;
     public Bandit (int direction)
     {
         // calls super constructor
@@ -20,26 +20,25 @@ public class Bandit extends Soldier
         getImage().scale(50, 52);
         
         // intialize hp bar
-        if (direction == 1) hpBar = new StatBar(100, 100, this, 30, 5, 35, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
-        else hpBar = new StatBar(100, 100, this, 30, 5, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
+        if (direction == 1) hpBar = new StatBar(initHp, initHp, this, 30, 5, 35, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
+        else hpBar = new StatBar(initHp, initHp, this, 30, 5, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
         
         // testing
-        this.speed = 1.2;
+        this.speed = 1.7;
         this.attackSpeed = 3;
         this.attackRange = 35;
         this.damage = 15;
+        this.triggerRange = 90;
     }
     
     public void act()
     {
         super.act();
-        
-        
     }
     
     public void attack(){
         if (target == null || target.getWorld() == null){
-            List<Soldier> enemies = getObjectsInRange(80, Soldier.class);
+            List<Soldier> enemies = getObjectsInRange((int)this.triggerRange, Soldier.class);
         
             if (enemies.size() != 0){
                 int index = 0;
@@ -48,7 +47,6 @@ public class Bandit extends Soldier
                     Soldier nxt = enemies.get(index);
                     if (nxt.getDirection() != this.getDirection()){
                         target = nxt;
-                        System.out.println("Target found!");
                         break;
                     }
                     index ++;
@@ -62,4 +60,6 @@ public class Bandit extends Soldier
         }
         
     }
+    
+    
 }

@@ -13,8 +13,12 @@ public abstract class Projectile extends Entity
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    public Projectile(){
-        super(true);
+    public Projectile(Soldier target){
+        super(target);
+    }
+    
+    public void addedToWorld(){
+        super.addedToWorld();
     }
     
     public void act()

@@ -40,6 +40,7 @@ public class MyWorld extends World
         }else{
             timeCount.setValue(time);
         }
+
     }
     private void spawner(int yDirection){
         int direction = yDirection;
@@ -68,6 +69,8 @@ public class MyWorld extends World
             
             addObject(soldier, xSpawn, ySpawn);
         }
+        
+        
     }
    
     public void act(){
