@@ -17,12 +17,14 @@ public abstract class Tower extends Entity
     public Tower(int direction){
         super(direction);
         this.direction = direction;
+
     }
     
     public void addedToWorld(World w){
         super.addedToWorld(w);
-        hpBar.initLevel(1, 10);
+        
         w.addObject(hpBar, getX(), getY());
+        hpBar.initLevel(1, 30);
     }
     public void act()
     {

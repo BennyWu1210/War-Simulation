@@ -22,6 +22,12 @@ public class MyWorld extends World
     private int time = 0;
     
     private Modifier modifier;
+    
+    private Statistic statLeft = new Statistic(true);
+    private Statistic statRight = new Statistic(false);
+    
+    private CrystalTower crystalRed = new CrystalTower(1);
+    private CrystalTower crystalBlue = new CrystalTower(-1);
     public MyWorld(Modifier modifier)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -29,6 +35,10 @@ public class MyWorld extends World
         this.modifier=modifier;
         backgroundImage = new GreenfootImage("Background.jpg");
         backgroundImage.scale(1200, 700);
+        addObject(statLeft, 400, 50);
+        addObject(statRight, 800, 50);
+        addObject(crystalRed, 100, 350);
+        addObject(crystalBlue, 1100, 350);
         setBackground(backgroundImage);
         System.out.println(modifier.timeList);
         int length = modifier.timeList.size(); // could cause null pointer
@@ -52,16 +62,16 @@ public class MyWorld extends World
             Soldier soldier;
             
             if (soldierChoice == 1 && modifier.getRedBanditSwitch()){
-                soldier = new Bandit(direction);
+                soldier = new Bandit(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
             }if (soldierChoice == 2 && modifier.RedKnightSwitch){
-                soldier = new Knight(direction);
+                soldier = new Knight(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
             }if (soldierChoice == 3 && modifier.RedHealerSwitch){
-                soldier = new Healer(direction);
+                soldier = new Healer(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
             }if (soldierChoice == 4 && modifier.RedBeefyBanditSwitch){
-                soldier = new BeefyBandit(direction);
+                soldier = new BeefyBandit(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
             }
             
@@ -81,16 +91,16 @@ public class MyWorld extends World
             Soldier soldier;
             
             if (soldierChoice == 1 && modifier.getBlueBanditSwitch()){
-                soldier = new Bandit(direction);
+                soldier = new Bandit(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
             }if (soldierChoice == 2 && modifier.BlueKnightSwitch){
-                soldier = new Knight(direction);
+                soldier = new Knight(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
             }if (soldierChoice == 3 && modifier.BlueHealerSwitch){
-                soldier = new Healer(direction);
+                soldier = new Healer(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
             }if (soldierChoice == 4 && modifier.BlueBeefyBanditSwitch){
-                soldier = new BeefyBandit(direction);
+                soldier = new BeefyBandit(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
             }
         }

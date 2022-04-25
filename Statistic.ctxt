@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Statistic
+comment1.params=side
+comment1.target=Statistic(boolean)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=gold
+comment3.target=void\ setGold(int)
+comment4.params=
+comment4.target=void\ setKill()
+comment5.params=
+comment5.target=int\ getGold()
+comment6.params=econ
+comment6.target=void\ setEcon(int)
+numComments=7

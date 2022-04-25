@@ -9,9 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Knight extends Soldier
 {
     private static final int initHp = 80;
-    public Knight (int direction)
+    public Knight (int direction, Statistic worldStat)
     {
-        super(direction, initHp);
+        super(direction, initHp, worldStat);
         image = new GreenfootImage("Knight.png");
         getImage().scale(50, 52);
         

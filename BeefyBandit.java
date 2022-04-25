@@ -10,9 +10,9 @@ import java.util.*;
 public class BeefyBandit extends Soldier
 {
     private static final int initHp = 180;
-    public BeefyBandit (int direction)
+    public BeefyBandit (int direction, Statistic worldStat)
     {
-        super(direction, initHp);
+        super(direction, initHp, worldStat);
         image = new GreenfootImage("BeefyBandit.png");
         getImage().scale(80, 82);
         
