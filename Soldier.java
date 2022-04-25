@@ -58,7 +58,7 @@ public abstract class Soldier extends Entity
         
         if (target == null || target.getWorld() == null){
             move((int)(speed*direction));
-        } else if (getDistance(target) > attackRange){
+        } else if (getDistance(target) > attackRange - 5){
             move(target);
         } 
         
@@ -105,21 +105,28 @@ public abstract class Soldier extends Entity
         } else{
             System.out.println(getDistance(target) + " " + attackRange);
             if (getDistance(target) <= attackRange){
-                target.getHit(this.damage);
+                target.getHit(this.damage, null);
             }
         }
         
     }
-    public void getHit(double hp){
+    public void getHit(double hp, Effect effect){
         
         System.out.println("attacking");
         this.hp -= hp;
         
         hpBar.update((int)this.hp);
+        
+        if (effect != null){
+            getWorld().addObject(effect, getX(), getY());
+        }
+        
         if (hp <= 0){
             getWorld().removeObject(this);
         }
     }
+    
+    
     
     /**
      * Returns direction of this soldier

@@ -1,13 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.ArrayList;
+import java.util.List;
 /**
  * The effect class, minimum changes from the original
+ * 
+ * @author Benny
+ * @version April 25th, 2022
  */
 public class Effect extends Actor
 {
     protected int totalActs, actCounter;
     private boolean fade = true;
     protected GreenfootImage image;
+    
+    // For gif images
+    protected boolean isGif;
+    protected List<GreenfootImage> gifImageList;
+    protected GifImage gifImage;
+    protected int gifCounter, gifIndex, gifChangeRate, gifCycle;
    
     public Effect (int totalActs){
         this.totalActs = totalActs;
@@ -19,18 +28,50 @@ public class Effect extends Actor
         this.totalActs = totalActs;
         actCounter = totalActs;
     }
+    
+    public Effect(GifImage gifImage, int gifChangeRate, int gifCycle){
+        this.isGif = true;
+        this.gifImage = gifImage;
+        this.gifImageList = gifImage.getImages();
+        this.gifChangeRate = this.gifCounter = gifChangeRate;
+        this.gifIndex = 0;
+        this.gifCycle = gifCycle;
+    }
    
     public void act()
     {
-        if (actCounter > 0){
-            actCounter--;
-            if (actCounter < 60 && fade == true){ // last second
-                image.setTransparency (actCounter * 2);
+        if (isGif){
+            gifCounter --;
+            
+            if (gifCounter <= 0){
+                getImage();
+                gifIndex ++;
+                gifCounter = gifChangeRate;
             }
-        } else {
-            getWorld().removeObject(this);
-           
+            if (gifIndex == gifImageList.size()){
+                gifIndex = 0;
+                gifCycle --;
+            }
+            if (gifCycle == 0){
+                getWorld().removeObject(this);
+                return;
+            }
+        } 
+        else{
+            if (actCounter > 0){
+                actCounter--;
+                if (actCounter < 60 && fade == true){ // last second
+                    image.setTransparency (actCounter * 2);
+                }
+            } else {
+                getWorld().removeObject(this);
+               
+            }
         }
+    }
+    
+    public GreenfootImage getImage(){
+        return isGif ? gifImageList.get(gifIndex) : image;
     }
    
 }

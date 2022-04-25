@@ -44,7 +44,7 @@ public class MyWorld extends World
     private void spawner(int yDirection){
         int direction = yDirection;
         
-        if (Greenfoot.getRandomNumber(60) == 0){
+        if (Greenfoot.getRandomNumber(120) == 0){
             int soldierChoice = Greenfoot.getRandomNumber(4) + 1;
             int ySpawn = Greenfoot.getRandomNumber(10)*50 + 70;
             int xSpawn = direction == 1 ? 50 : 950;

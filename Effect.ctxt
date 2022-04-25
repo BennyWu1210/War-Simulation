@@ -1,10 +1,14 @@
 #BlueJ class context
 comment0.target=Effect
-comment0.text=\n\ The\ effect\ class,\ minimum\ changes\ from\ the\ original\n
+comment0.text=\n\ The\ effect\ class,\ minimum\ changes\ from\ the\ original\n\ \n\ @author\ Benny\n\ @version\ April\ 25th,\ 2022\n
 comment1.params=totalActs
 comment1.target=Effect(int)
 comment2.params=totalActs\ fade
 comment2.target=Effect(int,\ boolean)
-comment3.params=
-comment3.target=void\ act()
-numComments=4
+comment3.params=gifImage\ gifChangeRate\ gifCycle
+comment3.target=Effect(GifImage,\ int,\ int)
+comment4.params=
+comment4.target=void\ act()
+comment5.params=
+comment5.target=greenfoot.GreenfootImage\ getImage()
+numComments=6

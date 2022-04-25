@@ -23,6 +23,11 @@ public class Bandit extends Soldier
         if (direction == 1) hpBar = new StatBar(100, 100, this, 30, 5, 35, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
         else hpBar = new StatBar(100, 100, this, 30, 5, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
         
+        // testing
+        this.speed = 1.2;
+        this.attackSpeed = 3;
+        this.attackRange = 35;
+        this.damage = 15;
     }
     
     public void act()
@@ -52,7 +57,7 @@ public class Bandit extends Soldier
         
         } else{
             if (getDistance(target) <= attackRange){
-                target.getHit(this.damage);
+                target.getHit(this.damage, new SwordHitEffect());
             }
         }
         
