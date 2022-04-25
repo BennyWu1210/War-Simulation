@@ -8,11 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartButton extends Button
 {
-    
-    public StartButton()
+    private TitlePage page;
+    public StartButton(TitlePage page)
     {
         super();
         initStartButton();
+        this.page = page;
     }
 
     public void act() 
@@ -38,9 +39,7 @@ public class StartButton extends Button
     {
         if(Greenfoot.mouseClicked(this))
         {
-            //Switch to the loading page
-            MyWorld world = new MyWorld(); 
-            Greenfoot.setWorld(world);
+            page.startGame();
         }
     }
 

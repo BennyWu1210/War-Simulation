@@ -13,20 +13,32 @@ public class Modifier extends World
     private GreenfootImage backgroundImage;
     public int count = 0;
     
+    //remember to put getter
     private boolean keyDown;
-    public static Stack<Integer> timeList = new Stack<Integer>();;
+    public Stack<Integer> timeList = new Stack<Integer>();;
     
-    public static boolean RedBanditSwitch;
-    public static boolean RedBeefyBanditSwitch;
-    public static boolean RedHealerSwitch;
-    public static boolean RedKnightSwitch;
+    public boolean RedBanditSwitch;
+    public boolean RedBeefyBanditSwitch;
+    public boolean RedHealerSwitch;
+    public boolean RedKnightSwitch;
     
-    public static boolean BlueBanditSwitch;
-    public static boolean BlueBeefyBanditSwitch;
-    public static boolean BlueHealerSwitch;
-    public static boolean BlueKnightSwitch;
+    public boolean BlueBanditSwitch;
+    public boolean BlueBeefyBanditSwitch;
+    public boolean BlueHealerSwitch;
+    public boolean BlueKnightSwitch;
     
-    public Modifier()
+    public SoldierSwitchButton redBandit;
+    public SoldierSwitchButton redBeefyBandit;
+    public SoldierSwitchButton redHealer;
+    public SoldierSwitchButton redKnight;
+    
+    public SoldierSwitchButton blueBandit;
+    public SoldierSwitchButton blueBeefyBandit;
+    public SoldierSwitchButton blueHealer;
+    public SoldierSwitchButton blueKnight;
+    
+    private TitlePage tp;
+    public Modifier(TitlePage tp)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1); 
@@ -34,7 +46,40 @@ public class Modifier extends World
         backgroundImage.scale(1200, 700);
         setBackground(backgroundImage);
         prepare();
+        this.tp=tp;
         
+    }
+    
+    public boolean getRedBanditSwitch(){
+        return RedBanditSwitch;
+    }
+    
+    public boolean getRedBeefyBanditSwitch(){
+        return RedBeefyBanditSwitch;
+    }
+    
+    public boolean getRedHealerSwitch(){
+        return RedHealerSwitch;
+    }
+    
+    public boolean getRedKnightSwitch(){
+        return RedKnightSwitch;
+    }
+    
+    public boolean getBlueBanditSwitch(){
+        return BlueBanditSwitch;
+    }
+    
+    public boolean getBlueBeefyBanditSwitch(){
+        return BlueBeefyBanditSwitch;
+    }
+    
+    public boolean getBlueHealerSwitch(){
+        return BlueHealerSwitch;
+    }
+    
+    public boolean getBlueKnightSwitch(){
+        return BlueKnightSwitch;
     }
     
     /**
@@ -44,13 +89,23 @@ public class Modifier extends World
     public void act()
     {
         input();
+        RedBanditSwitch=onClick(RedBanditSwitch,redBandit);
+        RedBeefyBanditSwitch=onClick(RedBeefyBanditSwitch,redBeefyBandit);
+        RedHealerSwitch=onClick(RedHealerSwitch,redHealer);
+        RedKnightSwitch=onClick(RedKnightSwitch,redKnight);
+        
+        BlueBanditSwitch=onClick(BlueBanditSwitch,blueBandit);
+        BlueBeefyBanditSwitch=onClick(BlueBeefyBanditSwitch,blueBeefyBandit);
+        BlueHealerSwitch=onClick(BlueHealerSwitch,blueHealer);
+        BlueKnightSwitch=onClick(BlueKnightSwitch,blueKnight);
+        
         
     
     }
     
     private void prepare()
     {
-        BackButton backButton = new BackButton();
+        BackButton backButton = new BackButton(this);
         addObject(backButton,71,53);
 
         Text setting = new Text("Setting", 60, Color.WHITE);
@@ -64,55 +119,56 @@ public class Modifier extends World
         
         Text RedBandit = new Text("Bandit:",29, Color.RED);
         addObject(RedBandit, 300, 350);
-        SoldierSwitchButton redBandit = new SoldierSwitchButton();
+        redBandit=new SoldierSwitchButton();
         addObject(redBandit, 430, 355);
-        RedBanditSwitch=redBandit.state;
+        RedBanditSwitch=true;
        
         
         Text RedBeefyBandit = new Text("Beefy Bandit:",29, Color.RED);
         addObject(RedBeefyBandit, 300, 400);
-        SoldierSwitchButton redBeefyBandit = new SoldierSwitchButton();
+        redBeefyBandit = new SoldierSwitchButton();
         addObject(redBeefyBandit, 430, 400);
-        RedBeefyBanditSwitch=redBeefyBandit.state;
+        RedBeefyBanditSwitch=true;
         
         Text RedHealer = new Text("Healer:",29, Color.RED);
         addObject(RedHealer, 300, 450);
-        SoldierSwitchButton redHealer = new SoldierSwitchButton();
+        redHealer = new SoldierSwitchButton();
         addObject(redHealer, 430, 450);
-        RedHealerSwitch=redHealer.state;
+        RedHealerSwitch=true;
         
         Text RedKnight = new Text("Knight:",29, Color.RED);
         addObject(RedKnight, 300, 500);
-        SoldierSwitchButton redKnight = new SoldierSwitchButton();
+        redKnight = new SoldierSwitchButton();
         addObject(redKnight, 430, 500);
-        RedKnightSwitch=redKnight.state;
+        RedKnightSwitch=true;
         
         Text BlueTeam = new Text("Blue Team:",35, Color.BLUE);
         addObject(BlueTeam, 850, 300);
       
         Text BlueBandit = new Text("Bandit:",29, Color.BLUE);
         addObject(BlueBandit, 850, 350);
-        SoldierSwitchButton blueBandit = new SoldierSwitchButton();
+        blueBandit = new SoldierSwitchButton();
         addObject(blueBandit, 980, 350);
-        BlueBanditSwitch=blueBandit.state;
+        BlueBanditSwitch=true;
         
         Text BlueBeefyBandit = new Text("Beefy Bandit:",29, Color.BLUE);
         addObject(BlueBeefyBandit, 850, 400);
-        SoldierSwitchButton blueBeefyBandit = new SoldierSwitchButton();
+        blueBeefyBandit = new SoldierSwitchButton();
         addObject(blueBeefyBandit, 980, 400);
-        BlueBeefyBanditSwitch=blueBeefyBandit.state;
+        BlueBeefyBanditSwitch=true;
         
         Text BlueHealer = new Text("Healer:",29, Color.BLUE);
         addObject(BlueHealer, 850, 450);
-        SoldierSwitchButton blueHealer = new SoldierSwitchButton();
+        blueHealer = new SoldierSwitchButton();
         addObject(blueHealer, 980, 450);
-        BlueHealerSwitch=blueHealer.state;
+        BlueHealerSwitch=true;
         
         Text BlueKnight = new Text("Knight:",29, Color.BLUE);
         addObject(BlueKnight, 850, 500);
-        SoldierSwitchButton blueKnight = new SoldierSwitchButton();
+        blueKnight = new SoldierSwitchButton();
         addObject(blueKnight, 980, 500);
-        BlueKnightSwitch=blueKnight.state;
+        BlueKnightSwitch=true;
+        
         
         
         getBackground().drawLine(375, 235, 700, 235);
@@ -120,17 +176,27 @@ public class Modifier extends World
 
     }
     
+    public boolean onClick(boolean state, SoldierSwitchButton sb)
+    {
+        if(Greenfoot.mouseClicked(sb)) {
+            state = !state;
+        }
+        return state;
+    } 
+    
+    public void returnTitlePage(){
+        Greenfoot.setWorld(tp);
+    }
+    
     public void input(){
         
         String key = Greenfoot.getKey();
-        
         if (key != null){
             if(key == "backspace"){
                 removeObjects(getObjectsAt(380+(count-1)*30, 220, null));
                 count--;
                 timeList.pop();
             }else{
-                
                 int value = Integer.parseInt(key);
                 timeList.push(value);
                 Label label = new Label(key, 35);

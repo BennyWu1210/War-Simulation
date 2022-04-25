@@ -21,18 +21,19 @@ public class MyWorld extends World
     private int start = 0;
     private int time = 0;
     
-    
-    public MyWorld()
+    private Modifier modifier;
+    public MyWorld(Modifier modifier)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1); 
+        this.modifier=modifier;
         backgroundImage = new GreenfootImage("Background.jpg");
         backgroundImage.scale(1200, 700);
         setBackground(backgroundImage);
-        
-        int length = Modifier.timeList.size(); // could cause null pointer
+        System.out.println(modifier.timeList);
+        int length = modifier.timeList.size(); // could cause null pointer
         for(int i=0;i<length;i++){
-            time=time*10+Modifier.timeList.get(i);
+            time=time*10+modifier.timeList.get(i);
         }
         addObject(timeCount, 1100, 50);
         if(time==0){
@@ -40,7 +41,6 @@ public class MyWorld extends World
         }else{
             timeCount.setValue(time);
         }
-
     }
     private void spawner(int yDirection){
         int direction = yDirection;
@@ -51,26 +51,49 @@ public class MyWorld extends World
             int xSpawn = direction == 1 ? 50 : 950;
             Soldier soldier;
             
-            if (soldierChoice == 1){
+            if (soldierChoice == 1 && modifier.getRedBanditSwitch()){
                 soldier = new Bandit(direction);
-            }
-            else if (soldierChoice == 2){
+                addObject(soldier, xSpawn, ySpawn);
+            }if (soldierChoice == 2 && modifier.RedKnightSwitch){
                 soldier = new Knight(direction);
-            }
-            else if (soldierChoice == 3){
+                addObject(soldier, xSpawn, ySpawn);
+            }if (soldierChoice == 3 && modifier.RedHealerSwitch){
                 soldier = new Healer(direction);
-            }
-            else if (soldierChoice == 4 ){
+                addObject(soldier, xSpawn, ySpawn);
+            }if (soldierChoice == 4 && modifier.RedBeefyBanditSwitch){
                 soldier = new BeefyBandit(direction);
-            }
-            else{
-                soldier = new Bandit(direction);
+                addObject(soldier, xSpawn, ySpawn);
             }
             
-            addObject(soldier, xSpawn, ySpawn);
+            
+            
+            
         }
+    }
+    
+    private void spawnerBlue(int yDirection){
+        int direction = yDirection;
         
-        
+        if (Greenfoot.getRandomNumber(120) == 0){
+            int soldierChoice = Greenfoot.getRandomNumber(4) + 1;
+            int ySpawn = Greenfoot.getRandomNumber(10)*50 + 70;
+            int xSpawn = direction == 1 ? 50 : 950;
+            Soldier soldier;
+            
+            if (soldierChoice == 1 && modifier.getBlueBanditSwitch()){
+                soldier = new Bandit(direction);
+                addObject(soldier, xSpawn, ySpawn);
+            }if (soldierChoice == 2 && modifier.BlueKnightSwitch){
+                soldier = new Knight(direction);
+                addObject(soldier, xSpawn, ySpawn);
+            }if (soldierChoice == 3 && modifier.BlueHealerSwitch){
+                soldier = new Healer(direction);
+                addObject(soldier, xSpawn, ySpawn);
+            }if (soldierChoice == 4 && modifier.BlueBeefyBanditSwitch){
+                soldier = new BeefyBandit(direction);
+                addObject(soldier, xSpawn, ySpawn);
+            }
+        }
     }
    
     public void act(){
@@ -86,7 +109,7 @@ public class MyWorld extends World
         }
         
         spawner(1);
-        spawner(-1);
+        spawnerBlue(-1);
         
         
     }

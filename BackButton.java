@@ -12,10 +12,12 @@ public class BackButton extends Button
      * Act - do whatever the BackButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public BackButton()
+    private Modifier page;
+    public BackButton(Modifier page)
     {
         super();
         initStartButton();
+        this.page=page;
     }
 
     public void act() 
@@ -42,8 +44,8 @@ public class BackButton extends Button
         if(Greenfoot.mouseClicked(this))
         {
             //Switch to the loading page
-            TitlePage tp = new TitlePage();
-            Greenfoot.setWorld(tp);
+            page.returnTitlePage();
+            
         }
     }
 

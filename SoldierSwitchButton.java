@@ -35,7 +35,7 @@ public class SoldierSwitchButton extends Button
         images[0] = new GreenfootImage("On.png"); 
         images[1] = new GreenfootImage("Off.png"); 
         setImage(images[0]);
-        state=true;
+        
     }
 
     /**
@@ -48,11 +48,11 @@ public class SoldierSwitchButton extends Button
             if(idx==1){
                 setImage(images[idx]);
                 idx=0;
-                state=false;
+                
             }else if(idx==0){
                 setImage(images[idx]);
                 idx=1;
-                state=true;
+                
             }
             
         }

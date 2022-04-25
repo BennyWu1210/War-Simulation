@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=MyWorld
 comment0.text=\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\n\ \n\ @Benny,\ Angus,\ Caleb,\ Kevin,\ Jerry\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=
-comment1.target=MyWorld()
+comment1.params=modifier
+comment1.target=MyWorld(Modifier)
 comment2.params=yDirection
 comment2.target=void\ spawner(int)
-comment3.params=
-comment3.target=void\ act()
-numComments=4
+comment3.params=yDirection
+comment3.target=void\ spawnerBlue(int)
+comment4.params=
+comment4.target=void\ act()
+numComments=5

@@ -12,10 +12,12 @@ public class SettingButton extends Button
      * Act - do whatever the SettingButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public SettingButton()
+    private TitlePage page;
+    public SettingButton(TitlePage page)
     {
         super();
         initStartButton();
+        this.page = page;
     }
 
     public void act() 
@@ -42,8 +44,7 @@ public class SettingButton extends Button
         if(Greenfoot.mouseClicked(this))
         {
             //Switch to the loading page
-            Modifier mw = new Modifier();
-            Greenfoot.setWorld(mw);
+            page.openModifier();
         }
     }
 
