@@ -39,8 +39,8 @@ public class StartButton extends Button
         if(Greenfoot.mouseClicked(this))
         {
             //Switch to the loading page
-            MyWorld vw = new MyWorld();
-            Greenfoot.setWorld(vw);
+            MyWorld world = new MyWorld(); 
+            Greenfoot.setWorld(world);
         }
     }
 

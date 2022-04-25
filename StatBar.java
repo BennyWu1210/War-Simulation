@@ -224,7 +224,7 @@ public class StatBar extends Actor
         if (target != null && getWorld() != null){
             if (target.getWorld() != null)
             {
-                levelLabel.setLocation(target.getX() - 2 * offset, target.getY());
+                levelLabel.setLocation(target.getX() , target.getY() - (int)(1.5 * offset));
                 setLocation (target.getX(), target.getY() - offset);
             }
             else
@@ -319,6 +319,8 @@ public class StatBar extends Actor
     public void initLevel(int level, int size){
         hasLabel = true;
         levelLabel = new Label("Level " + level, size);
-        getWorld().addObject(levelLabel, getX() - 2 * offset, getY());
+        levelLabel.setFillColor(Color.DARK_GRAY);
+        
+        getWorld().addObject(levelLabel, getX(), getY() - 2 * offset);
     }
 }

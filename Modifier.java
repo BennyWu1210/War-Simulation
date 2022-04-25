@@ -14,7 +14,7 @@ public class Modifier extends World
     public int count = 0;
     
     private boolean keyDown;
-    public static Stack<Integer> timeList;
+    public static Stack<Integer> timeList = new Stack<Integer>();;
     
     public static boolean RedBanditSwitch;
     public static boolean RedBeefyBanditSwitch;
@@ -33,7 +33,6 @@ public class Modifier extends World
         backgroundImage = new GreenfootImage("background.png");
         backgroundImage.scale(1200, 700);
         setBackground(backgroundImage);
-        timeList = new Stack<Integer>();
         prepare();
         
     }
@@ -131,6 +130,7 @@ public class Modifier extends World
                 count--;
                 timeList.pop();
             }else{
+                
                 int value = Integer.parseInt(key);
                 timeList.push(value);
                 Label label = new Label(key, 35);

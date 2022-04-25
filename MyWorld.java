@@ -16,10 +16,11 @@ public class MyWorld extends World
     //Test test test
     
     private GreenfootImage backgroundImage;
-    SimpleTimer tim = new SimpleTimer();
-    Counter timeCount = new Counter();
-    int start =0;
-    private int time =0;
+    private SimpleTimer tim = new SimpleTimer();
+    private Counter timeCount = new Counter();
+    private int start = 0;
+    private int time = 0;
+    
     
     public MyWorld()
     {    
@@ -29,7 +30,7 @@ public class MyWorld extends World
         backgroundImage.scale(1200, 700);
         setBackground(backgroundImage);
         
-        int length = Modifier.timeList.size();
+        int length = Modifier.timeList.size(); // could cause null pointer
         for(int i=0;i<length;i++){
             time=time*10+Modifier.timeList.get(i);
         }
@@ -80,6 +81,7 @@ public class MyWorld extends World
             timeCount.add(-1);
             tim.mark();
         }
+        
         spawner(1);
         spawner(-1);
         

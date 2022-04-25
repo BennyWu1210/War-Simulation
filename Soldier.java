@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class Soldiers here.
  * 
@@ -13,13 +13,18 @@ public abstract class Soldier extends Entity
     protected int side;
     protected StatBar hpBar;
     protected int hp;
-    protected int maxHP = 5;
+    protected int maxHP = 100; // temporary variable
 
     protected int mySpeed = 10;
     protected int myAge;
     
     protected int timer = 0;
     protected int timerTest = 30;
+    
+    // attack variables
+    protected double attackSpeed, attackRange, damage;
+    
+    
     /**
      * Act - do whatever the Soldiers wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -30,44 +35,113 @@ public abstract class Soldier extends Entity
         this.direction = direction; 
         this.side = direction;
         this.hp = this.maxHP = maxHP;
+        
+        // testing
+        this.speed = 1.2;
+        this.attackSpeed = 3;
+        this.attackRange = 40;
+        this.damage = 15;
+        
     }
     
-    
-       
+
     public void addedToWorld(World w){
         super.addedToWorld();
         w.addObject(hpBar, getX(), getY());
-        hpBar.initLevel(1, 15);
+        hpBar.initLevel(1, 17);
     }
     
     public void act()
     {
         
-        move (1*direction);
+        if (timer % 30 == 0) attack();
+        
+        if (target == null || target.getWorld() == null){
+            move((int)(speed*direction));
+        } else if (getDistance(target) > attackRange){
+            move(target);
+        } 
+        
         if (isAtEdge()){
             getWorld().removeObject(this);
         }
         timer++;
-        hpBar.update(hp);
+        // hpBar.update(hp);
+        /*
         if (timer == timerTest){
             hp -= 10;
             timer = 0;
         }
+        */
         if (hp <= 0){
             this.isDead();
         }
         
         if (this == null && this.getWorld() == null && getX() >= 200 && getX() <= 600) getWorld().removeObject(this);
     }
+    
+    /**
+     * Abstract attack method
+     */
+    // public abstract void attack();
+    // for testing purposes
+    public void attack(){
+        if (target == null || target.getWorld() == null){
+            List<Soldier> enemies = getObjectsInRange(100, Soldier.class);
+        
+            if (enemies.size() != 0){
+                int index = 0;
+                
+                while (index < enemies.size()){
+                    Soldier nxt = enemies.get(index);
+                    if (nxt.getDirection() != this.getDirection()){
+                        target = nxt;
+                        break;
+                    }
+                    index ++;
+                }
+            }
+        
+        } else{
+            System.out.println(getDistance(target) + " " + attackRange);
+            if (getDistance(target) <= attackRange){
+                target.getHit(this.damage);
+            }
+        }
+        
+    }
+    public void getHit(double hp){
+        
+        System.out.println("attacking");
+        this.hp -= hp;
+        
+        hpBar.update((int)this.hp);
+        if (hp <= 0){
+            getWorld().removeObject(this);
+        }
+    }
+    
+    /**
+     * Returns direction of this soldier
+     */
+    public int getDirection(){
+        return this.direction;
+    }
+    
     public int getSide(){
         return side;
     }
+    
     protected boolean touchSoldier(){
         return true;
     }
+    
     //reminder to make this abstract
     public void isDead(){
         getWorld().addObject(new DeathEffect("BanditDead.png", direction), getX(), getY());
         getWorld().removeObject(this);
     }
+    
+    
+
 }

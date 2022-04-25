@@ -57,5 +57,9 @@ public class SoldierSwitchButton extends Button
             
         }
     }
+    
+    public void onHover(){
+        // Todo
+    }
 
 }

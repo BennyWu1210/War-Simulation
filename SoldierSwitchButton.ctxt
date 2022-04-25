@@ -11,4 +11,6 @@ comment3.text=\n\ Initializing\ the\ start\ button\ image\n
 comment4.params=
 comment4.target=void\ onClick()
 comment4.text=\n\ Check\ if\ mouse\ clicks\ this\ button\n
-numComments=5
+comment5.params=
+comment5.target=void\ onHover()
+numComments=6

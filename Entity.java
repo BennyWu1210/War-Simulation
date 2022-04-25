@@ -25,6 +25,9 @@ public class Entity extends Actor
     protected double speed;
     protected int direction;
     
+    // Target of this entity
+    protected Soldier target;
+    
     
     
     public Entity(int direction){
@@ -60,7 +63,8 @@ public class Entity extends Actor
      * @return double  the distance from a location, as a double
      */
     public double getDistance(double x, double y){
-        return Math.sqrt(x * x + y * y);
+        double xDif = getX() - x, yDif = getY() - y;
+        return Math.sqrt(xDif * xDif + yDif * yDif);
     }
     
     /**
@@ -69,15 +73,25 @@ public class Entity extends Actor
      * @return double  the distance from another actor, as a double
      */
     public double getDistance(Actor actor){
-        double x = actor.getX(), y = actor.getY();
-        return Math.sqrt(x * x + y * y);
+        return getDistance(actor.getX(), actor.getY());
     }
     
     /**
-     * 
+     * Move toward a coordinate
      */
     public void move(double x, double y){
-        // TODO
+        double dis = getDistance(x, y);
+        double blocks = dis / speed;
+        double xDif = (x - getX()) / blocks;
+        double yDif = (y - getY()) / blocks;
+        setLocation(getX() + (int)xDif, getY() + (int)(yDif + 0.5));
+    }
+    
+    /**
+     * Move toward an actor
+     */
+    public void move(Actor actor){
+        move(actor.getX(), actor.getY());
     }
     
     

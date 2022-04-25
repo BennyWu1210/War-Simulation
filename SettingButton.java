@@ -47,6 +47,7 @@ public class SettingButton extends Button
         }
     }
 
+    
     /**
      * Check if mouse hovers on this button
      */
