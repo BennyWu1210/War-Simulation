@@ -91,16 +91,16 @@ public class MyWorld extends World
             Soldier soldier;
             
             if (soldierChoice == 1 && modifier.getBlueBanditSwitch()){
-                soldier = new Bandit(direction, statRight);
+                soldier = new Bandit(direction, statLeft);
                 addObject(soldier, xSpawn, ySpawn);
             }if (soldierChoice == 2 && modifier.BlueKnightSwitch){
-                soldier = new Knight(direction, statRight);
+                soldier = new Knight(direction, statLeft);
                 addObject(soldier, xSpawn, ySpawn);
             }if (soldierChoice == 3 && modifier.BlueHealerSwitch){
-                soldier = new Healer(direction, statRight);
+                soldier = new Healer(direction, statLeft);
                 addObject(soldier, xSpawn, ySpawn);
             }if (soldierChoice == 4 && modifier.BlueBeefyBanditSwitch){
-                soldier = new BeefyBandit(direction, statRight);
+                soldier = new BeefyBandit(direction, statLeft);
                 addObject(soldier, xSpawn, ySpawn);
             }
         }
