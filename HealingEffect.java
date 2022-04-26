@@ -6,12 +6,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (Benny Wu) 
  * @version (April 26th, 2022)
  */
-public class ArrowHitEffect extends Effect
+public class HealingEffect extends Effect
 {
     
-    public ArrowHitEffect(){
-        super(new GifImage("arrowEffect.gif"), 5, 1);
-        for (GreenfootImage img: gifImageList) img.scale(100, 100);
+    public HealingEffect(){
+        super(new GifImage("healingEffect.gif"), 5, 1);
+        for (GreenfootImage img: gifImageList) img.scale(100, 60);
     }
     
     public void act()

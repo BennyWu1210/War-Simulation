@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
 /**
  * Write a description of class Healer here.
  * 
@@ -8,16 +8,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Healer extends Soldier
 {
-    private static final int initHp = 40;
+    private static final int initHp = 70;
     public Healer (int direction, Statistic worldStat)
     {
         super(direction, initHp, worldStat);
         image = new GreenfootImage("Healer.png");
         getImage().scale(50, 52);
         
+        
+        // testing
+        this.speed = 1.2;
+        this.attackSpeed = 4;
+        this.attackRange = 210;
+        this.damage = 0;
+        this.triggerRange = 270;
+        
         // intialize hp bar
-        if (direction == 1) hpBar = new StatBar(100, 100, this, 30, 5, 35, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
-        else hpBar = new StatBar(100, 100, this, 30, 5, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
+        if (direction == 1) hpBar = new StatBar(initHp, initHp, this, 30, 5, 35, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
+        else hpBar = new StatBar(initHp, initHp, this, 30, 5, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
         // hpBar.initLevel(1, 10);
     }
  
@@ -45,6 +53,31 @@ public class Healer extends Soldier
         if (projectile != null){
             hp = hp-4;
             getWorld().removeObject(projectile);
+        }
+    }
+    
+    public void attack(){
+        if (target == null || target.getWorld() == null){
+            List<Soldier> soldiers = getObjectsInRange((int)this.triggerRange, Soldier.class);
+        
+            if (soldiers.size() != 0){
+                int index = 0;
+                
+                while (index < soldiers.size()){
+                    Soldier nxt = soldiers.get(index);
+                    if (nxt.getDirection() == this.getDirection()){
+                        target = nxt;
+                        break;
+                    }
+                    index ++;
+                }
+            }
+        
+        } else{
+            if (getDistance(target) <= attackRange){
+                HealProjectile a = new HealProjectile(target);
+                getWorld().addObject(a, getX(), getY());
+            }
         }
     }
     

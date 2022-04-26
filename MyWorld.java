@@ -106,7 +106,7 @@ public class MyWorld extends World
         }
     }
     public void spawnTower(){
-        if (statLeft.getGold() >=25){
+        if (statLeft.getGold() >= 25){
             statLeft.setGold(-25);
             addObject(new ArcherTower(1), 300, 350);
         }

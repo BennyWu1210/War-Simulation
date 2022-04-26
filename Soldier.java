@@ -159,6 +159,16 @@ public abstract class Soldier extends Entity
         getWorld().removeObject(this);
     }
     
+    public boolean hasFullHealth(){
+        return this.hp == this.maxHP;
+    }
+    
+    public void heal(double hp){
+        if (this.hp + hp > this.maxHP) this.hp = this.maxHP;
+        else this.hp += hp;
+        
+        hpBar.update((int)this.hp);
+    }
     
 
 }
