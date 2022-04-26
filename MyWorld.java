@@ -115,6 +115,10 @@ public class MyWorld extends World
             addObject(new ArcherTower(-1),900, 350);
         }
     }
+    public void spawnGold(){
+        int yCoord = Greenfoot.getRandomNumber(6) + 1;
+        
+    }
     public void act(){
         
         //timeCount.setValue(tim.millisElapsed()/1000);

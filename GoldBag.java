@@ -11,10 +11,10 @@ public class GoldBag extends Effect
     private int direction;
     
     public GoldBag (){
-        super(200);
-        this.file = file;
-        this.direction = direction;
-        image = new GreenfootImage(file);
+        super(500, false);
+        direction = 1;
+        getImage().scale(100, 69);
+        image = new GreenfootImage("goldbag.png");
         setImage(image);
         
         
