@@ -30,4 +30,7 @@ public abstract class Tower extends Entity
     {
         // Add your action code here.
     }
+    public int getDirection(){
+        return direction;
+    }
 }
