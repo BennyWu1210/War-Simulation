@@ -105,7 +105,16 @@ public class MyWorld extends World
             }
         }
     }
-   
+    public void spawnTower(){
+        if (statLeft.getGold() >=25){
+            statLeft.setGold(-25);
+            addObject(new ArcherTower(1), 300, 350);
+        }
+        if (statRight.getGold()>=25){
+            statRight.setGold(-25);
+            addObject(new ArcherTower(-1),900, 350);
+        }
+    }
     public void act(){
         
         //timeCount.setValue(tim.millisElapsed()/1000);
@@ -120,7 +129,7 @@ public class MyWorld extends World
         
         spawner(1);
         spawnerBlue(-1);
-        
+        spawnTower();
         
     }
     
