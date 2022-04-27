@@ -20,9 +20,10 @@ public class BeefyBandit extends Soldier
         this.speed = 1.1;
         this.attackSpeed = 5;
         this.attackRange = 180;
-        this.damage = 25;
+        this.damage = 10;
         this.triggerRange = 260;
         this.deathGold = 10;
+        
         // intialize hp bar
         if (direction == 1) hpBar = new StatBar(initHp, initHp, this, 50, 6, 35, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
         else hpBar = new StatBar(initHp, initHp, this, 50, 6, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
@@ -74,7 +75,4 @@ public class BeefyBandit extends Soldier
             }
         }
     }
-    
-    
-    
 }

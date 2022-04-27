@@ -90,7 +90,7 @@ public class Entity extends Actor
         double yDif = (y - getY()) / blocks;
         setLocation(getX() + (int)(xDif + 0.5), getY() + (int)(yDif + 0.5));
         
-        if (xDif == -1) getImage().mirrorVertically();
+        // if (xDif < 0) getImage().mirrorVertically();
     }
     
     /**

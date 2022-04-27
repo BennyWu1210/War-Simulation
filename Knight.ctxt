@@ -1,13 +1,15 @@
 #BlueJ class context
 comment0.target=Knight
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Knight\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Knight\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=direction\ worldStat
 comment1.target=Knight(int,\ Statistic)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ die()
-comment3.text=\r\n\ \ \ \ public\ void\ attack(){\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ }\r\n
+comment3.text=\n\ \ \ \ public\ void\ attack(){\n\ \ \ \ \ \ \ \ \n\ \ \ \ }\n
 comment4.params=
 comment4.target=void\ getHit()
-numComments=5
+comment5.params=
+comment5.target=void\ attack()
+numComments=6

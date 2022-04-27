@@ -10,7 +10,7 @@ import java.util.*;
 public class Bandit extends Soldier
 {
     private int test = 0;
-    private static final int initHp = 80;
+    private static final int initHp = 70;
     public Bandit (int direction, Statistic worldStat)
     {
         // calls super constructor
@@ -24,11 +24,11 @@ public class Bandit extends Soldier
         else hpBar = new StatBar(initHp, initHp, this, 30, 5, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
         
         // testing
-        this.speed = 1.7;
-        this.attackSpeed = 3;
+        this.speed = 2.3;
+        this.attackSpeed = 5;
         this.attackRange = 35;
-        this.damage = 15;
-        this.triggerRange = 90;
+        this.damage = 5;
+        this.triggerRange = 120;
         this.deathGold = 1;
     }
     

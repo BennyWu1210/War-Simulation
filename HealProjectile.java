@@ -4,16 +4,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class Arrow here.
  * 
  * @author Benny
- * @version April 26th, 2022
+ * @version April 27th, 2022
  */
 public class HealProjectile extends Projectile
 {
-    Soldier target;
-    int targetX, targetY;
-    
-    public HealProjectile(Soldier target){
+    private Soldier target;
+    private int targetX, targetY;
+    private boolean isEnemy;
+    public HealProjectile(Soldier target, boolean isEnemy){
         super(target);
-        this.image = new GreenfootImage("healProjectile.png");
+        this.isEnemy = isEnemy;
+        String file = isEnemy ? "healProjectile02.png" : "healProjectile.png";
+        this.image = new GreenfootImage(file);
         this.speed = 5;
         this.target = target;
         this.targetX = target.getX();
@@ -39,8 +41,10 @@ public class HealProjectile extends Projectile
         
         if (getDistance(targetX, targetY) <= 4){
             if (target != null && target.getWorld() == null) {
-                if (!target.hasFullHealth()){
+                if (!isEnemy && !target.hasFullHealth()){
                     target.heal(15);
+                } else{
+                    target.getHit(15, null);
                 }
             }
             

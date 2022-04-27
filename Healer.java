@@ -23,6 +23,7 @@ public class Healer extends Soldier
         this.damage = 0;
         this.triggerRange = 270;
         this.deathGold = 15;
+        
         // intialize hp bar
         if (direction == 1) hpBar = new StatBar(initHp, initHp, this, 30, 5, 35, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
         else hpBar = new StatBar(initHp, initHp, this, 30, 5, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
@@ -65,7 +66,7 @@ public class Healer extends Soldier
                 
                 while (index < soldiers.size()){
                     Soldier nxt = soldiers.get(index);
-                    if (nxt.getDirection() == this.getDirection()){
+                    if (nxt.getClass() != this.getClass()){
                         target = nxt;
                         break;
                     }
@@ -75,12 +76,14 @@ public class Healer extends Soldier
         
         } else{
             if (getDistance(target) <= attackRange){
-                HealProjectile a = new HealProjectile(target);
-                getWorld().addObject(a, getX(), getY());
+                if (target.getDirection() == this.getDirection()){
+                    HealProjectile a = new HealProjectile(target, false);
+                    getWorld().addObject(a, getX(), getY());
+                } else{
+                    HealProjectile a = new HealProjectile(target, true);
+                    getWorld().addObject(a, getX(), getY());
+                }
             }
         }
     }
-    
-
-    
 }
