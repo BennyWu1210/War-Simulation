@@ -18,9 +18,9 @@ public class BeefyBandit extends Soldier
         
         // testing
         this.speed = 1.1;
-        this.attackSpeed = 5;
+        this.attackSpeed = 8;
         this.attackRange = 180;
-        this.damage = 10;
+        this.damage = 5;
         this.triggerRange = 260;
         this.deathGold = 10;
         

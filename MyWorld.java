@@ -133,9 +133,9 @@ public class MyWorld extends World
             tim.mark();
         }
         
-        spawner(1);
-        spawnerBlue(-1);
-        spawnTower();
+        // spawner(1);
+        // spawnerBlue(-1);
+        // spawnTower();
         
     }
     

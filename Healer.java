@@ -19,8 +19,8 @@ public class Healer extends Soldier
         // testing
         this.speed = 1.2;
         this.attackSpeed = 4;
-        this.attackRange = 210;
-        this.damage = 0;
+        this.attackRange = 200;
+        this.damage = 3;
         this.triggerRange = 270;
         this.deathGold = 15;
         

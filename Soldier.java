@@ -57,13 +57,17 @@ public abstract class Soldier extends Entity
     public void act()
     {
         
-        if (timer % 30 == 0) attack();
+        
+        if (timer % (200.0 / attackSpeed) == 0) attack();
         
         if (target == null || target.getWorld() == null){
             move((int)((speed + 0.5) * direction));
-        } else if (getDistance(target) > attackRange){
+        } else if (getDistance(target) > attackRange - 3){
+            System.out.println(getDistance(target));
             move(target);
-        } 
+        } else{
+            System.out.println(getDistance(target));
+        }
         
         if (isAtEdge()){
             getWorld().removeObject(this);
