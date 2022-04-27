@@ -88,7 +88,8 @@ public class Entity extends Actor
         double blocks = dis / speed;
         double xDif = (x - getX()) / blocks;
         double yDif = (y - getY()) / blocks;
-        setLocation(getX() + (int)(xDif + 0.5), getY() + (int)(yDif + 0.5));
+        double xAdjust = xDif > 0 ? 0.5 : -0.5, yAdjust = yDif > 0 ? 0.5 : -0.5;
+        setLocation(getX() + (int)(xDif + xAdjust), getY() + (int)(yDif + yAdjust));
         
         // if (xDif < 0) getImage().mirrorVertically();
     }

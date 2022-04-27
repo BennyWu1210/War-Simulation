@@ -37,7 +37,7 @@ public class Arrow extends Projectile
             
         }
         
-        if (getDistance(targetX, targetY) <= 4){
+        if (getDistance(targetX, targetY) <= 6){
             if (target == null || target.getWorld() == null) getWorld().addObject(new ArrowHitEffect(), getX(), getY());
             else target.getHit(25, new ArrowHitEffect());
             getWorld().removeObject(this);

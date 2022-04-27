@@ -41,7 +41,7 @@ public class HealProjectile extends Projectile
         
         if (getDistance(targetX, targetY) <= 4){
             if (target != null && target.getWorld() == null) {
-                if (!isEnemy && !target.hasFullHealth()){
+                if (!isEnemy){
                     target.heal(15);
                 } else{
                     target.getHit(15, null);

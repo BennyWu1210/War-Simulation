@@ -18,7 +18,7 @@ public abstract class Soldier extends Entity
     protected int mySpeed = 10;
     protected int myAge;
     
-    protected int timer = 0;
+    protected int timer = 0; 
     protected int timerTest = 30;
     
     // attack variables
