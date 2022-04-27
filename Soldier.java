@@ -134,7 +134,9 @@ public abstract class Soldier extends Entity
             getWorld().removeObject(this);
         }
     }
-    
+    public void goldBagUpdate(){
+        worldStat.updateGold(50);
+    }
     
     
     /**
@@ -149,6 +151,7 @@ public abstract class Soldier extends Entity
     }
     
     protected boolean touchSoldier(){
+        //wat dis code?
         return true;
     }
     
