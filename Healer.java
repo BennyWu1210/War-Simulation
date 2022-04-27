@@ -22,7 +22,7 @@ public class Healer extends Soldier
         this.attackRange = 210;
         this.damage = 0;
         this.triggerRange = 270;
-        
+        this.deathGold = 15;
         // intialize hp bar
         if (direction == 1) hpBar = new StatBar(initHp, initHp, this, 30, 5, 35, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
         else hpBar = new StatBar(initHp, initHp, this, 30, 5, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);

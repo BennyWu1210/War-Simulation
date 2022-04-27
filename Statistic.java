@@ -16,7 +16,7 @@ public class Statistic extends Actor
     private int a;
     private int b;
     private int c;
-    private int econ = 5;
+    
     public Statistic(boolean side){
         if (side){
             a = 255;
@@ -29,26 +29,24 @@ public class Statistic extends Actor
             c = 255;
             
         }
-        setImage(new GreenfootImage("Gold: "+ gold + "\n " + econ + " per 3 seconds",40, Color.BLACK, new Color(a, b, c)));
+        setImage(new GreenfootImage("Gold: "+ gold + "\n Kills: " + kills,40, Color.BLACK, new Color(a, b, c)));
     }
     public void act()
     {
         //Updates the Counter Bar
         
-         setImage(new GreenfootImage("Gold: "+ gold + "\n " + econ + " per 3 seconds",40, Color.BLACK, new Color(a, b, c)));
+         setImage(new GreenfootImage("Gold: "+ gold + "\n Kills: " + kills,40, Color.BLACK, new Color(a, b, c)));
     }
-    public void setGold(int gold){
+    public void updateGold(int gold){
         this.gold += gold;
         
     }
-    public void setKill(){
+    public void updateKills(){
         this.kills++;
     }
     
     public int getGold(){
         return gold;
     }
-    public void setEcon(int econ){
-        this.econ += econ;
-    }
+    
 }

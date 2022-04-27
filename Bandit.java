@@ -29,6 +29,7 @@ public class Bandit extends Soldier
         this.attackRange = 35;
         this.damage = 15;
         this.triggerRange = 90;
+        this.deathGold = 1;
     }
     
     public void act()

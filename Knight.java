@@ -14,7 +14,7 @@ public class Knight extends Soldier
         super(direction, initHp, worldStat);
         image = new GreenfootImage("Knight.png");
         getImage().scale(50, 52);
-        
+        this.deathGold = 2;
         // intialize hp bar
         if (direction == 1) hpBar = new StatBar(100, 100, this, 32, 5, 35, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
         else hpBar = new StatBar(100, 100, this, 32, 5, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);

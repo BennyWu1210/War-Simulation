@@ -106,13 +106,15 @@ public class MyWorld extends World
         }
     }
     public void spawnTower(){
-        if (statLeft.getGold() >= 25){
-            statLeft.setGold(-25);
-            addObject(new ArcherTower(1), 300, 350);
+        int yCoord = Greenfoot.getRandomNumber(10)*70;
+        int xCoord = Greenfoot.getRandomNumber(50)+1;
+        if (statLeft.getGold() >= 100){
+            statLeft.updateGold(-100);
+            addObject(new ArcherTower(1), 250+xCoord, yCoord);
         }
-        if (statRight.getGold()>=25){
-            statRight.setGold(-25);
-            addObject(new ArcherTower(-1),900, 350);
+        if (statRight.getGold()>=100){
+            statRight.updateGold(-100);
+            addObject(new ArcherTower(-1),900-xCoord, yCoord);
         }
     }
     public void spawnGold(){

@@ -78,7 +78,8 @@ public abstract class Soldier extends Entity
         }
         */
         if (hp <= 0){
-            worldStat.setGold(deathGold);
+            worldStat.updateGold(deathGold);
+            worldStat.updateKills();
             this.die();
             return;
         }
