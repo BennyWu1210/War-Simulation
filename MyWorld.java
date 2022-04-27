@@ -25,9 +25,12 @@ public class MyWorld extends World
     
     private Statistic statLeft = new Statistic(true);
     private Statistic statRight = new Statistic(false);
-    
+    private int goldBagTime = 0;
     private CrystalTower crystalRed = new CrystalTower(1);
     private CrystalTower crystalBlue = new CrystalTower(-1);
+    
+    
+    int spawnSpeed = 240;
     public MyWorld(Modifier modifier)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -41,6 +44,7 @@ public class MyWorld extends World
         addObject(crystalBlue, 1100, 350);
         setBackground(backgroundImage);
         System.out.println(modifier.timeList);
+        
         int length = modifier.timeList.size(); // could cause null pointer
         for(int i=0;i<length;i++){
             time=time*10+modifier.timeList.get(i);
@@ -55,10 +59,10 @@ public class MyWorld extends World
     private void spawner(int yDirection){
         int direction = yDirection;
         
-        if (Greenfoot.getRandomNumber(120) == 0){
+        if (Greenfoot.getRandomNumber(spawnSpeed) == 0){
             int soldierChoice = Greenfoot.getRandomNumber(4) + 1;
-            int ySpawn = Greenfoot.getRandomNumber(10)*50 + 70;
-            int xSpawn = direction == 1 ? 50 : 950;
+            int ySpawn = Greenfoot.getRandomNumber(9)*50 + 120;
+            int xSpawn = direction == 1 ? 250 : 950;
             Soldier soldier;
             
             if (soldierChoice == 1 && modifier.getRedBanditSwitch()){
@@ -73,6 +77,7 @@ public class MyWorld extends World
             }if (soldierChoice == 4 && modifier.RedBeefyBanditSwitch){
                 soldier = new BeefyBandit(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
+
             }
             
             
@@ -84,10 +89,10 @@ public class MyWorld extends World
     private void spawnerBlue(int yDirection){
         int direction = yDirection;
         
-        if (Greenfoot.getRandomNumber(120) == 0){
+        if (Greenfoot.getRandomNumber(spawnSpeed) == 0){
             int soldierChoice = Greenfoot.getRandomNumber(4) + 1;
-            int ySpawn = Greenfoot.getRandomNumber(10)*50 + 70;
-            int xSpawn = direction == 1 ? 50 : 950;
+            int ySpawn = Greenfoot.getRandomNumber(9)*50 + 120;
+            int xSpawn = direction == 1 ? 250 : 950;
             Soldier soldier;
             
             if (soldierChoice == 1 && modifier.getBlueBanditSwitch()){
@@ -106,20 +111,20 @@ public class MyWorld extends World
         }
     }
     public void spawnTower(){
-        int yCoord = Greenfoot.getRandomNumber(10)*70;
+        int yCoord = Greenfoot.getRandomNumber(5)*100 + 200;
         int xCoord = Greenfoot.getRandomNumber(50)+1;
-        if (statLeft.getGold() >= 100){
-            statLeft.updateGold(-100);
+        if (statLeft.getGold() >= 200){
+            statLeft.updateGold(-200);
             addObject(new ArcherTower(1), 250+xCoord, yCoord);
         }
-        if (statRight.getGold()>=100){
-            statRight.updateGold(-100);
+        if (statRight.getGold()>=200){
+            statRight.updateGold(-200);
             addObject(new ArcherTower(-1),900-xCoord, yCoord);
         }
     }
     public void spawnGold(){
-        int yCoord = Greenfoot.getRandomNumber(6) + 1;
-        
+        int yCoord = ( (Greenfoot.getRandomNumber(10)+1) * 50) + 100;
+        addObject(new GoldBag(), 600, yCoord);
     }
     public void act(){
         
@@ -136,7 +141,12 @@ public class MyWorld extends World
         spawner(1);
         spawnerBlue(-1);
         spawnTower();
-        
+        goldBagTime++;
+        if (goldBagTime == 300){
+            spawnGold();
+            goldBagTime = 0;
+        }
+            
     }
     
     
