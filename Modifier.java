@@ -17,25 +17,18 @@ public class Modifier extends World
     private boolean keyDown;
     public Stack<Integer> timeList = new Stack<Integer>();;
     
-    public boolean RedBanditSwitch;
-    public boolean RedBeefyBanditSwitch;
-    public boolean RedHealerSwitch;
-    public boolean RedKnightSwitch;
+    //Bandit =0;
+    //BeffyBandit = 1;
+    //Healer = 2;
+    //Knight = 3;
     
-    public boolean BlueBanditSwitch;
-    public boolean BlueBeefyBanditSwitch;
-    public boolean BlueHealerSwitch;
-    public boolean BlueKnightSwitch;
+    public boolean [] RedSwitch = new boolean [4];
+    public boolean [] BlueSwitch = new boolean [4];
+    public Text [] redText = new Text [4];
+    public Text [] blueText = new Text [4];
+    public SoldierSwitchButton [] redSoldier = new SoldierSwitchButton[4];
+    public SoldierSwitchButton [] blueSoldier = new SoldierSwitchButton[4];
     
-    public SoldierSwitchButton redBandit;
-    public SoldierSwitchButton redBeefyBandit;
-    public SoldierSwitchButton redHealer;
-    public SoldierSwitchButton redKnight;
-    
-    public SoldierSwitchButton blueBandit;
-    public SoldierSwitchButton blueBeefyBandit;
-    public SoldierSwitchButton blueHealer;
-    public SoldierSwitchButton blueKnight;
     
     private TitlePage tp;
     public Modifier(TitlePage tp)
@@ -49,61 +42,7 @@ public class Modifier extends World
         this.tp=tp;
         
     }
-    
-    public boolean getRedBanditSwitch(){
-        return RedBanditSwitch;
-    }
-    
-    public boolean getRedBeefyBanditSwitch(){
-        return RedBeefyBanditSwitch;
-    }
-    
-    public boolean getRedHealerSwitch(){
-        return RedHealerSwitch;
-    }
-    
-    public boolean getRedKnightSwitch(){
-        return RedKnightSwitch;
-    }
-    
-    public boolean getBlueBanditSwitch(){
-        return BlueBanditSwitch;
-    }
-    
-    public boolean getBlueBeefyBanditSwitch(){
-        return BlueBeefyBanditSwitch;
-    }
-    
-    public boolean getBlueHealerSwitch(){
-        return BlueHealerSwitch;
-    }
-    
-    public boolean getBlueKnightSwitch(){
-        return BlueKnightSwitch;
-    }
-    
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
-    public void act()
-    {
-        input();
-        RedBanditSwitch=onClick(RedBanditSwitch,redBandit);
-        RedBeefyBanditSwitch=onClick(RedBeefyBanditSwitch,redBeefyBandit);
-        RedHealerSwitch=onClick(RedHealerSwitch,redHealer);
-        RedKnightSwitch=onClick(RedKnightSwitch,redKnight);
-        
-        BlueBanditSwitch=onClick(BlueBanditSwitch,blueBandit);
-        BlueBeefyBanditSwitch=onClick(BlueBeefyBanditSwitch,blueBeefyBandit);
-        BlueHealerSwitch=onClick(BlueHealerSwitch,blueHealer);
-        BlueKnightSwitch=onClick(BlueKnightSwitch,blueKnight);
-        
-        
-    
-    }
-    
-    private void prepare()
+     private void prepare()
     {
         BackButton backButton = new BackButton(this);
         addObject(backButton,71,53);
@@ -114,66 +53,56 @@ public class Modifier extends World
         Text time = new Text("Time:",35, Color.WHITE);
         addObject(time, 325, 220);
         
+        for(int i=0;i<4;i++){
+            redSoldier[i]=new SoldierSwitchButton();
+            blueSoldier[i]=new SoldierSwitchButton();
+        }
+        
         Text RedTeam = new Text("Red Team:",35, Color.RED);
         addObject(RedTeam, 300, 300);
         
-        Text RedBandit = new Text("Bandit:",29, Color.RED);
-        addObject(RedBandit, 300, 350);
-        redBandit=new SoldierSwitchButton();
-        addObject(redBandit, 430, 355);
-        RedBanditSwitch=true;
-       
-        
-        Text RedBeefyBandit = new Text("Beefy Bandit:",29, Color.RED);
-        addObject(RedBeefyBandit, 300, 400);
-        redBeefyBandit = new SoldierSwitchButton();
-        addObject(redBeefyBandit, 430, 400);
-        RedBeefyBanditSwitch=true;
-        
-        Text RedHealer = new Text("Healer:",29, Color.RED);
-        addObject(RedHealer, 300, 450);
-        redHealer = new SoldierSwitchButton();
-        addObject(redHealer, 430, 450);
-        RedHealerSwitch=true;
-        
-        Text RedKnight = new Text("Knight:",29, Color.RED);
-        addObject(RedKnight, 300, 500);
-        redKnight = new SoldierSwitchButton();
-        addObject(redKnight, 430, 500);
-        RedKnightSwitch=true;
+        redText[0] = new Text("Bandit:",29, Color.RED);
+        redText[1] = new Text("Beefy Bandit:",29, Color.RED);
+        redText[2] = new Text("Healer:",29, Color.RED);
+        redText[3] = new Text("Knight:",29, Color.RED);
+        for(int i=0;i<4;i++){
+            addObject(redText[i],300,350+50*i);
+            addObject(redSoldier[i], 430, 350+50*i);
+            RedSwitch[i]=true;
+        }
         
         Text BlueTeam = new Text("Blue Team:",35, Color.BLUE);
         addObject(BlueTeam, 850, 300);
       
-        Text BlueBandit = new Text("Bandit:",29, Color.BLUE);
-        addObject(BlueBandit, 850, 350);
-        blueBandit = new SoldierSwitchButton();
-        addObject(blueBandit, 980, 350);
-        BlueBanditSwitch=true;
-        
-        Text BlueBeefyBandit = new Text("Beefy Bandit:",29, Color.BLUE);
-        addObject(BlueBeefyBandit, 850, 400);
-        blueBeefyBandit = new SoldierSwitchButton();
-        addObject(blueBeefyBandit, 980, 400);
-        BlueBeefyBanditSwitch=true;
-        
-        Text BlueHealer = new Text("Healer:",29, Color.BLUE);
-        addObject(BlueHealer, 850, 450);
-        blueHealer = new SoldierSwitchButton();
-        addObject(blueHealer, 980, 450);
-        BlueHealerSwitch=true;
-        
-        Text BlueKnight = new Text("Knight:",29, Color.BLUE);
-        addObject(BlueKnight, 850, 500);
-        blueKnight = new SoldierSwitchButton();
-        addObject(blueKnight, 980, 500);
-        BlueKnightSwitch=true;
-        
-        
-        
+        blueText[0] = new Text("Bandit:",29, Color.BLUE);
+        blueText[1] = new Text("Beefy Bandit:",29, Color.BLUE);
+        blueText[2] = new Text("Healer:",29, Color.BLUE);
+        blueText[3] = new Text("Knight:",29, Color.BLUE);
+        for(int i=0;i<4;i++){
+            addObject(blueText[i],850,350+50*i);
+            addObject(blueSoldier[i], 980, 350+50*i);
+            BlueSwitch[i]=true;
+        }
         getBackground().drawLine(375, 235, 700, 235);
         
-
+    }
+    
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    public void act()
+    {
+        input();
+        RedSwitch[0]=onClick(RedSwitch[0],redSoldier[0]);
+        RedSwitch[1]=onClick(RedSwitch[1],redSoldier[1]);
+        RedSwitch[2]=onClick(RedSwitch[2],redSoldier[2]);
+        RedSwitch[3]=onClick(RedSwitch[3],redSoldier[3]);
+        
+        BlueSwitch[0]=onClick(BlueSwitch[0],blueSoldier[0]);
+        BlueSwitch[1]=onClick(BlueSwitch[1],blueSoldier[1]);
+        BlueSwitch[2]=onClick(BlueSwitch[2],blueSoldier[2]);
+        BlueSwitch[3]=onClick(BlueSwitch[3],blueSoldier[3]);
     }
     
     public boolean onClick(boolean state, SoldierSwitchButton sb)
@@ -209,4 +138,5 @@ public class Modifier extends World
         }
  
     }
+    
 }

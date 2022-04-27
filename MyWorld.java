@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -28,6 +28,10 @@ public class MyWorld extends World
     
     private CrystalTower crystalRed = new CrystalTower(1);
     private CrystalTower crystalBlue = new CrystalTower(-1);
+    
+    public List<Integer> redSpawnControl, blueSpawnControl;
+    
+    public int redListLength, blueListLength;
     public MyWorld(Modifier modifier)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -40,7 +44,9 @@ public class MyWorld extends World
         addObject(crystalRed, 100, 350);
         addObject(crystalBlue, 1100, 350);
         setBackground(backgroundImage);
-        System.out.println(modifier.timeList);
+       
+        redSpawnControl = new ArrayList<>();
+        blueSpawnControl = new ArrayList<>();
         int length = modifier.timeList.size(); // could cause null pointer
         for(int i=0;i<length;i++){
             time=time*10+modifier.timeList.get(i);
@@ -51,60 +57,51 @@ public class MyWorld extends World
         }else{
             timeCount.setValue(time);
         }
+        existSoldier();
+    }
+    
+    public void existSoldier(){
+        for(int i=0;i<4;i++){
+            if(modifier.RedSwitch[i]){
+                redSpawnControl.add(i);
+            }
+            if(modifier.BlueSwitch[i]){
+                blueSpawnControl.add(i);
+            }
+        }
+        redListLength=redSpawnControl.size();
+        blueListLength=blueSpawnControl.size();
     }
     private void spawner(int yDirection){
         int direction = yDirection;
-        
         if (Greenfoot.getRandomNumber(120) == 0){
-            int soldierChoice = Greenfoot.getRandomNumber(4) + 1;
+            int redIdx = Greenfoot.getRandomNumber(redListLength);
+            int blueIdx = Greenfoot.getRandomNumber(blueListLength);
+    
             int ySpawn = Greenfoot.getRandomNumber(10)*50 + 70;
             int xSpawn = direction == 1 ? 50 : 950;
             Soldier soldier;
+        
+            int redChoice = redSpawnControl.get(redIdx);
+            int blueChoice = blueSpawnControl.get(blueIdx);
             
-            if (soldierChoice == 1 && modifier.getRedBanditSwitch()){
+            if (redChoice == 0 || blueChoice == 0){
                 soldier = new Bandit(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
-            }if (soldierChoice == 2 && modifier.RedKnightSwitch){
-                soldier = new Knight(direction, statRight);
-                addObject(soldier, xSpawn, ySpawn);
-            }if (soldierChoice == 3 && modifier.RedHealerSwitch){
-                soldier = new Healer(direction, statRight);
-                addObject(soldier, xSpawn, ySpawn);
-            }if (soldierChoice == 4 && modifier.RedBeefyBanditSwitch){
+            }if (redChoice == 1 || blueChoice == 1){
                 soldier = new BeefyBandit(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
+            }if (redChoice == 2 || blueChoice == 2){
+                soldier = new Healer(direction, statRight);
+                addObject(soldier, xSpawn, ySpawn);
+            }if (redChoice == 3 || blueChoice == 3){
+                soldier = new Knight(direction, statRight);
+                addObject(soldier, xSpawn, ySpawn);
             }
-            
-            
-            
-            
+        
         }
     }
     
-    private void spawnerBlue(int yDirection){
-        int direction = yDirection;
-        
-        if (Greenfoot.getRandomNumber(120) == 0){
-            int soldierChoice = Greenfoot.getRandomNumber(4) + 1;
-            int ySpawn = Greenfoot.getRandomNumber(10)*50 + 70;
-            int xSpawn = direction == 1 ? 50 : 950;
-            Soldier soldier;
-            
-            if (soldierChoice == 1 && modifier.getBlueBanditSwitch()){
-                soldier = new Bandit(direction, statLeft);
-                addObject(soldier, xSpawn, ySpawn);
-            }if (soldierChoice == 2 && modifier.BlueKnightSwitch){
-                soldier = new Knight(direction, statLeft);
-                addObject(soldier, xSpawn, ySpawn);
-            }if (soldierChoice == 3 && modifier.BlueHealerSwitch){
-                soldier = new Healer(direction, statLeft);
-                addObject(soldier, xSpawn, ySpawn);
-            }if (soldierChoice == 4 && modifier.BlueBeefyBanditSwitch){
-                soldier = new BeefyBandit(direction, statLeft);
-                addObject(soldier, xSpawn, ySpawn);
-            }
-        }
-    }
     public void spawnTower(){
         int yCoord = Greenfoot.getRandomNumber(10)*70;
         int xCoord = Greenfoot.getRandomNumber(50)+1;
@@ -119,10 +116,8 @@ public class MyWorld extends World
     }
     public void spawnGold(){
         int yCoord = Greenfoot.getRandomNumber(6) + 1;
-        
     }
     public void act(){
-        
         //timeCount.setValue(tim.millisElapsed()/1000);
         if(timeCount.getValue()==0){
             EndWorld ew = new EndWorld();
@@ -132,10 +127,8 @@ public class MyWorld extends World
             timeCount.add(-1);
             tim.mark();
         }
-        
         spawner(1);
-        spawnerBlue(-1);
-        spawnTower();
+        spawner(-1);
         
     }
     

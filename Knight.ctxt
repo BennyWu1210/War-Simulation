@@ -10,6 +10,4 @@ comment3.target=void\ die()
 comment3.text=\n\ \ \ \ public\ void\ attack(){\n\ \ \ \ \ \ \ \ \n\ \ \ \ }\n
 comment4.params=
 comment4.target=void\ getHit()
-comment5.params=
-comment5.target=void\ attack()
-numComments=6
+numComments=5
