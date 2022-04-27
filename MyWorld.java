@@ -122,10 +122,12 @@ public class MyWorld extends World
             addObject(new ArcherTower(-1),900-xCoord, yCoord);
         }
     }
+    
     public void spawnGold(){
         int yCoord = ( (Greenfoot.getRandomNumber(10)+1) * 50) + 100;
         addObject(new GoldBag(), 600, yCoord);
     }
+    
     public void act(){
         
         //timeCount.setValue(tim.millisElapsed()/1000);

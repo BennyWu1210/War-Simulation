@@ -197,12 +197,14 @@ public class Modifier extends World
                 count--;
                 timeList.pop();
             }else{
-                int value = Integer.parseInt(key);
-                timeList.push(value);
-                Label label = new Label(key, 35);
-                addObject(label, 380 + count * 30, 220);
-                count ++;
-                
+                int v = key.charAt(0) - '0';
+                if (v >= 0 && v < 10){
+                    int value = Integer.parseInt(key);
+                    timeList.push(value);
+                    Label label = new Label(key, 35);
+                    addObject(label, 380 + count * 30, 220);
+                    count ++;
+                }
             }
         }
  
