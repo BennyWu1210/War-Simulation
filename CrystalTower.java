@@ -1,7 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 /**
- * Write a description of class CrystalTower here.
+ * The Crystal Tower is a tower which shoots fireballs when soldiers are in its
+ * range. It is also the most important tower as whichever side is able to kill
+ * their opponent's crystal tower first wins.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -32,12 +34,12 @@ public class CrystalTower extends Tower
     public void act()
     {
         timer++;
+        //the tower attacks every half second
         if (timer == 30){
             attack();
             timer = 0;
         }
     }
-    
     public void attack(){
         if (target == null || target.getWorld() == null){
             

@@ -1,7 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Tower here.
+ * The tower is a non-moving entity. They attack soldiers that go near them.
+ * There are 4 types of towers: the archer tower, the crytal tower, the inferno
+ * tower and the gold mine.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -23,7 +25,7 @@ public abstract class Tower extends Entity
         this.direction = direction;
 
     }
-    
+    //add health bar
     public void addedToWorld(World w){
         super.addedToWorld(w);
         
@@ -34,7 +36,7 @@ public abstract class Tower extends Entity
     {
         this.hp -= 1;
         hpBar.update(hp);
-        
+        //the towers are removed once the hp reaches 0
         if (this.hp <= 0){
             getWorld().removeObject(this);
         }
@@ -42,7 +44,7 @@ public abstract class Tower extends Entity
     public int getDirection(){
         return direction;
     }
-    
+    //this method makes the towers lose hp when they are hit
     public void getHit(double hp, Effect effect){
         
         this.hp -= hp;

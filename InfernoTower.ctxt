@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=InfernoTower
-comment0.text=\n\ Write\ a\ description\ of\ class\ ArcherTower\ here.\n\ \n\ @author\ Benny\ Wu\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ The\ Inferno\ Tower\ is\ a\ tower\ which\ shoot\ fireballs\ at\ a\ fast\ rate\ when\r\n\ soldiers\ get\ near\ it.\ It\ also\ loses\ hp\ automatically.\r\n\ \r\n\ @author\ Benny\ Wu\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=direction
 comment1.target=InfernoTower(int)
 comment2.params=

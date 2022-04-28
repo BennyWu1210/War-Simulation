@@ -4,6 +4,9 @@ import java.util.List;
 /**
  * Write a description of class ArcherTower here.
  * 
+ * The Archer Tower is a tower which shoots arrows when soldiers are in their
+ * range. They are also able to upgrade to a higher level, making them stronger.
+ * 
  * @author (your name) 
  * @version (a version number or a date)
  */
@@ -39,16 +42,19 @@ public class ArcherTower extends Tower
         
         timer++;
         upgradeTimer++;
+        //The tower shoots every half second
         if (timer == attackSpeed){
             attack();
             timer = 0;
         }
+        //It takes 5 seconds for the tower to upgrade
         if (upgradeTimer == 300){
             upgrade();
         }
         
         //super.act();
     }
+    //The upgraded tower now shoots quicker, deals more damage and has a greater range
     public void upgrade(){
         image = new GreenfootImage("ArcherTower2.png");
         setImage(image);

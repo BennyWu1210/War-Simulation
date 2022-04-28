@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Tower
-comment0.text=\n\ Write\ a\ description\ of\ class\ Tower\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ The\ tower\ is\ a\ non-moving\ entity.\ They\ attack\ soldiers\ that\ go\ near\ them.\r\n\ There\ are\ 4\ types\ of\ towers\:\ the\ archer\ tower,\ the\ crytal\ tower,\ the\ inferno\r\n\ tower\ and\ the\ gold\ mine.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=direction
 comment1.target=Tower(int)
 comment2.params=w

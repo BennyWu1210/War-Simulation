@@ -2,7 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 
 /**
- * Write a description of class ArcherTower here.
+ * The Inferno Tower is a tower which shoot fireballs at a fast rate when
+ * soldiers get near it. It also loses hp automatically.
  * 
  * @author Benny Wu
  * @version (a version number or a date)
@@ -21,7 +22,8 @@ public class InfernoTower extends Tower
         setImage(image);
         getImage().scale(80, 100);
         
-        this.attackSpeed = 5;
+        //the tower shoots 4 times per second
+        this.attackSpeed = 15;
         this.attackRange = 280;
         this.damage = 0.1;
         this.triggerRange = 390;
@@ -34,7 +36,7 @@ public class InfernoTower extends Tower
     {
         
         timer++;
-        if (timer == 15){
+        if (timer == attackSpeed){
             attack();
             timer = 0;
         }
