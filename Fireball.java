@@ -51,7 +51,7 @@ public class Fireball extends Projectile
         if (getDistance(targetX, targetY) <= 6){
             
             if (target == null || target.getWorld() == null){
-                getWorld().addObject(new ExplosionEffect(), getX(), getY());
+                getWorld().addObject(new BombEffect(), getX(), getY());
                 getWorld().removeObject(this);
                 totalFireball --;
                 return;
@@ -65,7 +65,7 @@ public class Fireball extends Projectile
                 s.getHit(5, null);
             }
             
-            soldiers.get(0).getHit(18, new ExplosionEffect());
+            soldiers.get(0).getHit(18, new BombEffect());
             
             getWorld().removeObject(this);
             totalFireball --;
