@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Soldier
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Soldiers\ here.\r\n\ \r\n\ @author\ Benny\ Wu,\ Angus\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=direction\ maxHP\ worldStat
-comment1.target=Soldier(int,\ int,\ Statistic)
+comment1.params=direction\ maxHP
+comment1.target=Soldier(int,\ int)
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Soldiers\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment10.params=
 comment10.target=void\ die()

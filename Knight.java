@@ -9,9 +9,9 @@ import java.util.List;
 public class Knight extends Soldier
 {
     private static final int initHp = 130;
-    public Knight (int direction, Statistic worldStat)
+    public Knight (int direction)
     {
-        super(direction, initHp, worldStat);
+        super(direction, initHp);
         image = new GreenfootImage("Knight.png");
         getImage().scale(50, 52);
         

@@ -9,9 +9,9 @@ import java.util.List;
 public class Healer extends Soldier
 {
     private static final int initHp = 70;
-    public Healer (int direction, Statistic worldStat)
+    public Healer (int direction)
     {
-        super(direction, initHp, worldStat);
+        super(direction, initHp);
         image = new GreenfootImage("Healer.png");
         getImage().scale(50, 52);
         

@@ -25,7 +25,7 @@ public abstract class Soldier extends Entity
     protected double attackSpeed, attackRange, triggerRange, damage;
     
     protected int deathGold;
-    protected Statistic worldStat;
+    //protected Statistic worldStat;
     
     protected boolean attackingTower;
     protected Tower targetTower;
@@ -33,7 +33,7 @@ public abstract class Soldier extends Entity
      * Act - do whatever the Soldiers wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Soldier(int direction, int maxHP, Statistic worldStat)
+    public Soldier(int direction, int maxHP)
     {
         super(direction);
         this.direction = direction; 
@@ -47,7 +47,7 @@ public abstract class Soldier extends Entity
         this.damage = 15;
         
         this.deathGold = 5;
-        this.worldStat = worldStat;
+        //this.worldStat = worldStat;
     }
     
 
@@ -87,8 +87,8 @@ public abstract class Soldier extends Entity
         }
         */
         if (hp <= 0){
-            worldStat.updateGold(deathGold);
-            worldStat.updateKills();
+            ((MyWorld)getWorld()).updateStatistic(direction, deathGold);
+            
             die();
             return;
         }
@@ -137,7 +137,7 @@ public abstract class Soldier extends Entity
         
     }
     public void goldBagUpdate(){
-        worldStat.updateGold(50);
+        //worldStat.updateGold(50);
     }
     
     

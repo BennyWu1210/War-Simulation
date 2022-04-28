@@ -24,7 +24,7 @@ public class ArcherTower extends Tower
         
 
         this.hp = 300;
-        this.attackSpeed = 5;
+        this.attackSpeed = 30;
 
  
         this.attackRange = 280;
@@ -48,18 +48,18 @@ public class ArcherTower extends Tower
             upgrade();
         }
         
-        super.act();
+        //super.act();
     }
     public void upgrade(){
         image = new GreenfootImage("ArcherTower2.png");
         setImage(image);
-        getImage().scale(116, 100);
+        getImage().scale(100, 100);
         if (attackSpeed >= (attackSpeed - 5)){
             this.attackSpeed -= 5;
         }
         this.damage += 5;
-        this.attackRange += 100;
-        this.triggerRange += 100;
+        this.attackRange += 200;
+        this.triggerRange += 200;
     }
     public void attack(){
         if (target == null || target.getWorld() == null){

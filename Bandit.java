@@ -11,10 +11,10 @@ public class Bandit extends Soldier
 {
     private int test = 0;
     private static final int initHp = 70;
-    public Bandit (int direction, Statistic worldStat)
+    public Bandit (int direction)
     {
         // calls super constructor
-        super(direction, initHp, worldStat);
+        super(direction, initHp);
         setImage("Bandit.png");
         image = new GreenfootImage("Bandit.png");
         getImage().scale(50, 52);

@@ -96,23 +96,23 @@ public class MyWorld extends World
             int blueChoice = blueSpawnControl.get(blueIdx);
             
             if (redChoice == 0 || blueChoice == 0){
-                soldier = new Bandit(direction, statRight);
+                soldier = new Bandit(direction);
                 addObject(soldier, xSpawn, ySpawn);
             }if (redChoice == 1 || blueChoice == 1){
-                soldier = new BeefyBandit(direction, statRight);
+                soldier = new BeefyBandit(direction);
                 addObject(soldier, xSpawn, ySpawn);
             }if (redChoice == 2 || blueChoice == 2){
-                soldier = new Healer(direction, statRight);
+                soldier = new Healer(direction);
                 addObject(soldier, xSpawn, ySpawn);
             }if (redChoice == 3 || blueChoice == 3){
-                soldier = new Knight(direction, statRight);
+                soldier = new Knight(direction);
                 addObject(soldier, xSpawn, ySpawn);
             }
         }
     }
     
     public void spawnTower(){
-        int yCoord = Greenfoot.getRandomNumber(10)*70;
+        int yCoord = (Greenfoot.getRandomNumber(10)+1)*70;
         int xCoord = Greenfoot.getRandomNumber(50)+1;
         if (statLeft.getGold() >= 100){
             statLeft.updateGold(-100);
@@ -124,7 +124,8 @@ public class MyWorld extends World
         }
     }
     public void spawnGold(){
-        int yCoord = Greenfoot.getRandomNumber(6) + 1;
+        int yCoord = (Greenfoot.getRandomNumber(6) + 1) * 70;
+        addObject(new GoldBag(), 600, yCoord);
     }
     public void act(){
         //timeCount.setValue(tim.millisElapsed()/1000);
@@ -138,7 +139,7 @@ public class MyWorld extends World
         }
         spawner(1);
         spawner(-1);
-        
+        spawnTower();
     }
     
     public int getRedCoin(){
