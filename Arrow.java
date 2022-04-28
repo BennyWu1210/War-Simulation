@@ -20,7 +20,9 @@ public class Arrow extends Projectile
     }
     
     public Arrow(Tower tower){
+        
         super(tower);
+        System.out.println("BRUHADFUHDS");
         this.image = new GreenfootImage("arrow.png");
         this.speed = 8;
         this.targetX = tower.getX();
@@ -28,17 +30,17 @@ public class Arrow extends Projectile
         getImage().scale(30, 30);
     }
     
-    public void addedToWorld(){
-        super.addedToWorld();
+    public void addedToWorld(World w){
+        super.addedToWorld(w);
     }
     
     public void act()
     {
         if (target == null || target.getWorld() == null){
             move(targetX, targetY);
-        } else if (crystal != null){
+        } else if (tower != null){
             move(targetX, targetY);
-            turnTowards(crystal);
+            turnTowards(tower);
         } else{
             move(target);
             turnTowards(target);
@@ -47,10 +49,10 @@ public class Arrow extends Projectile
         }
         
         if (getDistance(targetX, targetY) <= 6){
-            if (target == null || target.getWorld() == null) getWorld().addObject(new ArrowHitEffect(), getX(), getY());
+            if (tower == null && (target == null || target.getWorld() == null)) getWorld().addObject(new ArrowHitEffect(), getX(), getY());
             else {
-                if (crystal != null) crystal.getHit(10, null);
-                else target.getHit(10, new ArrowHitEffect());
+                if (tower != null) tower.getHit(15, null);
+                else target.getHit(15, new ArrowHitEffect());
             }
             getWorld().removeObject(this);
             return;

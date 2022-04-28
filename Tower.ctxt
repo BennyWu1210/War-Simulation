@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=int\ getDirection()
 comment5.params=hp\ effect
 comment5.target=void\ getHit(double,\ Effect)
-numComments=6
+comment6.params=
+comment6.target=double\ getHpPercentage()
+numComments=7

@@ -22,7 +22,7 @@ public class ArcherTower extends Tower
         getImage().scale(100, 100);
         
 
-        this.hp = 300;
+        this.hp = this.maxHp = 300;
         this.attackSpeed = 30;
 
  

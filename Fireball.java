@@ -20,8 +20,8 @@ public class Fireball extends Projectile
     }
     
     
-    public void addedToWorld(){
-        super.addedToWorld();
+    public void addedToWorld(World w){
+        super.addedToWorld(w);
     }
     
     public void act()
@@ -52,7 +52,7 @@ public class Fireball extends Projectile
                 s.getHit(5, null);
             }
             
-            soldiers.get(0).getHit(5, new ExplosionEffect());
+            soldiers.get(0).getHit(18, new ExplosionEffect());
             
             getWorld().removeObject(this);
             return;

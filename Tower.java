@@ -16,7 +16,7 @@ public abstract class Tower extends Entity
      */
     
     protected StatBar hpBar;
-    protected int hp;
+    protected int hp, maxHp;
     protected double attackSpeed, attackRange, triggerRange, damage;
     public Tower(int direction){
         super(direction);
@@ -57,5 +57,9 @@ public abstract class Tower extends Entity
             // implement lose feature>
             getWorld().removeObject(this);
         }
+    }
+    
+    public double getHpPercentage(){
+        return (double)this.hp / this.maxHp;
     }
 }

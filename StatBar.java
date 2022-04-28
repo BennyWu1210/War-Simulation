@@ -317,9 +317,15 @@ public class StatBar extends Actor
      */
     
     public void initLevel(int level, int size){
+        if (levelLabel != null && levelLabel.getWorld() != null){
+            getWorld().removeObject(levelLabel);
+        }
         hasLabel = true;
         levelLabel = new Label("Level " + level, size);
-        levelLabel.setFillColor(Color.DARK_GRAY);
+        
+        if (level == 1) levelLabel.setFillColor(Color.DARK_GRAY);
+        else if (level == 2) levelLabel.setFillColor(new Color(240, 230, 140));
+        else levelLabel.setFillColor(new Color(255, 250, 10));
         
         getWorld().addObject(levelLabel, getX(), getY() - 2 * offset);
     }

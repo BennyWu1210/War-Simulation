@@ -22,7 +22,8 @@ public class MyWorld extends World
     //Test test test
     
     private GreenfootImage backgroundImage;
-    private SimpleTimer tim = new SimpleTimer();
+    private SimpleTimer timeCycle = new SimpleTimer();
+    private SimpleTimer totalElapsedTime = new SimpleTimer();
     private Counter timeCount = new Counter();
     private int start = 0;
     private int time = 0;
@@ -38,6 +39,8 @@ public class MyWorld extends World
     public List<Integer> redSpawnControl, blueSpawnControl;
     
     public int redListLength, blueListLength;
+    
+    private boolean infernoLeft, infernoRight;
     public MyWorld(Modifier modifier)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -52,7 +55,8 @@ public class MyWorld extends World
         addObject(crystalRed, 100, 350);
         addObject(crystalBlue, 1100, 350);
         setBackground(backgroundImage);
-       
+        
+        totalElapsedTime.mark();
                 
         redSpawnControl = new ArrayList<>();
         blueSpawnControl = new ArrayList<>();
@@ -63,6 +67,7 @@ public class MyWorld extends World
         addObject(timeCount, 1100, 50);
         if(time==0){
             timeCount.setValue(90);
+            time = 90;
         }else{
             timeCount.setValue(time);
         }
@@ -83,13 +88,20 @@ public class MyWorld extends World
     }
     
     private void spawner(int yDirection){
+        
+        int spawnSpeed;
+        if (getTimePassed() < 0.25) spawnSpeed = 210;
+        else if (getTimePassed() < 0.50) spawnSpeed = 150;
+        else if (getTimePassed() < 0.75) spawnSpeed = 100;
+        else spawnSpeed = 50;
+        
         int direction = yDirection;
-        if (Greenfoot.getRandomNumber(120) == 0){
+        if (Greenfoot.getRandomNumber(spawnSpeed) == 0){
             int redIdx = Greenfoot.getRandomNumber(redListLength);
             int blueIdx = Greenfoot.getRandomNumber(blueListLength);
     
-            int ySpawn = Greenfoot.getRandomNumber(9)*50 + 120;
-            int xSpawn = direction == 1 ? 250 : 950;
+            int ySpawn = Greenfoot.getRandomNumber(600) + 50;
+            int xSpawn = direction == 1 ? 120 : 1080;
             Soldier soldier;
         
             int redChoice = redSpawnControl.get(redIdx);
@@ -122,6 +134,15 @@ public class MyWorld extends World
             statRight.updateGold(-100);
             addObject(new ArcherTower(-1),900-xCoord, yCoord);
         }
+        
+        if (!infernoRight && crystalBlue.getHpPercentage() < 0.5){
+            infernoRight = true;
+            addObject(new InfernoTower(-1), 800, 450);
+        }
+        if (!infernoLeft && crystalRed.getHpPercentage() < 0.5){
+            infernoLeft = true;
+            addObject(new InfernoTower(-1), 100, 450);
+        }
     }
     public void spawnGold(){
         int yCoord = (Greenfoot.getRandomNumber(6) + 1) * 70;
@@ -133,9 +154,9 @@ public class MyWorld extends World
             EndWorld ew = new EndWorld();
             Greenfoot.setWorld(ew);
         
-        }else if(tim.millisElapsed()>1000){
+        }else if(timeCycle.millisElapsed()>1000){
             timeCount.add(-1);
-            tim.mark();
+            timeCycle.mark();
         }
         spawner(1);
         spawner(-1);
@@ -162,7 +183,7 @@ public class MyWorld extends World
     }
     
     public int getTimePassed(){
-        return (int)(tim.millisElapsed() / 1000 / time );
+        return (int)(totalElapsedTime.millisElapsed() / 1000.0 / time );
     }
     
     

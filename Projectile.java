@@ -14,18 +14,19 @@ public abstract class Projectile extends Entity
      */
     
     protected int targetX, targetY;
-    protected CrystalTower crystal;
+    protected Tower tower;
     public Projectile(Soldier target){
         super(target);
     }
     
     public Projectile(Tower tower){
         super(null);
+        this.tower = tower;
     }
     
     
-    public void addedToWorld(){
-        super.addedToWorld();
+    public void addedToWorld(World w){
+        super.addedToWorld(w);
     }
     
     public void act()

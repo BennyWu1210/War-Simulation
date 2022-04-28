@@ -30,17 +30,17 @@ public class HealProjectile extends Projectile
         getImage().scale(30, 30);
     }
     
-    public void addedToWorld(){
-        super.addedToWorld();
+    public void addedToWorld(World w){
+        super.addedToWorld(w);
     }
     
     public void act()
     {
         if (target == null || target.getWorld() == null){
             move(targetX, targetY);
-        } else if (crystal != null){
+        } else if (tower != null){
             move(targetX, targetY);
-            turnTowards(crystal);
+            turnTowards(tower);
         } else{
             move(target);
             turnTowards(target);
@@ -57,8 +57,8 @@ public class HealProjectile extends Projectile
                 }
             }
             
-            if (crystal != null) {
-                crystal.getHit(5, null);
+            if (tower != null) {
+                tower.getHit(10, null);
             }
             
             getWorld().addObject(new HealingEffect(), getX(), getY());

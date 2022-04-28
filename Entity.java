@@ -49,7 +49,7 @@ public class Entity extends Actor
         // Add your action code here.
     }
     
-    public void addedToWorld(){
+    public void addedToWorld(World w){
         if (direction == -1) getImage().mirrorHorizontally();
     }
     

@@ -53,7 +53,7 @@ public abstract class Soldier extends Entity
     
 
     public void addedToWorld(World w){
-        super.addedToWorld();
+        super.addedToWorld(w);
         w.addObject(hpBar, getX(), getY());
         hpBar.initLevel(1, 17);
     }
@@ -89,9 +89,14 @@ public abstract class Soldier extends Entity
         */
         if (hp <= 0){
             ((MyWorld)getWorld()).updateStatistic(direction, deathGold);
-            
             die();
             return;
+        }
+        
+        if (timer % 600 == 0){
+            hpBar.initLevel(++level, 17 + level * 2);
+            this.speed *= 1.2;
+            this.damage *= 1.2;
         }
     
         
