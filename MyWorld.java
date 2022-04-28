@@ -38,6 +38,8 @@ public class MyWorld extends World
     private int gameStatus;
     
     private boolean infernoLeft, infernoRight;
+    
+    private boolean gameOver;
     private GreenfootSound sound = new GreenfootSound("BackgroundMusic.mp3");
     public MyWorld(Modifier modifier)
     {    
@@ -154,34 +156,51 @@ public class MyWorld extends World
     public void act(){
         sound.play();
         //timeCount.setValue(tim.millisElapsed()/1000);
-        if(timeCount.getValue()==0){
-            gameStatus=0;
-            EndWorld ew = new EndWorld(gameStatus);
-            Greenfoot.setWorld(ew);
-        
-        }else if(timeCycle.millisElapsed()>1000){
+        if(!gameOver && timeCount.getValue()==0){
+            removeObjects(getObjects(Soldier.class));
+            if(crystalRed.getHpPercentage()<crystalBlue.getHpPercentage()){
+                gameStatus=2;
+            }else{
+                gameStatus=1;
+            }
+            timeCycle.mark();
+            
+            gameOver = true;
+        }else if(!gameOver && timeCycle.millisElapsed()>1000){
             timeCount.add(-1);
             timeCycle.mark();
         }
         
-        if(crystalRed.getHpPercentage()<=0){
+        if(!gameOver && crystalRed.getHpPercentage()<=0){
+            gameOver = true;
             timeCycle.mark();
-            if(timeCycle.millisElapsed()>5000){
-                
-            }
+            removeObjects(getObjects(Soldier.class));
+            
             gameStatus=2;
-            EndWorld ew = new EndWorld(gameStatus);
-            Greenfoot.setWorld(ew);
+            
         }
-        if(crystalBlue.getHpPercentage()<=0){
+        
+
+        else if(!gameOver && crystalBlue.getHpPercentage()<=0){
+            gameOver = true;
+            removeObjects(getObjects(Soldier.class));
             gameStatus=1;
-            EndWorld ew = new EndWorld(gameStatus);
-            Greenfoot.setWorld(ew);
+            timeCycle.mark();
+            
           
         }
-        spawner(1);
-        spawner(-1);
-        spawnTower();
+        
+        
+        if (gameOver && timeCycle.millisElapsed() >= 3000){
+            EndWorld ew = new EndWorld(gameStatus);
+            Greenfoot.setWorld(ew);
+        }
+        
+        if (!gameOver){
+            spawner(1);
+            spawner(-1);
+            spawnTower();
+        }
         
         
     }
