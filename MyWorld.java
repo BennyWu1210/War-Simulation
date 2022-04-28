@@ -32,9 +32,9 @@ public class MyWorld extends World
     private CrystalTower crystalRed = new CrystalTower(1);
     private CrystalTower crystalBlue = new CrystalTower(-1);
     
-    public List<Integer> redSpawnControl, blueSpawnControl;
+    private List<Integer> redSpawnControl, blueSpawnControl;
     
-    public int redListLength, blueListLength;
+    private int redListLength, blueListLength;
     private int gameStatus;
     
     private boolean infernoLeft, infernoRight;
