@@ -10,17 +10,26 @@ public class HealingEffect extends Effect
 {
     
     private GreenfootSound sound;
+    private static int totalHealing = 0;
     
     public HealingEffect(){
         super(new GifImage("healingEffect.gif"), 5, 1);
         for (GreenfootImage img: gifImageList) img.scale(100, 60);
-        sound = new GreenfootSound("Heal.wav");
-        sound.setVolume(50);
+        
+        
+        if (totalHealing < 5){
+            sound = new GreenfootSound("Heal.wav");
+            sound.setVolume(62);
+        }
+        totalHealing ++;
+        
     }
     
     public void act()
     {
         super.act();
-        sound.play();
+        System.out.println(totalHealing);
+        if (sound != null) sound.play();
+        if (getWorld() == null) totalHealing --;
     }
 }

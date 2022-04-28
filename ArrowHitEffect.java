@@ -9,16 +9,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class ArrowHitEffect extends Effect
 {
     private GreenfootSound sound;
+    private static int totalArrows;
     public ArrowHitEffect(){
         super(new GifImage("arrowEffect.gif"), 5, 1);
         for (GreenfootImage img: gifImageList) img.scale(100, 100);
-        sound = new GreenfootSound("Bow Fire.wav");
-        sound.setVolume(58);
+        if (totalArrows < 5){
+            sound = new GreenfootSound("Bow Fire.wav");
+        sound.setVolume(64);
+        }
+        
+        totalArrows ++;
     }
     
     public void act()
     {
         super.act();
-        sound.play();
+        System.out.println(totalArrows);
+        if (sound != null) sound.play();
+        if (getWorld() == null){
+            totalArrows --;
+        }
     }
 }

@@ -15,11 +15,7 @@ public class MyWorld extends World
      */
     //Test test test
     
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
-    //Test test test
+
     
     private GreenfootImage backgroundImage;
     private SimpleTimer timeCycle = new SimpleTimer();
@@ -42,6 +38,7 @@ public class MyWorld extends World
     private int gameStatus;
     
     private boolean infernoLeft, infernoRight;
+    private GreenfootSound sound = new GreenfootSound("BackgroundMusic.mp3");
     public MyWorld(Modifier modifier)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -73,6 +70,8 @@ public class MyWorld extends World
             timeCount.setValue(time);
         }
         existSoldier();
+        
+        sound.setVolume(25);
     }
     
     public void existSoldier(){
@@ -153,6 +152,7 @@ public class MyWorld extends World
         addObject(new GoldBag(), 600, yCoord);
     }
     public void act(){
+        sound.play();
         //timeCount.setValue(tim.millisElapsed()/1000);
         if(timeCount.getValue()==0){
             gameStatus=0;

@@ -15,7 +15,7 @@ public class SwordSwingEffect extends Effect
         for (GreenfootImage img: gifImageList) img.scale(100, 100);
         String random = Greenfoot.getRandomNumber(2) == 0 ? "Sword.wav" : "Sword2.wav";
         sound = new GreenfootSound(random);
-        sound.setVolume(65);
+        sound.setVolume(70);
     }
     
     public void act()
