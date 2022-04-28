@@ -15,6 +15,12 @@ public class MyWorld extends World
      */
     //Test test test
     
+    /**
+     * Constructor for objects of class MyWorld.
+     * 
+     */
+    //Test test test
+    
     private GreenfootImage backgroundImage;
     private SimpleTimer tim = new SimpleTimer();
     private Counter timeCount = new Counter();
@@ -23,8 +29,8 @@ public class MyWorld extends World
     
     private Modifier modifier;
     
-    private Statistic statLeft = new Statistic(true);
-    private Statistic statRight = new Statistic(false);
+    private Statistic statLeft ;
+    private Statistic statRight ;
     
     private CrystalTower crystalRed = new CrystalTower(1);
     private CrystalTower crystalBlue = new CrystalTower(-1);
@@ -37,6 +43,8 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1); 
         this.modifier=modifier;
+        statLeft = new Statistic(true, modifier.rCoin);
+        statRight = new Statistic(false, modifier.bCoin);
         backgroundImage = new GreenfootImage("Background.jpg");
         backgroundImage.scale(1200, 700);
         addObject(statLeft, 400, 50);
@@ -45,6 +53,7 @@ public class MyWorld extends World
         addObject(crystalBlue, 1100, 350);
         setBackground(backgroundImage);
        
+                
         redSpawnControl = new ArrayList<>();
         blueSpawnControl = new ArrayList<>();
         int length = modifier.timeList.size(); // could cause null pointer
@@ -58,8 +67,6 @@ public class MyWorld extends World
             timeCount.setValue(time);
         }
         existSoldier();
-        
-        addObject(new InfernoTower(-1),300, 200);
     }
     
     public void existSoldier(){
@@ -74,6 +81,7 @@ public class MyWorld extends World
         redListLength=redSpawnControl.size();
         blueListLength=blueSpawnControl.size();
     }
+    
     private void spawner(int yDirection){
         int direction = yDirection;
         if (Greenfoot.getRandomNumber(120) == 0){
@@ -100,7 +108,6 @@ public class MyWorld extends World
                 soldier = new Knight(direction, statRight);
                 addObject(soldier, xSpawn, ySpawn);
             }
-        
         }
     }
     
@@ -114,7 +121,6 @@ public class MyWorld extends World
         if (statRight.getGold()>=100){
             statRight.updateGold(-100);
             addObject(new ArcherTower(-1),900-xCoord, yCoord);
-            
         }
     }
     public void spawnGold(){
@@ -132,13 +138,17 @@ public class MyWorld extends World
         }
         spawner(1);
         spawner(-1);
-        spawnTower();
         
+    }
+    
+    public int getRedCoin(){
+        return modifier.rCoin;
     }
     
     public CrystalTower getTargettedCrystal(int side){
         return side == 1 ? crystalBlue : crystalRed;
     }
+
     public void updateStatistic(int direction, int gold){
         if (direction == 1){
             statLeft.updateGold(gold);

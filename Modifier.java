@@ -28,6 +28,14 @@ public class Modifier extends World
     public Text [] blueText = new Text [4];
     public SoldierSwitchButton [] redSoldier = new SoldierSwitchButton[4];
     public SoldierSwitchButton [] blueSoldier = new SoldierSwitchButton[4];
+    public int rCoin=0, bCoin=0;
+    public Label redCoins;
+    public Label blueCoins;
+    public AddButton abRed;
+    public AddButton abBlue;
+    public MinusButton mbRed;
+    public MinusButton mbBlue;
+    
     
     
     private TitlePage tp;
@@ -65,6 +73,8 @@ public class Modifier extends World
         redText[1] = new Text("Beefy Bandit:",29, Color.RED);
         redText[2] = new Text("Healer:",29, Color.RED);
         redText[3] = new Text("Knight:",29, Color.RED);
+        Text redCoin = new Text("Initial Coins:", 29, Color.RED);
+        addObject(redCoin, 300, 550);
         for(int i=0;i<4;i++){
             addObject(redText[i],300,350+50*i);
             addObject(redSoldier[i], 430, 350+50*i);
@@ -78,6 +88,8 @@ public class Modifier extends World
         blueText[1] = new Text("Beefy Bandit:",29, Color.BLUE);
         blueText[2] = new Text("Healer:",29, Color.BLUE);
         blueText[3] = new Text("Knight:",29, Color.BLUE);
+        Text blueCoin = new Text("Initial Coins:", 29, Color.BLUE);
+        addObject(blueCoin, 850, 550);
         for(int i=0;i<4;i++){
             addObject(blueText[i],850,350+50*i);
             addObject(blueSoldier[i], 980, 350+50*i);
@@ -85,8 +97,39 @@ public class Modifier extends World
         }
         getBackground().drawLine(375, 235, 700, 235);
         
-    }
+        abRed = new AddButton();
+        addObject(abRed, 400, 550);
+        
+        mbRed = new MinusButton();
+        addObject(mbRed, 490, 548);
+        
+        redCoins = new Label(rCoin,35);
+        addObject(redCoins, 445, 550);
     
+        abBlue = new AddButton();
+        addObject(abBlue, 950, 550);
+        
+        mbBlue = new MinusButton();
+        addObject(mbBlue, 1040, 548);
+        
+        blueCoins = new Label(bCoin,35);
+        addObject(blueCoins, 995, 550);
+        
+        
+    }
+    public int clickAdd(AddButton ab, int coin){
+        if(Greenfoot.mouseClicked(ab)){
+            coin+=10;
+        }
+        return coin;
+    }
+    public int clickMinus(MinusButton mb, int coin){
+        if(Greenfoot.mouseClicked(mb)){
+            coin-=10;
+        }
+        
+        return coin;
+    }
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -103,6 +146,18 @@ public class Modifier extends World
         BlueSwitch[1]=onClick(BlueSwitch[1],blueSoldier[1]);
         BlueSwitch[2]=onClick(BlueSwitch[2],blueSoldier[2]);
         BlueSwitch[3]=onClick(BlueSwitch[3],blueSoldier[3]);
+        
+        rCoin=clickAdd(abRed, rCoin);
+        bCoin=clickAdd(abBlue, bCoin);
+        rCoin=clickMinus(mbRed, rCoin);
+        bCoin=clickMinus(mbBlue, bCoin);
+        
+        if(rCoin<0) rCoin=0;
+        redCoins.setValue(rCoin);
+        
+        if(bCoin<0) bCoin=0;
+        blueCoins.setValue(bCoin);
+        
     }
     
     public boolean onClick(boolean state, SoldierSwitchButton sb)
