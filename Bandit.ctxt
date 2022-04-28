@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Bandit
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Bandit\ here.\r\n\ \r\n\ @author\ Benny\ Wu\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Bandit\ here.\n\ \n\ @author\ Benny\ Wu\n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=direction\ worldStat
 comment1.target=Bandit(int,\ Statistic)
 comment2.params=
