@@ -28,7 +28,7 @@ public class Bandit extends Soldier
         this.attackSpeed = 5;
         this.attackRange = 35;
         this.damage = 5;
-        this.triggerRange = 120;
+        this.triggerRange = 300;
         this.deathGold = 1;
     }
     
@@ -38,24 +38,34 @@ public class Bandit extends Soldier
     }
     
     public void attack(){
-        if (target == null || target.getWorld() == null){
-            List<Soldier> enemies = getObjectsInRange((int)this.triggerRange, Soldier.class);
-        
-            if (enemies.size() != 0){
-                int index = 0;
-                
-                while (index < enemies.size()){
-                    Soldier nxt = enemies.get(index);
-                    if (nxt.getDirection() != this.getDirection()){
-                        target = nxt;
-                        break;
+        if (!attackingCrystal && (target == null || target.getWorld() == null)){
+            CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(this.direction);
+            if (getDistance(c) <= this.triggerRange * 1.25){
+                attackingCrystal = true;
+            }
+            else{
+                List<Soldier> enemies = getObjectsInRange((int)this.triggerRange, Soldier.class);
+            
+                if (enemies.size() != 0){
+                    int index = 0;
+                    
+                    while (index < enemies.size()){
+                        Soldier nxt = enemies.get(index);
+                        if (nxt.getDirection() != this.getDirection()){
+                            target = nxt;
+                            break;
+                        }
+                        index ++;
                     }
-                    index ++;
                 }
             }
         
         } else{
-            if (getDistance(target) <= attackRange){
+            CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(direction);
+            if (attackingCrystal && getDistance(c) <= attackRange){
+                c.getHit(this.damage, new SwordHitEffect());
+            }
+            else if (getDistance(target) <= attackRange){
                 target.getHit(this.damage, new SwordHitEffect());
             }
         }

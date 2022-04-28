@@ -14,6 +14,7 @@ public abstract class Tower extends Entity
      */
     
     protected StatBar hpBar;
+    protected int hp;
     public Tower(int direction){
         super(direction);
         this.direction = direction;
@@ -32,5 +33,21 @@ public abstract class Tower extends Entity
     }
     public int getDirection(){
         return direction;
+    }
+    
+    public void getHit(double hp, Effect effect){
+        
+        this.hp -= hp;
+        
+        hpBar.update((int)this.hp);
+        
+        if (effect != null){
+            getWorld().addObject(effect, getX(), getY());
+        }
+        
+        if (hp <= 0){
+            // implement lose feature>
+            getWorld().removeObject(this);
+        }
     }
 }

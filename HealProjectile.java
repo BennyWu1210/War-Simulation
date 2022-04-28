@@ -8,8 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HealProjectile extends Projectile
 {
-    private Soldier target;
-    private int targetX, targetY;
     private boolean isEnemy;
     public HealProjectile(Soldier target, boolean isEnemy){
         super(target);
@@ -17,9 +15,18 @@ public class HealProjectile extends Projectile
         String file = isEnemy ? "healProjectile02.png" : "healProjectile.png";
         this.image = new GreenfootImage(file);
         this.speed = 5;
-        this.target = target;
         this.targetX = target.getX();
         this.targetY = target.getY();
+        getImage().scale(30, 30);
+    }
+    
+    public HealProjectile(CrystalTower crystal){
+        super(crystal);
+        this.targetX = crystal.getX();
+        this.targetY = crystal.getY();
+        this.image = new GreenfootImage("healProjectile.png");
+        this.speed = 5;
+        this.isEnemy = true;
         getImage().scale(30, 30);
     }
     
@@ -31,21 +38,27 @@ public class HealProjectile extends Projectile
     {
         if (target == null || target.getWorld() == null){
             move(targetX, targetY);
+        } else if (crystal != null){
+            move(targetX, targetY);
+            turnTowards(crystal);
         } else{
             move(target);
             turnTowards(target);
             targetX = target.getX();
             targetY = target.getY();
-            
         }
         
         if (getDistance(targetX, targetY) <= 4){
-            if (target != null && target.getWorld() == null) {
+            if (target != null && target.getWorld() != null) {
                 if (!isEnemy){
-                    target.heal(15);
+                    target.heal(5);
                 } else{
-                    target.getHit(15, null);
+                    target.getHit(5, null);
                 }
+            }
+            
+            if (crystal != null) {
+                crystal.getHit(5, null);
             }
             
             getWorld().addObject(new HealingEffect(), getX(), getY());

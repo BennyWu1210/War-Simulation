@@ -132,6 +132,10 @@ public class MyWorld extends World
         
     }
     
+    public CrystalTower getTargettedCrystal(int side){
+        return side == 1 ? crystalBlue : crystalRed;
+    }
+    
     
     
 }

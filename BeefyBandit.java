@@ -21,7 +21,7 @@ public class BeefyBandit extends Soldier
         this.attackSpeed = 8;
         this.attackRange = 180;
         this.damage = 5;
-        this.triggerRange = 260;
+        this.triggerRange = 500;
         this.deathGold = 10;
         
         // intialize hp bar
@@ -52,24 +52,35 @@ public class BeefyBandit extends Soldier
     
     
     public void attack(){
-        if (target == null || target.getWorld() == null){
-            List<Soldier> enemies = getObjectsInRange((int)this.triggerRange, Soldier.class);
-        
-            if (enemies.size() != 0){
-                int index = 0;
-                
-                while (index < enemies.size()){
-                    Soldier nxt = enemies.get(index);
-                    if (nxt.getDirection() != this.getDirection()){
-                        target = nxt;
-                        break;
+        if (!attackingCrystal && (target == null || target.getWorld() == null)){
+            CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(this.direction);
+            if (getDistance(c) <= this.triggerRange * 1.25){
+                attackingCrystal = true;
+            }
+            else{
+                List<Soldier> enemies = getObjectsInRange((int)this.triggerRange, Soldier.class);
+            
+                if (enemies.size() != 0){
+                    int index = 0;
+                    
+                    while (index < enemies.size()){
+                        Soldier nxt = enemies.get(index);
+                        if (nxt.getDirection() != this.getDirection()){
+                            target = nxt;
+                            break;
+                        }
+                        index ++;
                     }
-                    index ++;
                 }
             }
         
         } else{
-            if (getDistance(target) <= attackRange){
+            CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(direction);
+            if (attackingCrystal && getDistance(c) <= attackRange){
+                Arrow a = new Arrow(((MyWorld)getWorld()).getTargettedCrystal(this.direction));
+                getWorld().addObject(a, getX(), getY());
+            }
+            else if (getDistance(target) <= attackRange){
                 Arrow a = new Arrow(target);
                 getWorld().addObject(a, getX(), getY());
             }

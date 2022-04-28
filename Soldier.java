@@ -26,6 +26,8 @@ public abstract class Soldier extends Entity
     
     protected int deathGold;
     protected Statistic worldStat;
+    
+    protected boolean attackingCrystal;
     /**
      * Act - do whatever the Soldiers wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -57,17 +59,16 @@ public abstract class Soldier extends Entity
     public void act()
     {
         
-        
+        CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(direction);
         if (timer % (200.0 / attackSpeed) == 0) attack();
         
-        if (target == null || target.getWorld() == null){
+        if (attackingCrystal && getDistance(c) > attackRange - 3){
+            move(c);
+        } else if (target == null || target.getWorld() == null){
             move((int)((speed + 0.5) * direction));
         } else if (getDistance(target) > attackRange - 3){
-            System.out.println(getDistance(target));
             move(target);
-        } else{
-            System.out.println(getDistance(target));
-        }
+        } 
         
         if (isAtEdge()){
             getWorld().removeObject(this);
@@ -84,7 +85,7 @@ public abstract class Soldier extends Entity
         if (hp <= 0){
             worldStat.updateGold(deathGold);
             worldStat.updateKills();
-            this.die();
+            die();
             return;
         }
         
@@ -130,9 +131,6 @@ public abstract class Soldier extends Entity
             getWorld().addObject(effect, getX(), getY());
         }
         
-        if (hp <= 0){
-            getWorld().removeObject(this);
-        }
     }
     public void goldBagUpdate(){
         worldStat.updateGold(50);
@@ -172,10 +170,10 @@ public abstract class Soldier extends Entity
     }
     
     public void heal(double hp){
-        if (this.hp + hp > this.maxHP) this.hp = this.maxHP;
+        if (this.hp + hp >= this.maxHP) this.hp = this.maxHP;
         else this.hp += hp;
         
-        hpBar.update((int)this.hp);
+        hpBar.update(this.hp);
     }
     
 

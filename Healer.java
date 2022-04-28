@@ -21,7 +21,7 @@ public class Healer extends Soldier
         this.attackSpeed = 4;
         this.attackRange = 200;
         this.damage = 3;
-        this.triggerRange = 270;
+        this.triggerRange = 400;
         this.deathGold = 15;
         
         // intialize hp bar
@@ -34,7 +34,6 @@ public class Healer extends Soldier
     public void act()
     {
         super.act();
-        
         
     }
     
@@ -58,31 +57,37 @@ public class Healer extends Soldier
     }
     
     public void attack(){
-        if (target == null || target.getWorld() == null){
-            List<Soldier> soldiers = getObjectsInRange((int)this.triggerRange, Soldier.class);
-        
-            if (soldiers.size() != 0){
-                int index = 0;
-                
-                while (index < soldiers.size()){
-                    Soldier nxt = soldiers.get(index);
-                    if (nxt.getClass() != this.getClass()){
-                        target = nxt;
-                        break;
+        if (!attackingCrystal && (target == null || target.getWorld() == null)){
+            CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(this.direction);
+            if (getDistance(c) <= this.triggerRange * 1.25){
+                attackingCrystal = true;
+            }
+            else{
+                List<Soldier> enemies = getObjectsInRange((int)this.triggerRange, Soldier.class);
+            
+                if (enemies.size() != 0){
+                    int index = 0;
+                    
+                    while (index < enemies.size()){
+                        Soldier nxt = enemies.get(index);
+                        if (nxt.getDirection() != this.getDirection()){
+                            target = nxt;
+                            break;
+                        }
+                        index ++;
                     }
-                    index ++;
                 }
             }
         
         } else{
-            if (getDistance(target) <= attackRange){
-                if (target.getDirection() == this.getDirection()){
-                    HealProjectile a = new HealProjectile(target, false);
-                    getWorld().addObject(a, getX(), getY());
-                } else{
-                    HealProjectile a = new HealProjectile(target, true);
-                    getWorld().addObject(a, getX(), getY());
-                }
+            CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(direction);
+            if (attackingCrystal && getDistance(c) <= attackRange){
+                HealProjectile a = new HealProjectile(((MyWorld)getWorld()).getTargettedCrystal(this.direction));
+                getWorld().addObject(a, getX(), getY());
+            }
+            else if (getDistance(target) <= attackRange){
+                HealProjectile a = new HealProjectile(target, target.getDirection() != this.getDirection());
+                getWorld().addObject(a, getX(), getY());
             }
         }
     }

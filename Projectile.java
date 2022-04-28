@@ -13,9 +13,16 @@ public abstract class Projectile extends Entity
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
+    protected int targetX, targetY;
+    protected CrystalTower crystal;
     public Projectile(Soldier target){
         super(target);
     }
+    
+    public Projectile(CrystalTower crystal){
+        super(null);
+    }
+    
     
     public void addedToWorld(){
         super.addedToWorld();
@@ -23,9 +30,7 @@ public abstract class Projectile extends Entity
     
     public void act()
     {
-        move(8);
         //If you are at edge delete yaself bozo
-        if(isAtEdge())
-            getWorld().removeObject(this);
+        if(isAtEdge()) getWorld().removeObject(this);
     }
 }
