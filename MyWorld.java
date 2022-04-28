@@ -112,7 +112,7 @@ public class MyWorld extends World
     }
     
     public void spawnTower(){
-        int yCoord = (Greenfoot.getRandomNumber(9)+2)*70;
+        int yCoord = (Greenfoot.getRandomNumber(8)+2)*70;
         int xCoord = Greenfoot.getRandomNumber(50)+1;
         if (statLeft.getGold() >= 100){
             statLeft.updateGold(-100);
