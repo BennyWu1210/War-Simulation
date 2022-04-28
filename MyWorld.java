@@ -139,7 +139,16 @@ public class MyWorld extends World
     public CrystalTower getTargettedCrystal(int side){
         return side == 1 ? crystalBlue : crystalRed;
     }
-    
+    public void updateStatistic(int direction, int gold){
+        if (direction == 1){
+            statLeft.updateGold(gold);
+            statLeft.updateKills();
+        }
+        if (direction == -1){
+            statRight.updateGold(gold);
+            statRight.updateKills();
+        }
+    }
     
     
 }
