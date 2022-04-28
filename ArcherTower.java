@@ -25,7 +25,7 @@ public class ArcherTower extends Tower
         getImage().scale(100, 100);
         
 
-        this.hp = this.maxHp = 300;
+        this.hp = this.maxHp = 600;
         this.attackSpeed = 30;
 
  
@@ -52,13 +52,13 @@ public class ArcherTower extends Tower
             upgrade();
         }
         
-        //super.act();
+        super.act();
     }
     //The upgraded tower now shoots quicker, deals more damage and has a greater range
     public void upgrade(){
         image = new GreenfootImage("ArcherTower2.png");
         setImage(image);
-        getImage().scale(100, 100);
+        getImage().scale(100, 140);
         if (attackSpeed >= (attackSpeed - 5)){
             this.attackSpeed -= 5;
         }

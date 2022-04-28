@@ -63,7 +63,7 @@ public class CrystalTower extends Tower
         } else{
             if (getDistance(target) <= attackRange){
                 Fireball f = new Fireball(target);
-                getWorld().addObject(f, getX(), getY());
+                getWorld().addObject(f, getX(), getY() - 75);
             }
         }
     }

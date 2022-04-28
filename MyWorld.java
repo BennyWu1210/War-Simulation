@@ -74,6 +74,7 @@ public class MyWorld extends World
         existSoldier();
         
         sound.setVolume(25);
+        this.setPaintOrder(StatBar.class);
     }
     
     public void existSoldier(){
@@ -160,8 +161,14 @@ public class MyWorld extends World
             removeObjects(getObjects(Soldier.class));
             if(crystalRed.getHpPercentage()<crystalBlue.getHpPercentage()){
                 gameStatus=2;
+                addObject(new ClashRoyaleLaughEffect(),1100, 100);
+                addObject(new ExplosionEffect(), crystalRed.getX()-30, crystalRed.getY()-80);
+                removeObject(crystalRed);
             }else{
                 gameStatus=1;
+                addObject(new ClashRoyaleLaughEffect(),100, 100);
+                addObject(new ExplosionEffect(), crystalBlue.getX()-30, crystalBlue.getY()-80);
+                removeObject(crystalBlue);
             }
             timeCycle.mark();
             
@@ -175,27 +182,24 @@ public class MyWorld extends World
             gameOver = true;
             timeCycle.mark();
             removeObjects(getObjects(Soldier.class));
-            
+            addObject(new ClashRoyaleLaughEffect(),1100, 100);
+            addObject(new ExplosionEffect(), crystalRed.getX()-30, crystalRed.getY()-80);
+            removeObject(crystalRed);
             gameStatus=2;
-            
         }
-        
-
         else if(!gameOver && crystalBlue.getHpPercentage()<=0){
             gameOver = true;
             removeObjects(getObjects(Soldier.class));
+            addObject(new ClashRoyaleLaughEffect(),100, 100);
             gameStatus=1;
             timeCycle.mark();
-            
-          
+            addObject(new ExplosionEffect(), crystalBlue.getX()-30, crystalBlue.getY()-80);
+            removeObject(crystalBlue);
         }
-        
-        
-        if (gameOver && timeCycle.millisElapsed() >= 3000){
+        if (gameOver && timeCycle.millisElapsed() >= 3500){
             EndWorld ew = new EndWorld(gameStatus);
             Greenfoot.setWorld(ew);
         }
-        
         if (!gameOver){
             spawner(1);
             spawner(-1);

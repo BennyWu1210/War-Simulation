@@ -28,9 +28,12 @@ public class Entity extends Actor
     // Target of this entity
     protected Soldier target;
     
+    protected boolean faceLeft;
+    
     
     
     public Entity(int direction){
+        this.faceLeft = direction == -1;
         this.isGif = false;
         this.direction = direction;
     }
@@ -91,6 +94,14 @@ public class Entity extends Actor
         double xAdjust = xDif > 0 ? 0.5 : -0.5, yAdjust = yDif > 0 ? 0.5 : -0.5;
         setLocation(getX() + (int)(xDif + xAdjust), getY() + (int)(yDif + yAdjust));
         
+        if (xDif < 0) {
+            if (!faceLeft) getImage().mirrorHorizontally();
+            faceLeft = true;
+        }
+        else {
+            if (faceLeft) getImage().mirrorHorizontally();
+            faceLeft = false;
+        }
         // if (xDif < 0) getImage().mirrorVertically();
     }
     
@@ -109,6 +120,12 @@ public class Entity extends Actor
         turnTowards(actor.getX(), actor.getY());
     }
     
+    /**
+     * Returns direction of this soldier
+     */
+    public int getDirection(){
+        return this.direction;
+    }
     
    
     

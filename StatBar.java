@@ -224,7 +224,7 @@ public class StatBar extends Actor
         if (target != null && getWorld() != null){
             if (target.getWorld() != null)
             {
-                levelLabel.setLocation(target.getX() , target.getY() - (int)(1.5 * offset));
+                if (levelLabel != null) levelLabel.setLocation(target.getX() , target.getY() - (int)(1.5 * offset));
                 setLocation (target.getX(), target.getY() - offset);
             }
             else

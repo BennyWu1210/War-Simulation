@@ -72,13 +72,24 @@ public abstract class Soldier extends Entity
         //If you are set to attack the Crystal and are closer to the Crystal than any other enemy, move towards the Crystal
         if (attackingTower && getDistance(targetTower) > attackRange - 3){
             move(targetTower);
+            
+            
         } 
         //If you are not set to attack the tower and have no soldier target, just move forward
         else if (!attackingTower){
             if (target == null || target.getWorld() == null){
                 move((int)((speed + 0.5) * direction));
-            //If you have a target, move towards the target
-            } else if (getDistance(target) > attackRange - 3){
+                if (direction == -1) {
+                    if (!faceLeft) getImage().mirrorHorizontally();
+                    faceLeft = true;
+                }
+                else {
+                    if (faceLeft) getImage().mirrorHorizontally();
+                    faceLeft = false;
+                }
+                //If you have a target, move towards the target
+            }
+            else if (getDistance(target) > attackRange - 3){
                 move(target);
             } 
         }
@@ -160,12 +171,7 @@ public abstract class Soldier extends Entity
     }
     
     
-    /**
-     * Returns direction of this soldier
-     */
-    public int getDirection(){
-        return this.direction;
-    }
+    
     
     /**
      * Returns which side you are on

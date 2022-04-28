@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ArcherTower
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ ArcherTower\ here.\r\n\ \r\n\ The\ Archer\ Tower\ is\ a\ tower\ which\ shoots\ arrows\ when\ soldiers\ are\ in\ their\r\n\ range.\ They\ are\ also\ able\ to\ upgrade\ to\ a\ higher\ level,\ which\ improves.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ ArcherTower\ here.\n\ \n\ The\ Archer\ Tower\ is\ a\ tower\ which\ shoots\ arrows\ when\ soldiers\ are\ in\ their\n\ range.\ They\ are\ also\ able\ to\ upgrade\ to\ a\ higher\ level,\ making\ them\ stronger.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=direction
 comment1.target=ArcherTower(int)
 comment2.params=

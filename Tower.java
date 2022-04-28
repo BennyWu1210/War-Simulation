@@ -5,7 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * There are 4 types of towers: the archer tower, the crytal tower, the inferno
  * tower and the gold mine.
  * 
- * @author (your name) 
+ * @author (Benny Wu) 
  * @version (a version number or a date)
  */
 
@@ -28,10 +28,9 @@ public abstract class Tower extends Entity
     //add health bar
     public void addedToWorld(World w){
         super.addedToWorld(w);
-        
         w.addObject(hpBar, getX(), getY());
-        hpBar.initLevel(1, 30);
     }
+    
     public void act()
     {
         this.hp -= 1;

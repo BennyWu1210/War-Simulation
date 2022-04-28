@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CrystalTower
-comment0.text=\r\n\ The\ Crystal\ Tower\ is\ a\ tower\ which\ shoots\ fireballs\ when\ soldiers\ are\ in\ its\r\n\ range.\ It\ is\ also\ the\ most\ important\ tower\ as\ whichever\ side\ is\ able\ to\ kill\r\n\ their\ opponent's\ crystal\ tower\ first\ wins.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ The\ Crystal\ Tower\ is\ a\ tower\ which\ shoots\ fireballs\ when\ soldiers\ are\ in\ its\n\ range.\ It\ is\ also\ the\ most\ important\ tower\ as\ whichever\ side\ is\ able\ to\ kill\n\ their\ opponent's\ crystal\ tower\ first\ wins.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=direction
 comment1.target=CrystalTower(int)
 comment2.params=

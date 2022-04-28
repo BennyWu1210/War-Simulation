@@ -11,7 +11,7 @@ public class Modifier extends World
 
     
     private GreenfootImage backgroundImage;
-    public int count = 0;
+    private int count = 0;
     
     //remember to put getter
     private boolean keyDown;
@@ -24,17 +24,17 @@ public class Modifier extends World
     
     public boolean [] RedSwitch = new boolean [4];
     public boolean [] BlueSwitch = new boolean [4];
-    public Text [] redText = new Text [4];
-    public Text [] blueText = new Text [4];
-    public SoldierSwitchButton [] redSoldier = new SoldierSwitchButton[4];
-    public SoldierSwitchButton [] blueSoldier = new SoldierSwitchButton[4];
+    private Text [] redText = new Text [4];
+    private Text [] blueText = new Text [4];
+    private SoldierSwitchButton [] redSoldier = new SoldierSwitchButton[4];
+    private SoldierSwitchButton [] blueSoldier = new SoldierSwitchButton[4];
     public int rCoin=0, bCoin=0;
-    public Label redCoins;
-    public Label blueCoins;
-    public AddButton abRed;
-    public AddButton abBlue;
-    public MinusButton mbRed;
-    public MinusButton mbBlue;
+    private Label redCoins;
+    private Label blueCoins;
+    private AddButton abRed;
+    private AddButton abBlue;
+    private MinusButton mbRed;
+    private MinusButton mbBlue;
     private GreenfootSound[] typeSound;
     private int typeSoundIndex;
     

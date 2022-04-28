@@ -15,13 +15,14 @@ public class ExplosionEffect extends Effect
     private GreenfootSound sound;
     
     public ExplosionEffect(){
-        super(new GifImage("healingEffect.gif"), 5, 1);
-        for (GreenfootImage img: gifImageList) img.scale(100, 60);
-        sound = new GreenfootSound("Heal.wav");
+        super(new GifImage("CrystalExplosion.gif"), 5, 1);
+        for (GreenfootImage img: gifImageList) img.scale(280, 260);
+        sound = new GreenfootSound("bomb_sound.mp3");
         sound.setVolume(50);
     }
     public void act()
     {
         super.act();
+        sound.play();
     }
 }

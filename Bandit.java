@@ -27,7 +27,7 @@ public class Bandit extends Soldier
         this.speed = 2.3;
         this.attackSpeed = 5;
         this.attackRange = 35;
-        this.damage = 5;
+        this.damage = 8;
         this.triggerRange = 300;
         this.deathGold = 1;
     }
