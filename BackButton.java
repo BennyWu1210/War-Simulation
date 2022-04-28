@@ -2,30 +2,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class BackButton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This back button is used to return from the Modifier world to TitlePage world.
+ * @author (Kevin) 
+ * @version (April 28, 2022)
  */
 public class BackButton extends Button
 {
-    /**
-     * Act - do whatever the BackButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     private Modifier page;
+    
+    /**
+     * This set the default value for the back button.
+     * 
+     * @param page  The Modifier world to follow around
+     */
     public BackButton(Modifier page)
     {
-        super();
-        initStartButton();
-        this.page=page;
+        initBackButton();//initialize the button
+        this.page=page;//initialize the page
     }
 
-       
-
     /**
-     * Initializing the start button image
+     * Initializing the back button image
      */
-    public void initStartButton()
+    public void initBackButton()
     {
         images[0] = new GreenfootImage("BackButtonDark.png"); 
         images[1] = new GreenfootImage("BackButtonLight.png"); 
@@ -39,9 +38,8 @@ public class BackButton extends Button
     {
         if(Greenfoot.mouseClicked(this))
         {
-            //Switch to the loading page
+            //Switch to the Title page
             page.returnTitlePage();
-            
         }
     }
 
@@ -52,11 +50,11 @@ public class BackButton extends Button
     {
         if (Greenfoot.mouseMoved(this))
         {
-            setImage(images[1]); //Dark
+            setImage(images[1]); //Light
         }
         else if(Greenfoot.mouseMoved(null))
         {
-            setImage(images[0]); //Light
+            setImage(images[0]); //Dark
         }
 
     }

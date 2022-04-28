@@ -4,19 +4,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class StartButton here.
  * This class is for user to play the game from the BeginingPage world to VehicleWorld. When the mouse move to this object, it will change colour.
  * @Kevin Zhu, Benny Wu
- * @April 2, 2022 (a version number or a date)
+ * @April 2, 2022 
  */
 public class StartButton extends Button
 {
     private TitlePage page;
+    
+    /**
+     * This set the default value for the start button.
+     */
     public StartButton(TitlePage page)
     {
         super();
         initStartButton();
         this.page = page;
     }
-
-
 
     /**
      * Initializing the start button image
@@ -46,11 +48,11 @@ public class StartButton extends Button
     {
         if (Greenfoot.mouseMoved(this))
         {
-            setImage(images[1]); //Dark
+            setImage(images[1]); //Light
         }
         else if(Greenfoot.mouseMoved(null))
         {
-            setImage(images[0]); //Light
+            setImage(images[0]); //Dark
         }
 
     }

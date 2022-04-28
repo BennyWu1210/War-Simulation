@@ -2,23 +2,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class MinusButton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This add button is used to add the inital gold.
+ * @author (Kevin Zhu) 
+ * @version (April 28, 2022)
  */
 public class MinusButton extends Button
 {
+    /**
+     * This set the default value for the minus button.
+     */
     public MinusButton()
     {
-        super();
-        initStartButton();
+        initMinusButton();
     }
-
 
     /**
      * Initializing the start button image
      */
-    public void initStartButton()
+    public void initMinusButton()
     {
         images[0] = new GreenfootImage("minusLight.png"); 
         images[1] = new GreenfootImage("minusDark.png"); 

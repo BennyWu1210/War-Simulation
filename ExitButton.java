@@ -2,24 +2,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class ExitButton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * The Exist Button is used to end the game
+ * @author (Kevin Zhu) 
+ * @version (April 28, 2022)
  */
 public class ExitButton extends Button
 {
+    /**
+     * This set the default value for the exist button.
+     */
     public ExitButton()
     {
-        super();
-        initStartButton();
+        initExitButton();
     }
 
-    
-
     /**
-     * Initializing the start button image
+     * Initializing the exit button image
      */
-    public void initStartButton()
+    public void initExitButton()
     {
         images[0] = new GreenfootImage("ExitDark.png"); 
         images[1] = new GreenfootImage("ExitLight.png"); 
@@ -33,7 +33,7 @@ public class ExitButton extends Button
     {
         if(Greenfoot.mouseClicked(this))
         {
-            //Switch to the loading page
+            //stop the game
             Greenfoot.stop();
         }
     }
@@ -45,12 +45,11 @@ public class ExitButton extends Button
     {
         if (Greenfoot.mouseMoved(this))
         {
-            setImage(images[1]); //Dark
+            setImage(images[1]); //Light
         }
         else if(Greenfoot.mouseMoved(null))
         {
-            setImage(images[0]); //Light
+            setImage(images[0]); //Dark
         }
-
     }
 }

@@ -1,13 +1,10 @@
 #BlueJ class context
 comment0.target=InfernoTower
-comment0.text=\n\ The\ Inferno\ Tower\ is\ a\ tower\ which\ shoot\ fireballs\ at\ a\ fast\ rate\ when\n\ soldiers\ get\ near\ it.\ It\ also\ loses\ hp\ automatically.\n\ \n\ @author\ Benny\ Wu\n\ @version\ April\ 28th,\ 2022\n
+comment0.text=\n\ The\ Inferno\ Tower\ is\ a\ tower\ which\ shoot\ fireballs\ at\ a\ fast\ rate\ when\n\ soldiers\ get\ near\ it.\ It\ also\ loses\ hp\ automatically.\n\ \n\ @author\ Benny\ Wu\n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=direction
 comment1.target=InfernoTower(int)
-comment1.text=\n\ Creates\ a\ new\ Inferno\ tower\ with\ a\ given\ direction\n\ \n\ @param\ direction\ \ the\ direction\ this\ Inferno\ tower\ is\ facing\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\n\ Inferno\ tower's\ act\ method\n
 comment3.params=
 comment3.target=void\ attack()
-comment3.text=\n\ The\ attack\ method\ for\ Inferno\ tower\:\n\ \n\ It\ first\ locates\ a\ target\ if\ it\ does\ not\ have\ one\ originally,\ then\ it\ shoots\ a\ fireball\ toward\ this\ target\n
 numComments=4

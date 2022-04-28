@@ -1,13 +1,12 @@
 #BlueJ class context
 comment0.target=Projectile
-comment0.text=\n\ Projectile\ is\ an\ abstract\ class\ that\ incorporates\ the\ common\ characteristics\ for\ Arrow,\ \n\ Fireball\ and\ HealProjectile\n\ \n\ @author\ Benny\ Wu\n\ @version\ April\ 28th,\ 2022\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Projectile\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=target
 comment1.target=Projectile(Soldier)
-comment1.text=\n\ This\ creates\ a\ new\ instance\ of\ projectile\n\ \n\ @param\ target\ \ Pass\ in\ the\ target\ as\ a\ soldier\n
 comment2.params=tower
 comment2.target=Projectile(Tower)
-comment2.text=\n\ This\ creates\ a\ new\ instance\ of\ projectile\n\ \n\ @param\ target\ \ Pass\ in\ the\ target\ as\ a\ tower\n
-comment3.params=
-comment3.target=void\ act()
-comment3.text=\n\ Act\ method\ for\ projectile\n
-numComments=4
+comment3.params=w
+comment3.target=void\ addedToWorld(greenfoot.World)
+comment4.params=
+comment4.target=void\ act()
+numComments=5

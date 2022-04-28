@@ -8,17 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Button extends Actor
 {
-    // Stores the initial image and the image when hovered 
+    //initialized the variable 
     protected GreenfootImage[] images = new GreenfootImage[2];
     private GreenfootSound[] clickSound;
     private int clickSoundIndex;
-
     
-    public Button(){
-        
-    }
-    
-    
+    //Create a play click sound method
     public void clicksSound(){
         //set up and initalize for the sound preparation
         clickSoundIndex=0;
@@ -40,10 +35,13 @@ public abstract class Button extends Actor
         onClick();
         onHover();
         if(Greenfoot.mouseClicked(this)){
+            //play the sound
             clicksSound();
         }
         
     }
+    
+    // Stores the initial image and the image when hovered 
     public abstract void onClick();
     public abstract void onHover();
 }

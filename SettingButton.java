@@ -2,30 +2,30 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class SettingButton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * The setting button is ued to switch from the title page to the modifier
+ * @author (Kevin Zhu) 
+ * @version (April 28, 2022)
  */
 public class SettingButton extends Button
 {
-    /**
-     * Act - do whatever the SettingButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    
     private TitlePage page;
+    /**
+     * This set the default value for the setting button.
+     * 
+     * @param page  The TitlePage world to follow around
+     */
     public SettingButton(TitlePage page)
     {
-        super();
-        initStartButton();
+        //initialization
+        initSettingButton();
         this.page = page;
     }
 
- 
-
     /**
-     * Initializing the start button image
+     * Initializing the setting button image
      */
-    public void initStartButton()
+    public void initSettingButton()
     {
         images[0] = new GreenfootImage("SetDark.png"); 
         images[1] = new GreenfootImage("SetLight.png"); 
@@ -39,11 +39,10 @@ public class SettingButton extends Button
     {
         if(Greenfoot.mouseClicked(this))
         {
-            //Switch to the loading page
+            //Switch to the modifier page
             page.openModifier();
         }
     }
-
     
     /**
      * Check if mouse hovers on this button
@@ -52,12 +51,11 @@ public class SettingButton extends Button
     {
         if (Greenfoot.mouseMoved(this))
         {
-            setImage(images[1]); //Dark
+            setImage(images[1]); //Light
         }
         else if(Greenfoot.mouseMoved(null))
         {
-            setImage(images[0]); //Light
+            setImage(images[0]); //Dark
         }
-
     }
 }

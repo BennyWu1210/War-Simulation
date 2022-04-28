@@ -1,39 +1,32 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class AddButton here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This add button is used to add the inital gold.
+ * 
+ * @author Kevin Zhu
+ * @version April 28, 2022
  */
 public class AddButton extends Button
 {
+    /**
+     * This set the default value for the add button.
+     */
     public AddButton()
     {
-        super();
-        initStartButton();
+        initAddButton();//initalize
     }
 
-     
-
     /**
-     * Initializing the start button image
+     * Initializing the add button image
      */
-    public void initStartButton()
+    public void initAddButton()
     {
         images[0] = new GreenfootImage("AddLight.png"); 
         images[1] = new GreenfootImage("AddDark.png"); 
         setImage(images[0]);
     }
-
-    /**
-     * Check if mouse clicks this button
-     */
-    public void onClick()
-    {
-        
-    }
-
+    
     /**
      * Check if mouse hovers on this button
      */
@@ -47,6 +40,13 @@ public class AddButton extends Button
         {
             setImage(images[0]); //Light
         }
-
+    }
+    
+    /**
+     * Check if mouse clicks this button
+     */
+    public void onClick()
+    {
+        // feature to be implemented        
     }
 }

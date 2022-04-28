@@ -1,13 +1,10 @@
 #BlueJ class context
 comment0.target=CrystalTower
-comment0.text=\n\ The\ Crystal\ Tower\ is\ a\ tower\ which\ shoots\ fireballs\ when\ soldiers\ are\ in\ its\n\ range.\ It\ is\ also\ the\ most\ important\ tower\ as\ whichever\ side\ is\ able\ to\ kill\n\ their\ opponent's\ crystal\ tower\ first\ wins.\n\ \n\ @author\ Benny\ Wu,\ Angus\ Feng\n\ @version\ April\ 28th,\ 2022\n
+comment0.text=\n\ The\ Crystal\ Tower\ is\ a\ tower\ which\ shoots\ fireballs\ when\ soldiers\ are\ in\ its\n\ range.\ It\ is\ also\ the\ most\ important\ tower\ as\ whichever\ side\ is\ able\ to\ kill\n\ their\ opponent's\ crystal\ tower\ first\ wins.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=direction
 comment1.target=CrystalTower(int)
-comment1.text=\n\ Creates\ a\ new\ Crystal\ tower\ with\ a\ given\ direction\n\ \n\ @param\ direction\ \ the\ direction\ this\ crystal\ tower\ is\ facing\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\n\ Crystal\ tower's\ act\ method\n
 comment3.params=
 comment3.target=void\ attack()
-comment3.text=\n\ The\ attack\ method\ for\ archer\ tower\:\n\ \n\ It\ first\ locates\ a\ target\ if\ it\ does\ not\ have\ one\ originally,\ then\ it\ shoots\ a\ fire\ ball\ toward\ this\ target\n
 numComments=4

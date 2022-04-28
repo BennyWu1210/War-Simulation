@@ -1,11 +1,12 @@
 #BlueJ class context
 comment0.target=BackButton
-comment0.text=\n\ Write\ a\ description\ of\ class\ BackButton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ BackButton\ here.\n\ This\ back\ button\ is\ used\ to\ return\ from\ the\ Modifier\ world\ to\ TitlePage\ world.\n\ @author\ (Kevin)\ \n\ @version\ (April\ 28,\ 2022)\n
 comment1.params=page
 comment1.target=BackButton(Modifier)
+comment1.text=\n\ This\ set\ the\ default\ value\ for\ the\ back\ button.\n\ \n\ @param\ page\ \ The\ Modifier\ world\ to\ follow\ around\n
 comment2.params=
-comment2.target=void\ initStartButton()
-comment2.text=\n\ Initializing\ the\ start\ button\ image\n
+comment2.target=void\ initBackButton()
+comment2.text=\n\ Initializing\ the\ back\ button\ image\n
 comment3.params=
 comment3.target=void\ onClick()
 comment3.text=\n\ Check\ if\ mouse\ clicks\ this\ button\n

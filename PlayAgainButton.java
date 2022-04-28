@@ -2,23 +2,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class PlayAgainButton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * The Play Again Button is used to play the game again
+ * @author (Kevin Zhu) 
+ * @version (April 28, 2022)
  */
 public class PlayAgainButton extends Button
 {
+    /**
+     * This set the default value for the play again button.
+     */
     public PlayAgainButton()
     {
-        super();
-        initStartButton();
+        initPlayAgainButton();
     }
 
- 
     /**
      * Initializing the start button image
      */
-    public void initStartButton()
+    public void initPlayAgainButton()
     {
         images[0] = new GreenfootImage("AgainDark.png"); 
         images[1] = new GreenfootImage("AgainLight.png"); 
@@ -32,7 +33,7 @@ public class PlayAgainButton extends Button
     {
         if(Greenfoot.mouseClicked(this))
         {
-            //Switch to the loading page
+            //Switch to the title page
             TitlePage tp = new TitlePage();
             Greenfoot.setWorld(tp);
         }
@@ -45,12 +46,11 @@ public class PlayAgainButton extends Button
     {
         if (Greenfoot.mouseMoved(this))
         {
-            setImage(images[1]); //Dark
+            setImage(images[1]); //Light
         }
         else if(Greenfoot.mouseMoved(null))
         {
-            setImage(images[0]); //Light
+            setImage(images[0]); //Dark
         }
-
     }
 }
