@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Button
-comment0.text=\r\n\ An\ abstract\ class\ that\ provides\ properties\ and\ functinalities\ for\ various\ buttons\r\n\ \r\n\ @author\ Benny\ Wu,\ Kevin\ Zhu\r\n\ @version\ Apr.\ 20th,\ 2022\r\n
+comment0.text=\n\ An\ abstract\ class\ that\ provides\ properties\ and\ functinalities\ for\ various\ buttons\n\ \n\ @author\ Benny\ Wu,\ Kevin\ Zhu\n\ @version\ Apr.\ 20th,\ 2022\n
 comment1.params=
 comment1.target=Button()
 comment2.params=

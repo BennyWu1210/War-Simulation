@@ -21,23 +21,26 @@ public class ArcherTower extends Tower
         setImage(image);
         getImage().scale(100, 100);
         
+        this.hp = 300;
         this.attackSpeed = 5;
         this.attackRange = 280;
         this.damage = 0.1;
         this.triggerRange = 360;
         if (direction == -1) getImage().mirrorHorizontally();
-        if (direction == 1) hpBar = new StatBar(300, 300, this, 75, 7, 50, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
-        else hpBar = new StatBar(300, 300, this, 75, 7, 50, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
+        if (direction == 1) hpBar = new StatBar(hp, hp, this, 75, 7, 50, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
+        else hpBar = new StatBar(hp, hp, this, 75, 7, 50, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
     }
+    
     public void act()
     {
+        
         timer++;
         if (timer == 15){
             attack();
             timer = 0;
         }
         
-        
+        super.act();
     }
     public void attack(){
         if (target == null || target.getWorld() == null){

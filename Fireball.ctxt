@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Fireball
+comment0.text=\n\ Write\ a\ description\ of\ class\ Arrow\ here.\n\ \n\ @author\ Benny\n\ @version\ April\ 27th,\ 2022\n
+comment1.params=target
+comment1.target=Fireball(Soldier)
+comment2.params=
+comment2.target=void\ addedToWorld()
+comment3.params=
+comment3.target=void\ act()
+numComments=4

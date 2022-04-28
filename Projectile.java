@@ -19,7 +19,7 @@ public abstract class Projectile extends Entity
         super(target);
     }
     
-    public Projectile(CrystalTower crystal){
+    public Projectile(Tower tower){
         super(null);
     }
     

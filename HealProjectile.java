@@ -20,10 +20,10 @@ public class HealProjectile extends Projectile
         getImage().scale(30, 30);
     }
     
-    public HealProjectile(CrystalTower crystal){
-        super(crystal);
-        this.targetX = crystal.getX();
-        this.targetY = crystal.getY();
+    public HealProjectile(Tower tower){
+        super(tower);
+        this.targetX = tower.getX();
+        this.targetY = tower.getY();
         this.image = new GreenfootImage("healProjectile.png");
         this.speed = 5;
         this.isEnemy = true;

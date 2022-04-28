@@ -27,7 +27,8 @@ public abstract class Soldier extends Entity
     protected int deathGold;
     protected Statistic worldStat;
     
-    protected boolean attackingCrystal;
+    protected boolean attackingTower;
+    protected Tower targetTower;
     /**
      * Act - do whatever the Soldiers wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -59,13 +60,13 @@ public abstract class Soldier extends Entity
     public void act()
     {
         
-        CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(direction);
+        
         if (timer % (200.0 / attackSpeed) == 0) attack();
         
-        if (attackingCrystal && getDistance(c) > attackRange - 3){
-            move(c);
+        if (attackingTower && getDistance(targetTower) > attackRange - 3){
+            move(targetTower);
         } 
-        else if (!attackingCrystal){
+        else if (!attackingTower){
             if (target == null || target.getWorld() == null){
                 move((int)((speed + 0.5) * direction));
             } else if (getDistance(target) > attackRange - 3){

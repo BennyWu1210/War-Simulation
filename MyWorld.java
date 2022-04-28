@@ -58,6 +58,8 @@ public class MyWorld extends World
             timeCount.setValue(time);
         }
         existSoldier();
+        
+        addObject(new InfernoTower(-1),300, 200);
     }
     
     public void existSoldier(){
@@ -112,6 +114,7 @@ public class MyWorld extends World
         if (statRight.getGold()>=100){
             statRight.updateGold(-100);
             addObject(new ArcherTower(-1),900-xCoord, yCoord);
+            
         }
     }
     public void spawnGold(){

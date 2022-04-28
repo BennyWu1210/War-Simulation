@@ -29,7 +29,12 @@ public abstract class Tower extends Entity
     }
     public void act()
     {
-        // Add your action code here.
+        this.hp -= 1;
+        hpBar.update(hp);
+        
+        if (this.hp <= 0){
+            getWorld().removeObject(this);
+        }
     }
     public int getDirection(){
         return direction;

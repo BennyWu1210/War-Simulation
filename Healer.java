@@ -57,10 +57,11 @@ public class Healer extends Soldier
     }
     
     public void attack(){
-        if (!attackingCrystal && (target == null || target.getWorld() == null)){
+        if (!attackingTower && (target == null || target.getWorld() == null)){
             CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(this.direction);
             if (getDistance(c) <= this.triggerRange * 1.25){
-                attackingCrystal = true;
+                attackingTower = true;
+                targetTower = c;
             }
             else{
                 List<Soldier> enemies = getObjectsInRange((int)this.triggerRange, Soldier.class);
@@ -78,11 +79,13 @@ public class Healer extends Soldier
                     }
                 }
             }
+            
+            
         
         } else{
-            CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(direction);
-            if (attackingCrystal && getDistance(c) <= attackRange){
-                HealProjectile a = new HealProjectile(((MyWorld)getWorld()).getTargettedCrystal(this.direction));
+           
+            if (attackingTower && getDistance(targetTower) <= attackRange){
+                HealProjectile a = new HealProjectile(targetTower);
                 getWorld().addObject(a, getX(), getY());
             }
             else if (target != null && target.getWorld() != null && getDistance(target) <= attackRange){

@@ -4,29 +4,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class Arrow here.
  * 
  * @author Benny
- * @version April 25th, 2022
+ * @version April 27th, 2022
  */
-public class Arrow extends Projectile
+public class Fireball extends Projectile
 {
     
     
-    public Arrow(Soldier target){
+    public Fireball(Soldier target){
         super(target);
-        this.image = new GreenfootImage("arrow.png");
+        this.image = new GreenfootImage("flame02.gif");
         this.speed = 8;
         this.targetX = target.getX();
         this.targetY = target.getY();
         getImage().scale(30, 30);
     }
     
-    public Arrow(Tower tower){
-        super(tower);
-        this.image = new GreenfootImage("arrow.png");
-        this.speed = 8;
-        this.targetX = tower.getX();
-        this.targetY = tower.getY();
-        getImage().scale(30, 30);
-    }
     
     public void addedToWorld(){
         super.addedToWorld();
@@ -36,9 +28,6 @@ public class Arrow extends Projectile
     {
         if (target == null || target.getWorld() == null){
             move(targetX, targetY);
-        } else if (crystal != null){
-            move(targetX, targetY);
-            turnTowards(crystal);
         } else{
             move(target);
             turnTowards(target);
@@ -49,8 +38,7 @@ public class Arrow extends Projectile
         if (getDistance(targetX, targetY) <= 6){
             if (target == null || target.getWorld() == null) getWorld().addObject(new ArrowHitEffect(), getX(), getY());
             else {
-                if (crystal != null) crystal.getHit(10, null);
-                else target.getHit(10, new ArrowHitEffect());
+                target.getHit(15, new ExplosionEffect());
             }
             getWorld().removeObject(this);
             return;

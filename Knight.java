@@ -54,10 +54,11 @@ public class Knight extends Soldier
     }
     
     public void attack(){
-        if (!attackingCrystal && (target == null || target.getWorld() == null)){
+        if (!attackingTower && (target == null || target.getWorld() == null)){
             CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(this.direction);
             if (getDistance(c) <= this.triggerRange * 1.25){
-                attackingCrystal = true;
+                attackingTower = true;
+                targetTower = c;
             }
             else{
                 List<Soldier> enemies = getObjectsInRange((int)this.triggerRange, Soldier.class);
@@ -78,7 +79,7 @@ public class Knight extends Soldier
         
         } else{
             CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(direction);
-            if (attackingCrystal && getDistance(c) <= attackRange){
+            if (attackingTower && getDistance(c) <= attackRange){
                 c.getHit(this.damage, new SwordHitEffect());
             }
             else if (target != null && target.getWorld() != null && getDistance(target) <= attackRange){
