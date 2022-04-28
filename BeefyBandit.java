@@ -80,7 +80,7 @@ public class BeefyBandit extends Soldier
                 Arrow a = new Arrow(((MyWorld)getWorld()).getTargettedCrystal(this.direction));
                 getWorld().addObject(a, getX(), getY());
             }
-            else if (getDistance(target) <= attackRange){
+            else if (target != null && target.getWorld() != null && getDistance(target) <= attackRange){
                 Arrow a = new Arrow(target);
                 getWorld().addObject(a, getX(), getY());
             }

@@ -129,6 +129,7 @@ public class MyWorld extends World
         }
         spawner(1);
         spawner(-1);
+        spawnTower();
         
     }
     

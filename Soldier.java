@@ -64,11 +64,14 @@ public abstract class Soldier extends Entity
         
         if (attackingCrystal && getDistance(c) > attackRange - 3){
             move(c);
-        } else if (target == null || target.getWorld() == null){
-            move((int)((speed + 0.5) * direction));
-        } else if (getDistance(target) > attackRange - 3){
-            move(target);
         } 
+        else if (!attackingCrystal){
+            if (target == null || target.getWorld() == null){
+                move((int)((speed + 0.5) * direction));
+            } else if (getDistance(target) > attackRange - 3){
+                move(target);
+            } 
+        }
         
         if (isAtEdge()){
             getWorld().removeObject(this);

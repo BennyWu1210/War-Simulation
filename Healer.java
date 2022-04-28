@@ -85,7 +85,7 @@ public class Healer extends Soldier
                 HealProjectile a = new HealProjectile(((MyWorld)getWorld()).getTargettedCrystal(this.direction));
                 getWorld().addObject(a, getX(), getY());
             }
-            else if (getDistance(target) <= attackRange){
+            else if (target != null && target.getWorld() != null && getDistance(target) <= attackRange){
                 HealProjectile a = new HealProjectile(target, target.getDirection() != this.getDirection());
                 getWorld().addObject(a, getX(), getY());
             }

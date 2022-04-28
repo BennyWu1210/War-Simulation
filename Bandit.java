@@ -65,7 +65,7 @@ public class Bandit extends Soldier
             if (attackingCrystal && getDistance(c) <= attackRange){
                 c.getHit(this.damage, new SwordHitEffect());
             }
-            else if (getDistance(target) <= attackRange){
+            else if (target != null && target.getWorld() != null && getDistance(target) <= attackRange){
                 target.getHit(this.damage, new SwordHitEffect());
             }
         }
