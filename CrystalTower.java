@@ -13,7 +13,7 @@ public class CrystalTower extends Tower
     private int timer;
     public CrystalTower(int direction){
         super(direction);
-        this.hp = this.maxHp = 820;
+        this.hp = this.maxHp = 860;
         this.attackSpeed = 5;
         this.attackRange = 400;
         this.damage = 10;

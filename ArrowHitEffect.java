@@ -8,14 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ArrowHitEffect extends Effect
 {
-    
+    private GreenfootSound sound;
     public ArrowHitEffect(){
         super(new GifImage("arrowEffect.gif"), 5, 1);
         for (GreenfootImage img: gifImageList) img.scale(100, 100);
+        sound = new GreenfootSound("Bow Fire.wav");
+        sound.setVolume(58);
     }
     
     public void act()
     {
         super.act();
+        sound.play();
     }
 }

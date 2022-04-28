@@ -90,7 +90,7 @@ public class MyWorld extends World
     private void spawner(int yDirection){
         // System.out.println("time passed: " + getTimePassed());
         int spawnSpeed;
-        if (getTimePassed() < 0.25) spawnSpeed = 250;
+        if (getTimePassed() < 0.25) spawnSpeed = 210;
         else if (getTimePassed() < 0.50) spawnSpeed = 120;
         else if (getTimePassed() < 0.75) spawnSpeed = 80;
         else spawnSpeed = 50;

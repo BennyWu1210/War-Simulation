@@ -10,6 +10,7 @@ public class Fireball extends Projectile
 {
     
     
+    private GreenfootSound sound;
     public Fireball(Soldier target){
         super(target);
         this.image = new GreenfootImage("flame02.gif");
@@ -17,15 +18,19 @@ public class Fireball extends Projectile
         this.targetX = target.getX();
         this.targetY = target.getY();
         getImage().scale(30, 30);
+        sound = new GreenfootSound("Fireball_sound.mp3");
+        sound.setVolume(35);
     }
     
     
     public void addedToWorld(World w){
         super.addedToWorld(w);
+        
     }
     
     public void act()
     {
+        sound.play();
         if (target == null || target.getWorld() == null){
             move(targetX, targetY);
         } else{

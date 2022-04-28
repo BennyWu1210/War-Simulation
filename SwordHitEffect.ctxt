@@ -1,9 +1,8 @@
 #BlueJ class context
 comment0.target=SwordHitEffect
-comment0.text=\n\ Write\ a\ description\ of\ class\ SwordHitEffect\ here.\n\ \n\ @author\ Benny\ Wu\ \n\ @version\ April\ 25th\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ SwordHitEffect\ here.\n\ \n\ @author\ Benny\ Wu\ \n\ @version\ April\ 27th\n
 comment1.params=
 comment1.target=SwordHitEffect()
-comment1.text=\n\ Act\ -\ do\ whatever\ the\ SwordHitEffect\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment2.params=
 comment2.target=void\ act()
 numComments=3

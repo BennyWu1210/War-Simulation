@@ -8,18 +8,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class SwordSwingEffect extends Effect
 {
-    /**
-     * Act - do whatever the SwordHitEffect wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private GreenfootSound sound;
     
     public SwordSwingEffect(){
         super(new GifImage(Greenfoot.getRandomNumber(2) == 0 ? "swordSwing01.gif" : "swordSwing02.gif"), 5, 1);
         for (GreenfootImage img: gifImageList) img.scale(100, 100);
+        String random = Greenfoot.getRandomNumber(2) == 0 ? "Sword.wav" : "Sword2.wav";
+        sound = new GreenfootSound(random);
+        sound.setVolume(65);
     }
     
     public void act()
     {
         super.act();
+        sound.play();
     }
 }

@@ -9,13 +9,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class HealingEffect extends Effect
 {
     
+    private GreenfootSound sound;
+    
     public HealingEffect(){
         super(new GifImage("healingEffect.gif"), 5, 1);
         for (GreenfootImage img: gifImageList) img.scale(100, 60);
+        sound = new GreenfootSound("Heal.wav");
+        sound.setVolume(50);
     }
     
     public void act()
     {
         super.act();
+        sound.play();
     }
 }
