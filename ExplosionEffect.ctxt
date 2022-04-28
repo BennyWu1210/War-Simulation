@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ExplosionEffect
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ ArrowHitEffect\ here.\r\n\ \r\n\ @author\ (Benny\ Wu)\ \r\n\ @version\ (April\ 27th,\ 2022)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ ExplosionEffect\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=ExplosionEffect()
 comment2.params=

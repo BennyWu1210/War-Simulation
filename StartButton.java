@@ -16,11 +16,7 @@ public class StartButton extends Button
         this.page = page;
     }
 
-    public void act() 
-    {
-        onHover();
-        onClick();
-    }    
+
 
     /**
      * Initializing the start button image

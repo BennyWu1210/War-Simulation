@@ -20,11 +20,7 @@ public class BackButton extends Button
         this.page=page;
     }
 
-    public void act() 
-    {
-        onHover();
-        onClick();
-    }    
+       
 
     /**
      * Initializing the start button image

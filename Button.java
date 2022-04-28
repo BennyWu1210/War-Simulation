@@ -10,11 +10,40 @@ public abstract class Button extends Actor
 {
     // Stores the initial image and the image when hovered 
     protected GreenfootImage[] images = new GreenfootImage[2];
+    private GreenfootSound[] clickSound;
+    private int clickSoundIndex;
+
     
     public Button(){
         
     }
     
+    
+    public void clicksSound(){
+        //set up and initalize for the sound preparation
+        clickSoundIndex=0;
+        clickSound=new GreenfootSound [20];
+        for(int i=0;i<clickSound.length;i++){
+            clickSound[i]=new GreenfootSound("Click.wav");
+        }
+        
+        //output
+        clickSound[clickSoundIndex].setVolume(80);
+        clickSound[clickSoundIndex].play();
+        clickSoundIndex++;
+        if(clickSoundIndex>clickSound.length-1){
+            clickSoundIndex=0;
+        }
+    }
+    
+    public void act(){
+        onClick();
+        onHover();
+        if(Greenfoot.mouseClicked(this)){
+            clicksSound();
+        }
+        
+    }
     public abstract void onClick();
     public abstract void onHover();
 }

@@ -21,11 +21,7 @@ public class SoldierSwitchButton extends Button
         
     }
 
-    public void act() 
-    {
-        onClick();
-        
-    }    
+   
 
     /**
      * Initializing the start button image

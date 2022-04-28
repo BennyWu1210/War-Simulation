@@ -14,12 +14,7 @@ public class PlayAgainButton extends Button
         initStartButton();
     }
 
-    public void act() 
-    {
-        onHover();
-        onClick();
-    }    
-
+ 
     /**
      * Initializing the start button image
      */

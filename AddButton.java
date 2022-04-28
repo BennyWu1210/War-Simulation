@@ -14,11 +14,7 @@ public class AddButton extends Button
         initStartButton();
     }
 
-    public void act() 
-    {
-        onHover();
-       
-    }    
+     
 
     /**
      * Initializing the start button image

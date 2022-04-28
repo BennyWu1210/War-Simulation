@@ -35,6 +35,8 @@ public class Modifier extends World
     public AddButton abBlue;
     public MinusButton mbRed;
     public MinusButton mbBlue;
+    private GreenfootSound[] typeSound;
+    private int typeSoundIndex;
     
     private TitlePage tp;
     public Modifier(TitlePage tp)
@@ -158,6 +160,23 @@ public class Modifier extends World
         
     }
     
+    public void typesSound(){
+        //set up and initalize for the sound preparation
+        typeSoundIndex=0;
+        typeSound=new GreenfootSound [20];
+        for(int i=0;i<typeSound.length;i++){
+            typeSound[i]=new GreenfootSound("Type.wav");
+        }
+        
+        //output
+        typeSound[typeSoundIndex].setVolume(70);
+        typeSound[typeSoundIndex].play();
+        typeSoundIndex++;
+        if(typeSoundIndex>typeSound.length-1){
+            typeSoundIndex=0;
+        }
+    }
+    
     public boolean onClick(boolean state, SoldierSwitchButton sb)
     {
         if(Greenfoot.mouseClicked(sb)) {
@@ -174,10 +193,12 @@ public class Modifier extends World
         
         String key = Greenfoot.getKey();
         if (key != null){
+            
             if(key == "backspace"){
                 removeObjects(getObjectsAt(380+(count-1)*30, 220, null));
                 count--;
                 timeList.pop();
+                typesSound();
             }else{
                 int v = key.charAt(0) - '0';
                 if (v >= 0 && v < 10){
@@ -186,6 +207,7 @@ public class Modifier extends World
                     Label label = new Label(key, 35);
                     addObject(label, 380 + count * 30, 220);
                     count ++;
+                    typesSound();
                 }
             }
         }

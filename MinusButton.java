@@ -14,11 +14,6 @@ public class MinusButton extends Button
         initStartButton();
     }
 
-    public void act() 
-    {
-        onHover();
-
-    }    
 
     /**
      * Initializing the start button image

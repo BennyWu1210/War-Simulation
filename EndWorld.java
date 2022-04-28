@@ -30,10 +30,12 @@ public class EndWorld extends World
         }
         if(status==1){
             Label RedWin = new Label("RED WIN", 100);
+            RedWin.setFillColor(Color.RED);
             addObject(RedWin, 595, 200);
         }
         if(status==2){
             Label BlueWin = new Label("BLUE WIN", 100);
+            BlueWin.setFillColor(Color.BLUE);
             addObject(BlueWin, 595, 200);
         }
         

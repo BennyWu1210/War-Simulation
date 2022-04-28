@@ -163,15 +163,28 @@ public class MyWorld extends World
             timeCount.add(-1);
             timeCycle.mark();
         }
+        
+        if(crystalRed.getHpPercentage()<=0){
+            timeCycle.mark();
+            if(timeCycle.millisElapsed()>5000){
+                
+            }
+            gameStatus=2;
+            EndWorld ew = new EndWorld(gameStatus);
+            Greenfoot.setWorld(ew);
+        }
+        if(crystalBlue.getHpPercentage()<=0){
+            gameStatus=1;
+            EndWorld ew = new EndWorld(gameStatus);
+            Greenfoot.setWorld(ew);
+          
+        }
         spawner(1);
         spawner(-1);
         spawnTower();
+        
+        
     }
-    
-    public int getRedCoin(){
-        return modifier.rCoin;
-    }
-    
     public CrystalTower getTargettedCrystal(int side){
         return side == 1 ? crystalBlue : crystalRed;
     }
