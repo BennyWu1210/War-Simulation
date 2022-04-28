@@ -88,8 +88,8 @@ public class MyWorld extends World
             int redIdx = Greenfoot.getRandomNumber(redListLength);
             int blueIdx = Greenfoot.getRandomNumber(blueListLength);
     
-            int ySpawn = Greenfoot.getRandomNumber(10)*50 + 70;
-            int xSpawn = direction == 1 ? 50 : 950;
+            int ySpawn = Greenfoot.getRandomNumber(9)*50 + 120;
+            int xSpawn = direction == 1 ? 250 : 950;
             Soldier soldier;
         
             int redChoice = redSpawnControl.get(redIdx);
@@ -112,7 +112,7 @@ public class MyWorld extends World
     }
     
     public void spawnTower(){
-        int yCoord = (Greenfoot.getRandomNumber(10)+1)*70;
+        int yCoord = (Greenfoot.getRandomNumber(9)+2)*70;
         int xCoord = Greenfoot.getRandomNumber(50)+1;
         if (statLeft.getGold() >= 100){
             statLeft.updateGold(-100);
