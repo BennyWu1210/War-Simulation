@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Bandit
 comment0.text=\n\ Write\ a\ description\ of\ class\ Bandit\ here.\n\ \n\ @author\ Benny\ Wu\n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=direction
-comment1.target=Bandit(int)
+comment1.params=direction\ worldStat
+comment1.target=Bandit(int,\ Statistic)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=

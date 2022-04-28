@@ -36,8 +36,6 @@ public class Modifier extends World
     public MinusButton mbRed;
     public MinusButton mbBlue;
     
-    
-    
     private TitlePage tp;
     public Modifier(TitlePage tp)
     {    

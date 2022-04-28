@@ -39,6 +39,7 @@ public class MyWorld extends World
     public List<Integer> redSpawnControl, blueSpawnControl;
     
     public int redListLength, blueListLength;
+    private int gameStatus;
     
     private boolean infernoLeft, infernoRight;
     public MyWorld(Modifier modifier)
@@ -154,7 +155,8 @@ public class MyWorld extends World
     public void act(){
         //timeCount.setValue(tim.millisElapsed()/1000);
         if(timeCount.getValue()==0){
-            EndWorld ew = new EndWorld();
+            gameStatus=0;
+            EndWorld ew = new EndWorld(gameStatus);
             Greenfoot.setWorld(ew);
         
         }else if(timeCycle.millisElapsed()>1000){
