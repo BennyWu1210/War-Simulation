@@ -40,7 +40,7 @@ public class MyWorld extends World
     private boolean infernoLeft, infernoRight;
     
     private boolean gameOver;
-    private GreenfootSound sound = new GreenfootSound("BackgroundMusic.mp3");
+    private GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
     public MyWorld(Modifier modifier)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -73,7 +73,7 @@ public class MyWorld extends World
         }
         existSoldier();
         
-        sound.setVolume(25);
+        backgroundMusic.setVolume(25);
         this.setPaintOrder(StatBar.class);
     }
     
@@ -154,8 +154,22 @@ public class MyWorld extends World
         int yCoord = (Greenfoot.getRandomNumber(6) + 1) * 70;
         addObject(new GoldBag(), 600, yCoord);
     }
+    
+    public void started(){
+        // Start the music and set its volume to 25
+
+        backgroundMusic.setVolume(25);
+        backgroundMusic.playLoop();
+        
+    }
+    
+    public void stopped(){
+        // pause music
+        backgroundMusic.stop();
+    }
+    
     public void act(){
-        sound.play();
+        backgroundMusic.playLoop();
         //timeCount.setValue(tim.millisElapsed()/1000);
         if(!gameOver && timeCount.getValue()==0){
             removeObjects(getObjects(Soldier.class));

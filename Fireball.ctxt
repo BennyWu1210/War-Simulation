@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=Fireball
-comment0.text=\n\ Write\ a\ description\ of\ class\ Arrow\ here.\n\ \n\ @author\ Benny\n\ @version\ April\ 27th,\ 2022\n
+comment0.text=\n\ Fireball\ is\ the\ projectile\ of\ the\ crystal\ and\ Inferno\ tower.\ \n\ It\ deals\ the\ most\ damage\ out\ of\ the\ 3\ projectiles\n\ \n\ @author\ Benny\n\ @version\ April\ 28th,\ 2022\n
 comment1.params=target
 comment1.target=Fireball(Soldier)
+comment1.text=\n\ This\ creates\ a\ new\ instance\ of\ Fireball\n\ \n\ @param\ target\ \ Pass\ in\ the\ target\ as\ a\ soldier\n
 comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
+comment2.text=\n\ This\ calls\ its\ parent's\ addedToWorld()\ in\ order\ to\ flip\ the\ image\ according\ to\ its\ direction\n
 comment3.params=
 comment3.target=void\ act()
+comment3.text=\n\ The\ act\ method\ for\ Fireball\:\n\ \n\ Mainly\ responsible\ for\ controlling\ its\ movement\ and\ check\ whether\ it\ is\ removed\ from\ the\ world\n
 numComments=4

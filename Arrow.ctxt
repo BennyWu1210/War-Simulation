@@ -1,12 +1,16 @@
 #BlueJ class context
 comment0.target=Arrow
-comment0.text=\n\ Write\ a\ description\ of\ class\ Arrow\ here.\n\ \n\ @author\ Benny\n\ @version\ April\ 25th,\ 2022\n
+comment0.text=\n\ Arrow\ is\ a\ projectile\ that\ can\ follow\ its\ target\ while\ dealing\ great\ damage\n\ \n\ @author\ Benny\n\ @version\ April\ 28th,\ 2022\n
 comment1.params=target
 comment1.target=Arrow(Soldier)
+comment1.text=\n\ This\ creates\ a\ new\ instance\ of\ Arrow\n\ \n\ @param\ target\ \ Pass\ in\ the\ target\ as\ a\ soldier\n
 comment2.params=tower
 comment2.target=Arrow(Tower)
+comment2.text=\n\ This\ creates\ a\ new\ instance\ of\ Arrow\n\ \n\ @param\ target\ \ Pass\ in\ the\ target\ as\ a\ tower\n
 comment3.params=w
 comment3.target=void\ addedToWorld(greenfoot.World)
+comment3.text=\n\ This\ calls\ its\ parent's\ addedToWorld()\ in\ order\ to\ flip\ the\ image\ according\ to\ its\ direction\n
 comment4.params=
 comment4.target=void\ act()
+comment4.text=\n\ The\ act\ method\ for\ Arrow\:\n\ \n\ Mainly\ responsible\ for\ controlling\ its\ movement\ and\ check\ whether\ it\ is\ removed\ from\ the\ world\n
 numComments=5

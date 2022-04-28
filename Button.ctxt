@@ -1,14 +1,10 @@
 #BlueJ class context
 comment0.target=Button
-comment0.text=\r\n\ An\ abstract\ class\ that\ provides\ properties\ and\ functinalities\ for\ various\ buttons\r\n\ \r\n\ @author\ Benny\ Wu,\ Kevin\ Zhu\r\n\ @version\ Apr.\ 20th,\ 2022\r\n
+comment0.text=\n\ An\ abstract\ class\ that\ provides\ properties\ and\ functinalities\ for\ various\ buttons\n\ \n\ @author\ Benny\ Wu,\ Kevin\ Zhu\n\ @version\ Apr.\ 20th,\ 2022\n
 comment1.params=
 comment1.target=Button()
 comment2.params=
-comment2.target=void\ clicksSound()
+comment2.target=void\ onClick()
 comment3.params=
-comment3.target=void\ act()
-comment4.params=
-comment4.target=void\ onClick()
-comment5.params=
-comment5.target=void\ onHover()
-numComments=6
+comment3.target=void\ onHover()
+numComments=4

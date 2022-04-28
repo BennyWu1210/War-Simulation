@@ -1,14 +1,16 @@
 #BlueJ class context
 comment0.target=SoldierSwitchButton
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ SoldierSwitchButton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ SoldierSwitchButton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=SoldierSwitchButton()
 comment2.params=
-comment2.target=void\ initStartButton()
-comment2.text=\r\n\ Initializing\ the\ start\ button\ image\r\n
+comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ onClick()
-comment3.text=\r\n\ Check\ if\ mouse\ clicks\ this\ button\r\n
+comment3.target=void\ initStartButton()
+comment3.text=\n\ Initializing\ the\ start\ button\ image\n
 comment4.params=
-comment4.target=void\ onHover()
-numComments=5
+comment4.target=void\ onClick()
+comment4.text=\n\ Check\ if\ mouse\ clicks\ this\ button\n
+comment5.params=
+comment5.target=void\ onHover()
+numComments=6

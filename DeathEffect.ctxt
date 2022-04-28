@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=DeathEffect
-comment0.text=\n\ A\ death\ effect\ that\ deletes\ the\ referenced\ actor\ and\ replaces\ it\ with\ a\ png\ in\ the\ project\ files.\n\n\n
+comment0.text=\n\ A\ death\ effect\ that\ deletes\ the\ referenced\ actor\ and\ replaces\ it\ with\ a\ png\ in\ the\ project\ files.\n\n\ @author\ Angus\ Feng\n\ @version\ ?\n
 comment1.params=file\ direction
 comment1.target=DeathEffect(java.lang.String,\ int)
+comment1.text=\n\ Constructor\ for\ DeathEffect\n
 comment2.params=
 comment2.target=void\ addedToWorld()
-comment3.params=
-comment3.target=void\ act()
-numComments=4
+comment2.text=\n\ Flips\ the\ image\ if\ it\ is\ facing\ in\ the\ negative\ direction\n
+numComments=3

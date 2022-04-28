@@ -2,21 +2,31 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class BeefyBandit here.
+ * Beefy Bandit is not only strong, but he can also shoots arrow very well! 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Benny Wu, Angus Feng, Caleb
+ * @version April 28th, 2022
  */
 public class BeefyBandit extends Soldier
 {
+    // creates the class-wide initial health for Beefy Bandit
     private static final int initHp = 160;
+    
+    /**
+     * Creates a new Beefy Bandit with a given direction
+     * 
+     * @param direction  the direction this Beefy Bandit is facing
+     */
     public BeefyBandit (int direction)
     {
+        // calls super constructor
         super(direction, initHp);
+        
+        // sets image for bandit
         image = new GreenfootImage("BeefyBandit.png");
         getImage().scale(80, 82);
         
-        // testing
+        // sets all the properties for this beefy bandit 
         this.speed = 1.1;
         this.attackSpeed = 8;
         this.attackRange = 180;
@@ -30,27 +40,23 @@ public class BeefyBandit extends Soldier
     }
 
     
-    public void act()
-    {
-        super.act();
-    }
-    
+    /**
+     * The die method for Beefy Bandit: 
+     * 
+     * It leaves a corpse behind and remove itself from the world
+     */
     public void die(){
         getWorld().addObject(new DeathEffect("BanditDead.png", direction), getX(), getY());
         removeSelf();
         
     }
+ 
     
-    // unnecessary method
-    public void getHit(){
-        Actor projectile = getOneIntersectingObject(Projectile.class);
-        if (projectile != null){
-            hp = hp-1;
-            getWorld().removeObject(projectile);
-        }
-    }
-    
-    
+    /**
+     * The attack method for Beefy Bandit: 
+     * 
+     * It uses a sword with special effects to attack its target
+     */
     public void attack(){
         if (!attackingTower && (target == null || target.getWorld() == null)){
             CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(this.direction);
@@ -59,6 +65,7 @@ public class BeefyBandit extends Soldier
                 targetTower = c;
             }
             else{
+                // get a list of enemy objects within its range
                 List<Soldier> enemies = getObjectsInRange((int)this.triggerRange, Soldier.class);
             
                 if (enemies.size() != 0){
@@ -67,6 +74,7 @@ public class BeefyBandit extends Soldier
                     while (index < enemies.size()){
                         Soldier nxt = enemies.get(index);
                         if (nxt.getDirection() != this.getDirection()){
+                            // found new target
                             target = nxt;
                             break;
                         }
@@ -76,6 +84,7 @@ public class BeefyBandit extends Soldier
             }
         
         } else{
+            // Otherwise, attack the current tower/target
             CrystalTower c = ((MyWorld)getWorld()).getTargettedCrystal(direction);
             if (attackingTower && getDistance(targetTower) <= attackRange){
                 Arrow a = new Arrow(targetTower);

@@ -1,12 +1,16 @@
 #BlueJ class context
 comment0.target=ArcherTower
-comment0.text=\n\ Write\ a\ description\ of\ class\ ArcherTower\ here.\n\ \n\ The\ Archer\ Tower\ is\ a\ tower\ which\ shoots\ arrows\ when\ soldiers\ are\ in\ their\n\ range.\ They\ are\ also\ able\ to\ upgrade\ to\ a\ higher\ level,\ making\ them\ stronger.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ \n\ The\ Archer\ Tower\ is\ a\ tower\ which\ shoots\ arrows\ when\ soldiers\ are\ in\ their\n\ range.\ They\ are\ also\ able\ to\ upgrade\ to\ a\ higher\ level,\ making\ them\ stronger.\n\ \n\ @author\ Benny,\ Angus,\ Caleb\n\ @version\ April\ 28th,\ 2022\n
 comment1.params=direction
 comment1.target=ArcherTower(int)
+comment1.text=\n\ Creates\ a\ new\ Archer\ tower\ with\ a\ given\ direction\n\ \n\ @param\ direction\ \ the\ direction\ this\ archer\ tower\ is\ facing\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\n\ Archer\ tower's\ act\ method\n
 comment3.params=
 comment3.target=void\ upgrade()
+comment3.text=\n\ The\ upgraded\ tower\ now\ shoots\ quicker,\ deals\ more\ damage\ and\ has\ a\ greater\ range\n
 comment4.params=
 comment4.target=void\ attack()
+comment4.text=\n\ The\ attack\ method\ for\ archer\ tower\:\n\ \n\ It\ first\ locates\ a\ target\ if\ it\ does\ not\ have\ one\ originally,\ then\ it\ shoots\ an\ arrow\ toward\ this\ target\n
 numComments=5
