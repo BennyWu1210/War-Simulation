@@ -15,15 +15,16 @@ public class ArcherTower extends Tower
      */
     private double attackSpeed, attackRange, triggerRange, damage;
     int timer;
+    int upgradeTimer = 0;
     public ArcherTower(int direction){
         super(direction);
         image = new GreenfootImage("archerTower.png");
         setImage(image);
         getImage().scale(100, 100);
         
-        this.attackSpeed = 5;
+        this.attackSpeed = 20;
         this.attackRange = 280;
-        this.damage = 0.1;
+        this.damage = 5;
         this.triggerRange = 360;
         if (direction == -1) getImage().mirrorHorizontally();
         if (direction == 1) hpBar = new StatBar(300, 300, this, 75, 7, 50, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
@@ -32,12 +33,27 @@ public class ArcherTower extends Tower
     public void act()
     {
         timer++;
-        if (timer == 15){
+        upgradeTimer++;
+        if (timer == attackSpeed){
             attack();
             timer = 0;
         }
+        if (upgradeTimer == 300){
+            upgrade();
+        }
         
         
+    }
+    public void upgrade(){
+        image = new GreenfootImage("ArcherTower2.png");
+        setImage(image);
+        getImage().scale(116, 100);
+        if (attackSpeed >= (attackSpeed - 5)){
+            this.attackSpeed -= 5;
+        }
+        this.damage += 5;
+        this.attackRange += 100;
+        this.triggerRange += 100;
     }
     public void attack(){
         if (target == null || target.getWorld() == null){

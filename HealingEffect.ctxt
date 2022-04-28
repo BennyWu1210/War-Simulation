@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=HealingEffect
-comment0.text=\n\ Write\ a\ description\ of\ class\ ArrowHitEffect\ here.\n\ \n\ @author\ (Benny\ Wu)\ \n\ @version\ (April\ 26th,\ 2022)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ArrowHitEffect\ here.\r\n\ \r\n\ @author\ (Benny\ Wu)\ \r\n\ @version\ (April\ 26th,\ 2022)\r\n
 comment1.params=
 comment1.target=HealingEffect()
 comment2.params=

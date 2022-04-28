@@ -323,4 +323,5 @@ public class StatBar extends Actor
         
         getWorld().addObject(levelLabel, getX(), getY() - 2 * offset);
     }
+    
 }
