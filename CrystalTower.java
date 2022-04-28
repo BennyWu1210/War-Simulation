@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
 /**
  * Write a description of class CrystalTower here.
  * 
@@ -10,10 +10,15 @@ public class CrystalTower extends Tower
 {
     
   
-    private static int maxHp = 1000;    
+    private static int maxHp = 850; 
+    private int timer;
     public CrystalTower(int direction){
         super(direction);
         this.hp = maxHp;
+        this.attackSpeed = 5;
+        this.attackRange = 400;
+        this.damage = 10;
+        this.triggerRange = 360;
         image = new GreenfootImage("Crystal.png");
         setImage(image);
         getImage().scale(80, 172);
@@ -27,6 +32,38 @@ public class CrystalTower extends Tower
     
     public void act()
     {
-        // Add your action code here.
+        timer++;
+        if (timer == 30){
+            attack();
+            timer = 0;
+        }
+    }
+    
+    public void attack(){
+        if (target == null || target.getWorld() == null){
+            
+        
+            List<Soldier> enemies = getObjectsInRange((int)this.triggerRange / 3, Soldier.class);
+            
+            if (enemies.size() == 0) enemies = getObjectsInRange((int)this.triggerRange, Soldier.class);
+            if (enemies.size() != 0){
+                int index = 0;
+                
+                while (index < enemies.size()){
+                    Soldier nxt = enemies.get(index);
+                    if (nxt.getDirection() != this.getDirection()){
+                        target = nxt;
+                        break;
+                    }
+                    index ++;
+                }
+            }
+        
+        } else{
+            if (getDistance(target) <= attackRange){
+                Fireball f = new Fireball(target);
+                getWorld().addObject(f, getX(), getY());
+            }
+        }
     }
 }

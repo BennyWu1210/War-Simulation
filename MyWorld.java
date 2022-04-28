@@ -161,5 +161,9 @@ public class MyWorld extends World
         }
     }
     
+    public int getTimePassed(){
+        return (int)(tim.millisElapsed() / 1000 / time );
+    }
+    
     
 }

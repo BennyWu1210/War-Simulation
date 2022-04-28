@@ -13,7 +13,7 @@ public class InfernoTower extends Tower
      * Act - do whatever the ArcherTower wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private double attackSpeed, attackRange, triggerRange, damage;
+    
     int timer;
     public InfernoTower(int direction){
         super(direction);

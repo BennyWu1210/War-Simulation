@@ -13,7 +13,6 @@ public class ArcherTower extends Tower
      * Act - do whatever the ArcherTower wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private double attackSpeed, attackRange, triggerRange, damage;
     int timer;
     int upgradeTimer = 0;
     public ArcherTower(int direction){

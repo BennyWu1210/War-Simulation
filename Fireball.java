@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.List;
 /**
  * Write a description of class Arrow here.
  * 
@@ -35,11 +35,25 @@ public class Fireball extends Projectile
             targetY = target.getY();
         }
         
+        
         if (getDistance(targetX, targetY) <= 6){
-            if (target == null || target.getWorld() == null) getWorld().addObject(new ArrowHitEffect(), getX(), getY());
-            else {
-                target.getHit(15, new ExplosionEffect());
+            
+            if (target == null || target.getWorld() == null){
+                getWorld().addObject(new ExplosionEffect(), getX(), getY());
+                getWorld().removeObject(this);
+                return;
             }
+            
+            int direction = target.getDirection();
+            List<Soldier> soldiers = getIntersectingObjects(Soldier.class);
+            
+            for (Soldier s: soldiers){
+                if (direction != target.getDirection()) continue;
+                s.getHit(5, null);
+            }
+            
+            soldiers.get(0).getHit(5, new ExplosionEffect());
+            
             getWorld().removeObject(this);
             return;
         }

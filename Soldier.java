@@ -20,6 +20,7 @@ public abstract class Soldier extends Entity
     
     protected int timer = 0; 
     protected int timerTest = 30;
+    protected int level;
     
     // attack variables
     protected double attackSpeed, attackRange, triggerRange, damage;
@@ -45,7 +46,7 @@ public abstract class Soldier extends Entity
         this.attackSpeed = 3;
         this.attackRange = 40;
         this.damage = 15;
-        
+        this.level = 1;
         this.deathGold = 5;
         //this.worldStat = worldStat;
     }
@@ -92,6 +93,7 @@ public abstract class Soldier extends Entity
             die();
             return;
         }
+    
         
         
     }

@@ -6,6 +6,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
+
+
 public abstract class Tower extends Entity
 {
     /**
@@ -15,6 +17,7 @@ public abstract class Tower extends Entity
     
     protected StatBar hpBar;
     protected int hp;
+    protected double attackSpeed, attackRange, triggerRange, damage;
     public Tower(int direction){
         super(direction);
         this.direction = direction;
