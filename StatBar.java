@@ -325,7 +325,7 @@ public class StatBar extends Actor
         
         if (level == 1) levelLabel.setFillColor(Color.DARK_GRAY);
         else if (level == 2) levelLabel.setFillColor(new Color(240, 230, 140));
-        else levelLabel.setFillColor(new Color(255, 250, 10));
+        else levelLabel.setFillColor(new Color(255, 30, 30));
         
         getWorld().addObject(levelLabel, getX(), getY() - 2 * offset);
     }

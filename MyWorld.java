@@ -88,38 +88,39 @@ public class MyWorld extends World
     }
     
     private void spawner(int yDirection){
-        
+        // System.out.println("time passed: " + getTimePassed());
         int spawnSpeed;
-        if (getTimePassed() < 0.25) spawnSpeed = 210;
-        else if (getTimePassed() < 0.50) spawnSpeed = 150;
-        else if (getTimePassed() < 0.75) spawnSpeed = 100;
+        if (getTimePassed() < 0.25) spawnSpeed = 250;
+        else if (getTimePassed() < 0.50) spawnSpeed = 120;
+        else if (getTimePassed() < 0.75) spawnSpeed = 80;
         else spawnSpeed = 50;
         
         int direction = yDirection;
         if (Greenfoot.getRandomNumber(spawnSpeed) == 0){
-            int redIdx = Greenfoot.getRandomNumber(redListLength);
-            int blueIdx = Greenfoot.getRandomNumber(blueListLength);
     
             int ySpawn = Greenfoot.getRandomNumber(600) + 50;
             int xSpawn = direction == 1 ? 120 : 1080;
+            int index = direction == 1 ? Greenfoot.getRandomNumber(redListLength) : Greenfoot.getRandomNumber(blueListLength);
+            int choice = direction == 1 ? redSpawnControl.get(index) : blueSpawnControl.get(index);
             Soldier soldier;
         
-            int redChoice = redSpawnControl.get(redIdx);
-            int blueChoice = blueSpawnControl.get(blueIdx);
+        
             
-            if (redChoice == 0 || blueChoice == 0){
+            if (choice == 0){
                 soldier = new Bandit(direction);
                 addObject(soldier, xSpawn, ySpawn);
-            }if (redChoice == 1 || blueChoice == 1){
+            }else if (choice == 1 ){
                 soldier = new BeefyBandit(direction);
                 addObject(soldier, xSpawn, ySpawn);
-            }if (redChoice == 2 || blueChoice == 2){
+            }else if (choice == 2){
                 soldier = new Healer(direction);
                 addObject(soldier, xSpawn, ySpawn);
-            }if (redChoice == 3 || blueChoice == 3){
+            }else if (choice == 3){
                 soldier = new Knight(direction);
                 addObject(soldier, xSpawn, ySpawn);
             }
+            
+            
         }
     }
     
@@ -135,13 +136,15 @@ public class MyWorld extends World
             addObject(new ArcherTower(-1),900-xCoord, yCoord);
         }
         
-        if (!infernoRight && crystalBlue.getHpPercentage() < 0.5){
+        if (!infernoRight && crystalBlue.getHpPercentage() < 0.7){
             infernoRight = true;
-            addObject(new InfernoTower(-1), 800, 450);
+            addObject(new InfernoTower(-1), 1050, 220);
+            addObject(new InfernoTower(-1), 1050, 480);
         }
-        if (!infernoLeft && crystalRed.getHpPercentage() < 0.5){
+        if (!infernoLeft && crystalRed.getHpPercentage() < 0.7){
             infernoLeft = true;
-            addObject(new InfernoTower(-1), 100, 450);
+            addObject(new InfernoTower(1), 150, 220);
+            addObject(new InfernoTower(1), 150, 480);
         }
     }
     public void spawnGold(){
@@ -182,8 +185,8 @@ public class MyWorld extends World
         }
     }
     
-    public int getTimePassed(){
-        return (int)(totalElapsedTime.millisElapsed() / 1000.0 / time );
+    public double getTimePassed(){
+        return (double)(totalElapsedTime.millisElapsed() / 1000.0 / time );
     }
     
     

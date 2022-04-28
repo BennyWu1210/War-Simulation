@@ -22,7 +22,6 @@ public class Arrow extends Projectile
     public Arrow(Tower tower){
         
         super(tower);
-        System.out.println("BRUHADFUHDS");
         this.image = new GreenfootImage("arrow.png");
         this.speed = 8;
         this.targetX = tower.getX();

@@ -25,7 +25,7 @@ public class InfernoTower extends Tower
         this.attackRange = 280;
         this.damage = 0.1;
         this.triggerRange = 360;
-        this.hp = this.maxHp = 300;
+        this.hp = this.maxHp = 900;
         if (direction == -1) getImage().mirrorHorizontally();
         if (direction == 1) hpBar = new StatBar(hp, hp, this, 75, 7, 50, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
         else hpBar = new StatBar(hp, hp, this, 75, 7, 50, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);

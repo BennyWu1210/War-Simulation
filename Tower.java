@@ -28,7 +28,7 @@ public abstract class Tower extends Entity
         super.addedToWorld(w);
         
         w.addObject(hpBar, getX(), getY());
-        hpBar.initLevel(1, 15);
+        hpBar.initLevel(1, 30);
     }
     public void act()
     {

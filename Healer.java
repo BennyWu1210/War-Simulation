@@ -20,7 +20,7 @@ public class Healer extends Soldier
         this.speed = 1.2;
         this.attackSpeed = 4;
         this.attackRange = 200;
-        this.damage = 3;
+        this.damage = 8;
         this.triggerRange = 400;
         this.deathGold = 15;
         

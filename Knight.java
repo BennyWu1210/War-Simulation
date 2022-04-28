@@ -19,13 +19,13 @@ public class Knight extends Soldier
         this.speed = 1.5;
         this.attackSpeed = 5;
         this.attackRange = 30;
-        this.damage = 15;
+        this.damage = 12;
         this.triggerRange = 300;
         this.deathGold = 2;
         
         // intialize hp bar
-        if (direction == 1) hpBar = new StatBar(100, 100, this, 32, 5, 35, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
-        else hpBar = new StatBar(100, 100, this, 32, 5, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
+        if (direction == 1) hpBar = new StatBar(initHp, initHp, this, 32, 5, 35, Color.RED, new Color(255, 204, 203), false, Color.WHITE, 1);
+        else hpBar = new StatBar(initHp, initHp, this, 32, 5, 35, Color.CYAN, new Color(202, 255, 255), false, Color.BLACK, 1);
         // hpBar.initLevel(1, 10);
     }
   

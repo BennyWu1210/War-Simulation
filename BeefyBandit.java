@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class BeefyBandit extends Soldier
 {
-    private static final int initHp = 180;
+    private static final int initHp = 160;
     public BeefyBandit (int direction)
     {
         super(direction, initHp);

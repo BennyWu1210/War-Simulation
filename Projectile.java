@@ -26,7 +26,7 @@ public abstract class Projectile extends Entity
     
     
     public void addedToWorld(World w){
-        super.addedToWorld(w);
+        // empty
     }
     
     public void act()
