@@ -46,8 +46,8 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1); 
         this.modifier=modifier;
-        statLeft = new Statistic(true, modifier.rCoin);
-        statRight = new Statistic(false, modifier.bCoin);
+        statLeft = new Statistic(true, modifier.getRCoin());
+        statRight = new Statistic(false, modifier.getRCoin());
         backgroundImage = new GreenfootImage("Background.jpg");
         backgroundImage.scale(1200, 700);
         addObject(statLeft, 400, 50);
@@ -60,9 +60,9 @@ public class MyWorld extends World
                 
         redSpawnControl = new ArrayList<>();
         blueSpawnControl = new ArrayList<>();
-        int length = modifier.timeList.size(); // could cause null pointer
+        int length = modifier.getTimeList().size(); // could cause null pointer
         for(int i=0;i<length;i++){
-            time=time*10+modifier.timeList.get(i);
+            time=time*10+modifier.getTimeList().get(i);
         }
         addObject(timeCount, 1100, 50);
         if(time==0){
@@ -79,10 +79,10 @@ public class MyWorld extends World
     
     public void existSoldier(){
         for(int i=0;i<4;i++){
-            if(modifier.RedSwitch[i]){
+            if(modifier.getRedSwitch(i)){
                 redSpawnControl.add(i);
             }
-            if(modifier.BlueSwitch[i]){
+            if(modifier.getBlueSwitch(i)){
                 blueSpawnControl.add(i);
             }
         }

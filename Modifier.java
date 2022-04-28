@@ -15,20 +15,20 @@ public class Modifier extends World
     
     //remember to put getter
     private boolean keyDown;
-    public Stack<Integer> timeList = new Stack<Integer>();;
+    private Stack<Integer> timeList = new Stack<Integer>();;
     
     //Bandit =0;
     //BeffyBandit = 1;
     //Healer = 2;
     //Knight = 3;
     
-    public boolean [] RedSwitch = new boolean [4];
-    public boolean [] BlueSwitch = new boolean [4];
+    private boolean [] RedSwitch = new boolean [4];
+    private boolean [] BlueSwitch = new boolean [4];
     private Text [] redText = new Text [4];
     private Text [] blueText = new Text [4];
     private SoldierSwitchButton [] redSoldier = new SoldierSwitchButton[4];
     private SoldierSwitchButton [] blueSoldier = new SoldierSwitchButton[4];
-    public int rCoin=0, bCoin=0;
+    private int rCoin=0, bCoin=0;
     private Label redCoins;
     private Label blueCoins;
     private AddButton abRed;
@@ -48,8 +48,25 @@ public class Modifier extends World
         setBackground(backgroundImage);
         prepare();
         this.tp=tp;
-        
     }
+    public Stack<Integer> getTimeList(){
+        return timeList;
+    }
+    public int getRCoin(){
+        return rCoin;
+    }
+    
+    public int getBCoin(){
+        return bCoin;
+    }
+    public boolean getRedSwitch(int idx){
+        return RedSwitch[idx];
+    }
+    
+    public boolean getBlueSwitch(int idx){
+        return BlueSwitch[idx];
+    }
+    
      private void prepare()
     {
         BackButton backButton = new BackButton(this);
