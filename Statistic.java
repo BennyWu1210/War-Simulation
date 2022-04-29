@@ -4,8 +4,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Statistic extends Actor
 {
     /**
-     * The Counter Bar: The Blue Bar in the top middle of the screen
-     * 
+     * The Counter Bar: The Bar in the top middle of the screen
+     * Angus Feng
      */
     int score;
     int money;
@@ -38,6 +38,9 @@ public class Statistic extends Actor
         
          setImage(new GreenfootImage("Gold: "+ gold + "\n Kills: " + kills,40, Color.BLACK, new Color(a, b, c)));
     }
+    /**
+     * These update the stats displayed
+     */
     public void updateGold(int gold){
         this.gold += gold;
         

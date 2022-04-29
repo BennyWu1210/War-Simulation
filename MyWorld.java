@@ -1,7 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
- * Write a description of class MyWorld here.
+ * War Simulation is a game with 2 Crystals. The objective for each side is to destroy the other Crystal. Both sides spawn soldiers
+ * and these various soldiers have different features. Moreover, they level up over time, hence, becoming stronger. All the whilst they
+ * are fighting, killing a soldier rewards gold which is used to buy Archer Towers to defend the Crystal
+ * 
+ * 
  * 
  * @Benny, Angus, Caleb, Kevin, Jerry 
  * @version (a version number or a date)
@@ -132,16 +136,18 @@ public class MyWorld extends World
         }
     }
     
-    
+    /**
+     * Spawns tower
+     */
     public void spawnTower(){
         int yCoord = (Greenfoot.getRandomNumber(8)+2)*70;
         int xCoord = Greenfoot.getRandomNumber(50)+1;
-        if (statLeft.getGold() >= 100){
-            statLeft.updateGold(-100);
+        if (statLeft.getGold() >= 75){
+            statLeft.updateGold(-75);
             addObject(new ArcherTower(1), 250+xCoord, yCoord);
         }
-        if (statRight.getGold()>=100){
-            statRight.updateGold(-100);
+        if (statRight.getGold()>=75){
+            statRight.updateGold(-75);
             addObject(new ArcherTower(-1),900-xCoord, yCoord);
         }
         
@@ -156,6 +162,9 @@ public class MyWorld extends World
             addObject(new InfernoTower(1), 150, 480);
         }
     }
+    /**
+     * We don't use this method
+     */
     public void spawnGold(){
         int yCoord = (Greenfoot.getRandomNumber(6) + 1) * 70;
         addObject(new GoldBag(), 600, yCoord);

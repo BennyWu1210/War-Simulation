@@ -1,10 +1,8 @@
 #BlueJ class context
 comment0.target=EndWorld
-comment0.text=\n\ Write\ a\ description\ of\ class\ EndWorld\ here.\n\ This\ is\ world\ will\ be\ appeared\ when\ the\ game\ is\ finished\n\ @author\ (Kevin\ Zhu,\ Benny\ Wu)\ \n\ @version\ (April\ 28,\ 2022)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ EndWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=status
 comment1.target=EndWorld(int)
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ EndWorld.\n\ \n\ @param\ status\ \ this\ paremeter\ determines\ the\ result\ of\ the\ game\n
 comment2.params=
 comment2.target=void\ prepare()
-comment2.text=\n\ To\ prepare\ the\ button\ on\ the\ screen\n
 numComments=3
