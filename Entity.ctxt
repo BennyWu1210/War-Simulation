@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Entity
-comment0.text=\n\ The\ Entity\ class\ controls\ most\ of\ the\ objects\ that\ will\ be\ displayed\ in\ the\ simulation.\n\ It\ implements\ gif\ methods\ as\ well\ as\ cost,\ health\ bar\ option,\ damage,\ upgrade,\ move,\ etc.\n\ \n\ @author\ (Benny\ Wu)\ \n\ @version\ April\ 21th,\ 2022\n
+comment0.text=\n\ The\ Entity\ class\ controls\ most\ of\ the\ objects\ that\ will\ be\ displayed\ in\ the\ simulation.\n\ It\ implements\ gif\ methods\ as\ well\ as\ cost,\ health\ bar\ option,\ damage,\ upgrade,\ move,\ etc.\n\ \n\ @author\ (Benny\ Wu)\ \n\ @version\ April\ 28th,\ 2022\n
 comment1.params=direction
 comment1.target=Entity(int)
 comment1.text=\n\ The\ superclass\ for\ all\ entities\ inside\ the\ game.\ They\ share\ common\ features\ such\ as\ moving\ and\ dealing\ damage.\n\ It\ can\ be\ seen\ as\ a\ modified\ (optimized)\ version\ of\ the\ actor\ class.\n\ \n\ @direction\ \ the\ direction\ this\ sodlier\ is\ facing\ \ \n

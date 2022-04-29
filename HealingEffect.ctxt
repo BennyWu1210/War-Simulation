@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=HealingEffect
-comment0.text=\n\ Write\ a\ description\ of\ class\ ArrowHitEffect\ here.\n\ \n\ @author\ (Benny\ Wu)\ \n\ @version\ (April\ 26th,\ 2022)\n
+comment0.text=\n\ The\ effect\ when\ an\ entity\ gets\ healed\ \n\ \n\ @author\ (Benny\ Wu)\ \n\ @version\ (April\ 26th,\ 2022)\n
 comment1.params=
 comment1.target=HealingEffect()
+comment1.text=\n\ Constructor\ for\ HealingEffect\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\n\ Act\ method\ for\ healing\ effect\n
 numComments=3

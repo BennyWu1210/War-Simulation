@@ -37,7 +37,6 @@ public class HealingEffect extends Effect
     public void act()
     {
         super.act();
-        System.out.println(totalHealing);
         if (sound != null) sound.play();
         if (getWorld() == null) totalHealing --;
     }

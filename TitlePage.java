@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  *
  * The title page is the starting page of the whole program.
  * 
- * @author Kevin Zhu 
+ * @author Kevin Zhu, Benny Wu
  * @version April 28, 2022
  */
 public class TitlePage extends World

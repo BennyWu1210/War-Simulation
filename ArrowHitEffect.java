@@ -35,7 +35,6 @@ public class ArrowHitEffect extends Effect
     public void act()
     {
         super.act();
-        System.out.println(totalArrows);
         if (sound != null) sound.play(); // play sound
         if (getWorld() == null){
             totalArrows --;

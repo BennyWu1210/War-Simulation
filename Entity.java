@@ -5,7 +5,7 @@ import java.util.*;
  * It implements gif methods as well as cost, health bar option, damage, upgrade, move, etc.
  * 
  * @author (Benny Wu) 
- * @version April 21th, 2022
+ * @version April 28th, 2022
  */
 public class Entity extends Actor
 {

@@ -6,45 +6,59 @@ import java.util.*;
  * are fighting, killing a soldier rewards gold which is used to buy Archer Towers to defend the Crystal. When a Crystal is under attack 
  * and is low health, it will spawn Inferno Towers to protect itself.
  * 
- * Image Sources: https://castlecrashers.fandom.com/wiki/Castle_Crashers_Wiki
- *                https://clashofclans.fandom.com/wiki/Clash_of_Clans_Wiki
- * Audio Sources: https://www.bensound.com
+ * Image Sources & Audio Sources: (Listed on another document)
  * 
  * @Benny, Angus, Caleb, Kevin, Jerry 
  * @version (April 28 2022)
  */
 public class MyWorld extends World
 {
-    //Initializing the variable
+    // Initialize variables
+    
     private GreenfootImage backgroundImage;
-    private SimpleTimer timeCycle = new SimpleTimer();
-    private SimpleTimer totalElapsedTime = new SimpleTimer();
+    private SimpleTimer timeCycle = new SimpleTimer(); // Timer that keep tracks of the counter
+    private SimpleTimer totalElapsedTime = new SimpleTimer(); // Timer that keep tracks of the total time elapsed
     private Counter timeCount = new Counter();
+    
+    // Initialize statistics bar and modifier
     private int start = 0;
     private int time = 0;
     private Modifier modifier;
     private Statistic statLeft ;
     private Statistic statRight ;
+    
+    // Creates two crystals on both ends (direction 1 and -1)
     private CrystalTower crystalRed = new CrystalTower(1);
     private CrystalTower crystalBlue = new CrystalTower(-1);
+    
+    // Variables to keep track of the available soldiers for both sides
     private List<Integer> redSpawnControl, blueSpawnControl;
     private int redListLength, blueListLength;
     private int gameStatus;
     private boolean infernoLeft, infernoRight;
+    
+    // Is the game over yet?
     private boolean gameOver;
+    
+    // Background music for the game
     private GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
     
     /**
      * Constructor for objects of class MyWorld. Intializing the time, statistics, and set the background
      * 
+     * @param modifier  the modifier object that contains the modified information for the simulation
      */
     public MyWorld(Modifier modifier)
     {    
         // Create a new world with 1200x700 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1); 
-        this.modifier=modifier;
+        this.modifier = modifier;
+        
+        // Modifiers for both ends
         statLeft = new Statistic(true, modifier.getRCoin());
         statRight = new Statistic(false, modifier.getRCoin());
+        
+        // Sets background image for the world
         backgroundImage = new GreenfootImage("Background.jpg");
         backgroundImage.scale(1200, 700);
         addObject(statLeft, 400, 50);
@@ -52,22 +66,23 @@ public class MyWorld extends World
         addObject(crystalRed, 100, 350);
         addObject(crystalBlue, 1100, 350);
         setBackground(backgroundImage);
+        
         redSpawnControl = new ArrayList<>();
         blueSpawnControl = new ArrayList<>();
         int length = modifier.getTimeList().size(); // could cause null pointer if user turn off all the options
         
-        //mark the time
+        // mark the time
         totalElapsedTime.mark();
     
-        //calculate the total time
+        // calculate the total time
         for(int i=0;i<length;i++){
             time=time*10+modifier.getTimeList().get(i);
         }
-        //add the time in the world
+        // add the time in the world
         addObject(timeCount, 1100, 50);
         
         //set the time 
-        if(time==0){
+        if(time==0){ // set it to the default value (90) if it's 0
             timeCount.setValue(90);
             time = 90;
         }else{
@@ -140,11 +155,13 @@ public class MyWorld extends World
     }
     
     /**
-     * Spawns tower
+     * Method that is responsible for spawning towers
      */
     public void spawnTower(){
         int yCoord = (Greenfoot.getRandomNumber(8)+2)*70;
         int xCoord = Greenfoot.getRandomNumber(50)+1;
+        
+        // Spawns archer towers when the gold reaches 75
         if (statLeft.getGold() >= 75){
             statLeft.updateGold(-75);
             addObject(new ArcherTower(1), 250+xCoord, yCoord);
@@ -154,6 +171,7 @@ public class MyWorld extends World
             addObject(new ArcherTower(-1),900-xCoord, yCoord);
         }
         
+        // Spawns two inferno towers when the crystal's hp get below 70% (make the game more balanced)
         if (!infernoRight && crystalBlue.getHpPercentage() < 0.7){
             infernoRight = true;
             addObject(new InfernoTower(-1), 1050, 220);
@@ -166,24 +184,35 @@ public class MyWorld extends World
         }
     }
     /**
-     * We don't use this method
+     * Gold feature (not used yet)
      */
     public void spawnGold(){
         int yCoord = (Greenfoot.getRandomNumber(6) + 1) * 70;
         addObject(new GoldBag(), 600, yCoord);
     }
     
+    /**
+     * Start the music when the simulation is started
+     */
     public void started(){
         // Start the music and set its volume to 25
         backgroundMusic.setVolume(25);
         backgroundMusic.playLoop();
     }
     
+    /**
+     * Opposite to "started()", this method pauses the music when the simulation is paused
+     */
     public void stopped(){
         // pause music
         backgroundMusic.stop();
     }
     
+    /**
+     * The act method for MyWorld
+     * 
+     * Responsible for spawing enemies, towers, and keeping control of the overall state
+     */
     public void act(){
         //play the background music
         backgroundMusic.playLoop();
@@ -217,28 +246,32 @@ public class MyWorld extends World
             gameOver = true;
             timeCycle.mark();
             removeObjects(getObjects(Soldier.class));
+            
+            // Creates laughing effect
             addObject(new ClashRoyaleLaughEffect(),1100, 100);
             addObject(new ExplosionEffect(), crystalRed.getX()-30, crystalRed.getY()-80);
             removeObject(crystalRed);
             gameStatus=2;
         }
-        else if(!gameOver && crystalBlue.getHpPercentage()<=0){//else, blue team win
+        else if(!gameOver && crystalBlue.getHpPercentage()<=0){//else, blue team wins
             gameOver = true;
             removeObjects(getObjects(Soldier.class));
+            
+            // Creates laughing effect
             addObject(new ClashRoyaleLaughEffect(),100, 100);
-            gameStatus=1;
-            timeCycle.mark();
             addObject(new ExplosionEffect(), crystalBlue.getX()-30, crystalBlue.getY()-80);
+            timeCycle.mark();
             removeObject(crystalBlue);
+            gameStatus=1;
         }
         
-        //if game over is true and after 3.5 seconds, it will switched to the end world
+        //if the game is over and 3.5 seconds has passed, it will switched to the end world screen
         if (gameOver && timeCycle.millisElapsed() >= 3500){
             EndWorld ew = new EndWorld(gameStatus);
             Greenfoot.setWorld(ew);
         }
         
-        //if the game is not over, spawn the soldiers and towers
+        //if the simulatino is still running, continue to spawn  soldiers and towers
         if (!gameOver){
             spawner(1);
             spawner(-1);
@@ -246,6 +279,11 @@ public class MyWorld extends World
         }
     }
     
+    /**
+     * This method returns the targetted crystal
+     * 
+     * @return CrystalTower  the crystal that a certain side is targetting
+     */
     public CrystalTower getTargettedCrystal(int side){
         return side == 1 ? crystalBlue : crystalRed;
     }
@@ -257,16 +295,21 @@ public class MyWorld extends World
      * @param gold       the int value for the gold that specific team  
      */
     public void updateStatistic(int direction, int gold){
-        if (direction == 1){//red
+        if (direction == 1){ // red
             statLeft.updateGold(gold);
             statLeft.updateKills();
         }
-        if (direction == -1){//blue
+        if (direction == -1){ // blue
             statRight.updateGold(gold);
             statRight.updateKills();
         }
     }
     
+    /**
+     * Returns the total time passed as a percentage
+     * 
+     * @return double  total time passed
+     */
     public double getTimePassed(){
         return (double)(totalElapsedTime.millisElapsed() / 1000.0 / time );
     }

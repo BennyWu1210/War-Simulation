@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * 
  * This Modifier World allows user to modify the features of the game
- * @author Kevin Zhu
+ * @author Kevin Zhu, Benny Wu
  * @version April 28, 2022
  */
 public class Modifier extends World
@@ -15,11 +15,13 @@ public class Modifier extends World
     private boolean keyDown;
     private Stack<Integer> timeList = new Stack<Integer>();;
     
-    //The idx for the two team
-    //Bandit =0;
-    //BeffyBandit = 1;
-    //Healer = 2;
-    //Knight = 3;
+    // The idx for the two team
+    // Bandit is 0
+    // BeffyBandit is 1
+    // Healer is 2
+    // Knight is 3
+    
+    // The buttons that are displayed on the screen
     private boolean [] RedSwitch = new boolean [4];
     private boolean [] BlueSwitch = new boolean [4];
     private Text [] redText = new Text [4];
@@ -27,6 +29,7 @@ public class Modifier extends World
     private SoldierSwitchButton [] redSoldier = new SoldierSwitchButton[4];
     private SoldierSwitchButton [] blueSoldier = new SoldierSwitchButton[4];
     
+    // Further labels including the coin toggles
     private int rCoin=0, bCoin=0;
     private Label redCoins;
     private Label blueCoins;

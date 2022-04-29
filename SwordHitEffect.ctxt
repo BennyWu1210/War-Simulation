@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=SwordHitEffect
-comment0.text=\n\ Write\ a\ description\ of\ class\ SwordHitEffect\ here.\n\ \n\ @author\ Benny\ Wu\ \n\ @version\ April\ 27th\n
+comment0.text=\n\ The\ effect\ when\ an\ entity\ gets\ hit\ by\ a\ sword\n\ \n\ @author\ Benny\ Wu\ \n\ @version\ April\ 27th\n
 comment1.params=
 comment1.target=SwordHitEffect()
+comment1.text=\n\ Constructor\ for\ SwordHitEffect\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\n\ Act\ method\ for\ SwordHitEffect\n
 numComments=3

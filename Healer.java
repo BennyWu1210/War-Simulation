@@ -85,7 +85,7 @@ public class Healer extends Soldier
                     
                     while (index < enemies.size()){
                         Soldier nxt = enemies.get(index);
-                        if (nxt.getDirection() != this.getDirection()){
+                        if (nxt.getClass() != this.getClass()){
                             // found new target
                             target = nxt;
                             break;

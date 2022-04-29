@@ -33,7 +33,7 @@ public class InfernoTower extends Tower
         this.attackSpeed = 15;
         this.attackRange = 280;
         this.damage = 0.1;
-        this.triggerRange = 390;
+        this.triggerRange = 380;
         this.hp = this.maxHp = 900;
         
         // creates hp bar (statbar) based on the direction

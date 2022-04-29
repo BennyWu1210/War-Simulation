@@ -25,7 +25,7 @@ public class Fireball extends Projectile
         
         // sets the image and movement properties
         this.image = new GreenfootImage("flame02.gif");
-        this.speed = 8;
+        this.speed = 9;
         this.targetX = target.getX();
         this.targetY = target.getY();
         getImage().scale(30, 30);
@@ -85,11 +85,11 @@ public class Fireball extends Projectile
             
             for (Soldier s: soldiers){
                 if (direction != target.getDirection()) continue;
-                s.getHit(5, null);
+                s.getHit(6, null);
             }
             
             // Create a new explosion effect
-            soldiers.get(0).getHit(18, new BombEffect());
+            soldiers.get(0).getHit(19, new BombEffect());
             
             // remove itself from the world
             getWorld().removeObject(this);
