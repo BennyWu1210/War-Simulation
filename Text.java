@@ -1,23 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Text here.
+ * The text class will allow user to create text
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kevin Zhu
+ * @version April 28, 2022
  */
 public class Text extends Actor
 {
     /**
-     * Act - do whatever the Text wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * This constructor will set the text 
+     * 
+     * @param text   this is the text that user want to create
+     * @param font   this is the size of the text
+     * @param colour this is the colour of the text
      */
      public Text(String text, int font, Color colour){
         setImage(new GreenfootImage(text, font, colour, null));
-    }
-    
-    public void act()
-    {
-        // Add your action code here.
     }
 }

@@ -8,42 +8,32 @@ import java.util.*;
  */
 public class MyWorld extends World
 {
-
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
-    //Test test test
-    
-
-    
+    //Initializing the variable
     private GreenfootImage backgroundImage;
     private SimpleTimer timeCycle = new SimpleTimer();
     private SimpleTimer totalElapsedTime = new SimpleTimer();
     private Counter timeCount = new Counter();
     private int start = 0;
     private int time = 0;
-    
     private Modifier modifier;
-    
     private Statistic statLeft ;
     private Statistic statRight ;
-    
     private CrystalTower crystalRed = new CrystalTower(1);
     private CrystalTower crystalBlue = new CrystalTower(-1);
-    
     private List<Integer> redSpawnControl, blueSpawnControl;
-    
     private int redListLength, blueListLength;
     private int gameStatus;
-    
     private boolean infernoLeft, infernoRight;
-    
     private boolean gameOver;
     private GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
+    
+    /**
+     * Constructor for objects of class MyWorld. Intializing the time, statistics, and set the background
+     * 
+     */
     public MyWorld(Modifier modifier)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 1200x700 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1); 
         this.modifier=modifier;
         statLeft = new Statistic(true, modifier.getRCoin());
@@ -55,28 +45,41 @@ public class MyWorld extends World
         addObject(crystalRed, 100, 350);
         addObject(crystalBlue, 1100, 350);
         setBackground(backgroundImage);
-        
-        totalElapsedTime.mark();
-                
         redSpawnControl = new ArrayList<>();
         blueSpawnControl = new ArrayList<>();
-        int length = modifier.getTimeList().size(); // could cause null pointer
+        int length = modifier.getTimeList().size(); // could cause null pointer if user turn off all the options
+        
+        //mark the time
+        totalElapsedTime.mark();
+    
+        //calculate the total time
         for(int i=0;i<length;i++){
             time=time*10+modifier.getTimeList().get(i);
         }
+        //add the time in the world
         addObject(timeCount, 1100, 50);
+        
+        //set the time 
         if(time==0){
             timeCount.setValue(90);
             time = 90;
         }else{
             timeCount.setValue(time);
         }
+        
+        //to find out how many soldier do the user turn on
         existSoldier();
         
+        //play the music
         backgroundMusic.setVolume(25);
+        
+        //make the stat bar on top
         this.setPaintOrder(StatBar.class);
     }
     
+    /**
+     * This method will initalize how many soldier from Red and Blue kept
+     */
     public void existSoldier(){
         for(int i=0;i<4;i++){
             if(modifier.getRedSwitch(i)){
@@ -86,46 +89,49 @@ public class MyWorld extends World
                 blueSpawnControl.add(i);
             }
         }
+        //set the size
         redListLength=redSpawnControl.size();
         blueListLength=blueSpawnControl.size();
     }
     
+    /**
+     * This method will spawn both team soldiers
+     */
     private void spawner(int yDirection){
-        // System.out.println("time passed: " + getTimePassed());
+        //set the spawn speed depend on the time
         int spawnSpeed;
         if (getTimePassed() < 0.25) spawnSpeed = 210;
         else if (getTimePassed() < 0.50) spawnSpeed = 120;
         else if (getTimePassed() < 0.75) spawnSpeed = 80;
         else spawnSpeed = 50;
         
+        //set the direction
         int direction = yDirection;
         if (Greenfoot.getRandomNumber(spawnSpeed) == 0){
-    
             int ySpawn = Greenfoot.getRandomNumber(600) + 50;
             int xSpawn = direction == 1 ? 120 : 1080;
+            
+            //find the corresponding soldier
             int index = direction == 1 ? Greenfoot.getRandomNumber(redListLength) : Greenfoot.getRandomNumber(blueListLength);
             int choice = direction == 1 ? redSpawnControl.get(index) : blueSpawnControl.get(index);
             Soldier soldier;
         
-        
-            
-            if (choice == 0){
+            if (choice == 0){//Bandit 
                 soldier = new Bandit(direction);
                 addObject(soldier, xSpawn, ySpawn);
-            }else if (choice == 1 ){
+            }else if (choice == 1 ){//BeefyBandit
                 soldier = new BeefyBandit(direction);
                 addObject(soldier, xSpawn, ySpawn);
-            }else if (choice == 2){
+            }else if (choice == 2){//Healer
                 soldier = new Healer(direction);
                 addObject(soldier, xSpawn, ySpawn);
-            }else if (choice == 3){
+            }else if (choice == 3){//Knight
                 soldier = new Knight(direction);
                 addObject(soldier, xSpawn, ySpawn);
             }
-            
-            
         }
     }
+    
     
     public void spawnTower(){
         int yCoord = (Greenfoot.getRandomNumber(8)+2)*70;
@@ -157,10 +163,8 @@ public class MyWorld extends World
     
     public void started(){
         // Start the music and set its volume to 25
-
         backgroundMusic.setVolume(25);
         backgroundMusic.playLoop();
-        
     }
     
     public void stopped(){
@@ -169,30 +173,35 @@ public class MyWorld extends World
     }
     
     public void act(){
+        //play the background music
         backgroundMusic.playLoop();
-        //timeCount.setValue(tim.millisElapsed()/1000);
+        
+        //if times runs out 
         if(!gameOver && timeCount.getValue()==0){
-            removeObjects(getObjects(Soldier.class));
-            if(crystalRed.getHpPercentage()<crystalBlue.getHpPercentage()){
-                gameStatus=2;
+            removeObjects(getObjects(Soldier.class));//remove all the soldier
+            if(crystalRed.getHpPercentage()<crystalBlue.getHpPercentage()){//if red team tower have less hp than blue team, blue team win
+                gameStatus=2;//set status to blue team win
+                //add the effect
                 addObject(new ClashRoyaleLaughEffect(),1100, 100);
                 addObject(new ExplosionEffect(), crystalRed.getX()-30, crystalRed.getY()-80);
                 removeObject(crystalRed);
-            }else{
-                gameStatus=1;
+            }else{//else, red team win
+                gameStatus=1;//set status to red team win
+                //add the effect
                 addObject(new ClashRoyaleLaughEffect(),100, 100);
                 addObject(new ExplosionEffect(), crystalBlue.getX()-30, crystalBlue.getY()-80);
                 removeObject(crystalBlue);
             }
+            //mark the time
             timeCycle.mark();
-            
+            //change the status of the gameOver to true
             gameOver = true;
-        }else if(!gameOver && timeCycle.millisElapsed()>1000){
+        }else if(!gameOver && timeCycle.millisElapsed()>1000){//if the game has not finished, minus 1 seconds of the time
             timeCount.add(-1);
             timeCycle.mark();
         }
         
-        if(!gameOver && crystalRed.getHpPercentage()<=0){
+        if(!gameOver && crystalRed.getHpPercentage()<=0){//if blue team tower have less hp than red team, red team win
             gameOver = true;
             timeCycle.mark();
             removeObjects(getObjects(Soldier.class));
@@ -201,7 +210,7 @@ public class MyWorld extends World
             removeObject(crystalRed);
             gameStatus=2;
         }
-        else if(!gameOver && crystalBlue.getHpPercentage()<=0){
+        else if(!gameOver && crystalBlue.getHpPercentage()<=0){//else, blue team win
             gameOver = true;
             removeObjects(getObjects(Soldier.class));
             addObject(new ClashRoyaleLaughEffect(),100, 100);
@@ -210,28 +219,37 @@ public class MyWorld extends World
             addObject(new ExplosionEffect(), crystalBlue.getX()-30, crystalBlue.getY()-80);
             removeObject(crystalBlue);
         }
+        
+        //if game over is true and after 3.5 seconds, it will switched to the end world
         if (gameOver && timeCycle.millisElapsed() >= 3500){
             EndWorld ew = new EndWorld(gameStatus);
             Greenfoot.setWorld(ew);
         }
+        
+        //if the game is not over, spawn the soldiers and towers
         if (!gameOver){
             spawner(1);
             spawner(-1);
             spawnTower();
         }
-        
-        
     }
+    
     public CrystalTower getTargettedCrystal(int side){
         return side == 1 ? crystalBlue : crystalRed;
     }
 
+    /**
+     * This method will update the gold in the statistic bar
+     * 
+     * @param direction  the facing determine whether it is blue team or red team
+     * @param gold       the int value for the gold that specific team  
+     */
     public void updateStatistic(int direction, int gold){
-        if (direction == 1){
+        if (direction == 1){//red
             statLeft.updateGold(gold);
             statLeft.updateKills();
         }
-        if (direction == -1){
+        if (direction == -1){//blue
             statRight.updateGold(gold);
             statRight.updateKills();
         }

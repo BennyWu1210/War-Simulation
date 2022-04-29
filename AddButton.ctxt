@@ -1,17 +1,16 @@
 #BlueJ class context
 comment0.target=AddButton
-comment0.text=\n\ Write\ a\ description\ of\ class\ AddButton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ \n\ This\ add\ button\ is\ used\ to\ add\ the\ inital\ gold.\n\ \n\ @author\ Kevin\ Zhu\n\ @version\ April\ 28,\ 2022\n
 comment1.params=
 comment1.target=AddButton()
+comment1.text=\n\ This\ set\ the\ default\ value\ for\ the\ add\ button.\n
 comment2.params=
-comment2.target=void\ act()
+comment2.target=void\ initAddButton()
+comment2.text=\n\ Initializing\ the\ add\ button\ image\n
 comment3.params=
-comment3.target=void\ initStartButton()
-comment3.text=\n\ Initializing\ the\ start\ button\ image\n
+comment3.target=void\ onHover()
+comment3.text=\n\ Check\ if\ mouse\ hovers\ on\ this\ button\n
 comment4.params=
 comment4.target=void\ onClick()
 comment4.text=\n\ Check\ if\ mouse\ clicks\ this\ button\n
-comment5.params=
-comment5.target=void\ onHover()
-comment5.text=\n\ Check\ if\ mouse\ hovers\ on\ this\ button\n
-numComments=6
+numComments=5

@@ -1,7 +1,8 @@
 #BlueJ class context
 comment0.target=BombEffect
-comment0.text=\n\ The\ effect\ when\ a\ bomb\ explodes\n\ \n\ @author\ (Benny\ Wu)\ \n\ @version\ (April\ 28th,\ 2022)\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ ArrowHitEffect\ here.\n\ \n\ @author\ (Benny\ Wu)\ \n\ @version\ (April\ 27th,\ 2022)\n
 comment1.params=
 comment1.target=BombEffect()
-comment1.text=\n\ Constructor\ for\ BombEffect\n
-numComments=2
+comment2.params=
+comment2.target=void\ act()
+numComments=3
