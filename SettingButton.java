@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class SettingButton here.
- * The setting button is ued to switch from the title page to the modifier
+ * The setting button is used to switch from the title page to the modifier
  * @author (Kevin Zhu) 
  * @version (April 28, 2022)
  */

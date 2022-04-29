@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ExitButton here.
+ * 
  * The Exist Button is used to end the game
  * @author (Kevin Zhu) 
  * @version (April 28, 2022)

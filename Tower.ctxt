@@ -1,16 +1,19 @@
 #BlueJ class context
 comment0.target=Tower
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Tower\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ tower\ is\ a\ non-moving\ entity.\ They\ attack\ soldiers\ that\ go\ near\ them.\r\n\ There\ are\ 3\ types\ of\ towers\:\ the\ archer\ tower,\ the\ crytal\ towe\ and\ the\ inferno\r\n\ tower\ \r\n\ \r\n\ @author\ Benny\ Wu,\ Caleb\r\n\ @version\ April\ 28th,\ 2022\r\n
 comment1.params=direction
 comment1.target=Tower(int)
+comment1.text=\r\n\ Creates\ a\ new\ tower\ with\ a\ given\ direction\r\n\ \r\n\ @param\ direction\ \ the\ direction\ this\ tower\ is\ facing\r\n
 comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
+comment2.text=\r\n\ Creates\ hp\ bar\ once\ this\ tower\ is\ added\ to\ the\ world\r\n
 comment3.params=
 comment3.target=void\ act()
-comment4.params=
-comment4.target=int\ getDirection()
-comment5.params=hp\ effect
-comment5.target=void\ getHit(double,\ Effect)
-comment6.params=
-comment6.target=double\ getHpPercentage()
-numComments=7
+comment3.text=\r\n\ Tower's\ act\ method\ -\ constantly\ decrease\ this\ tower's\ hp\r\n
+comment4.params=hp\ effect
+comment4.target=void\ getHit(double,\ Effect)
+comment4.text=\r\n\ This\ method\ makes\ the\ towers\ lose\ hp\ when\ they\ are\ hit\r\n\ \r\n\ It\ expects\ the\ damage\ it\ took\ as\ well\ as\ the\ effect\ (can\ be\ null)\r\n
+comment5.params=
+comment5.target=double\ getHpPercentage()
+comment5.text=\r\n\ Returns\ the\ percetage\ of\ hp\ left\ as\ a\ dobule\r\n
+numComments=6

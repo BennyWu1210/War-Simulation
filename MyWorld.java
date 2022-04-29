@@ -3,12 +3,15 @@ import java.util.*;
 /**
  * War Simulation is a game with 2 Crystals. The objective for each side is to destroy the other Crystal. Both sides spawn soldiers
  * and these various soldiers have different features. Moreover, they level up over time, hence, becoming stronger. All the whilst they
- * are fighting, killing a soldier rewards gold which is used to buy Archer Towers to defend the Crystal
+ * are fighting, killing a soldier rewards gold which is used to buy Archer Towers to defend the Crystal. When a Crystal is under attack 
+ * and is low health, it will spawn Inferno Towers to protect itself.
  * 
- * 
+ * Image Sources: https://castlecrashers.fandom.com/wiki/Castle_Crashers_Wiki
+ *                https://clashofclans.fandom.com/wiki/Clash_of_Clans_Wiki
+ * Audio Sources: https://www.bensound.com
  * 
  * @Benny, Angus, Caleb, Kevin, Jerry 
- * @version (a version number or a date)
+ * @version (April 28 2022)
  */
 public class MyWorld extends World
 {

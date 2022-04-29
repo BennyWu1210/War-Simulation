@@ -2,7 +2,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 
 /**
- * A death effect that deletes the referenced actor and replaces it with a png in the project files.
+ * Gold Bag that is spawned on the map that increases gold by 50
+ * We ended up not using this because it caused the game to be too unbalanced
+ * Causes the game to spawn too many Archer Towers with the surplus of gold
  *
  * @author Angus Feng
  */

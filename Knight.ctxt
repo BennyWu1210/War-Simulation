@@ -1,15 +1,13 @@
 #BlueJ class context
 comment0.target=Knight
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Knight\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Knight\ is\ the\ coolest\ soldier\ of\ all\ -\ it\ fights\ fearlessly\ with\ that\ mighty\ sword\!\r\n\ \r\n\ @author\ Benny\ Wu\r\n\ @version\ April\ 28th,\ 2022\r\n
 comment1.params=direction
 comment1.target=Knight(int)
+comment1.text=\r\n\ Creates\ a\ new\ Knight\ with\ a\ given\ direction\r\n\ \r\n\ @param\ direction\ \ the\ direction\ this\ Knight\ is\ facing\r\n
 comment2.params=
-comment2.target=void\ act()
+comment2.target=void\ die()
+comment2.text=\r\n\ The\ die\ method\ for\ Knight\:\ \r\n\ \r\n\ It\ leaves\ a\ corpse\ behind\ and\ remove\ itself\ from\ the\ world\r\n
 comment3.params=
-comment3.target=void\ die()
-comment3.text=\r\n\ \ \ \ public\ void\ attack(){\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ }\r\n
-comment4.params=
-comment4.target=void\ getHit()
-comment5.params=
-comment5.target=void\ attack()
-numComments=6
+comment3.target=void\ attack()
+comment3.text=\r\n\ The\ attack\ method\ for\ Knight\:\r\n\ \r\n\ It\ uses\ a\ sword\ with\ special\ effects\ to\ attack\ its\ target\r\n
+numComments=4
