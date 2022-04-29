@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=CrystalTower
-comment0.text=\r\n\ The\ Crystal\ Tower\ is\ a\ tower\ which\ shoots\ fireballs\ when\ soldiers\ are\ in\ its\r\n\ range.\ It\ is\ also\ the\ most\ important\ tower\ as\ whichever\ side\ is\ able\ to\ kill\r\n\ their\ opponent's\ crystal\ tower\ first\ wins.\r\n\ \r\n\ @author\ Benny\ Wu,\ Angus\ Feng\r\n\ @version\ April\ 28th,\ 2022\r\n
+comment0.text=\n\ The\ Crystal\ Tower\ is\ a\ tower\ which\ shoots\ fireballs\ when\ soldiers\ are\ in\ its\n\ range.\ It\ is\ also\ the\ most\ important\ tower\ as\ whichever\ side\ is\ able\ to\ kill\n\ their\ opponent's\ crystal\ tower\ first\ wins.\n\ \n\ @author\ Benny\ Wu,\ Angus\ Feng,\ Kevin\ Zhu\n\ @version\ April\ 28th,\ 2022\n
 comment1.params=direction
 comment1.target=CrystalTower(int)
-comment1.text=\r\n\ Creates\ a\ new\ Crystal\ tower\ with\ a\ given\ direction\r\n\ \r\n\ @param\ direction\ \ the\ direction\ this\ crystal\ tower\ is\ facing\r\n
+comment1.text=\n\ Creates\ a\ new\ Crystal\ tower\ with\ a\ given\ direction\n\ \n\ @param\ direction\ \ the\ direction\ this\ crystal\ tower\ is\ facing\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Crystal\ tower's\ act\ method\r\n
+comment2.text=\n\ Crystal\ tower's\ act\ method\n
 comment3.params=
 comment3.target=void\ attack()
-comment3.text=\r\n\ The\ attack\ method\ for\ archer\ tower\:\r\n\ \r\n\ It\ first\ locates\ a\ target\ if\ it\ does\ not\ have\ one\ originally,\ then\ it\ shoots\ a\ fire\ ball\ toward\ this\ target\r\n
+comment3.text=\n\ The\ attack\ method\ for\ archer\ tower\:\n\ \n\ It\ first\ locates\ a\ target\ if\ it\ does\ not\ have\ one\ originally,\ then\ it\ shoots\ a\ fire\ ball\ toward\ this\ target\n
 numComments=4

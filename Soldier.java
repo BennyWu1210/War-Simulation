@@ -4,7 +4,7 @@ import java.util.*;
  * The soldier is a moving entity that has special possess various attack abilities
  * depending on its type. There are 4 types of soldiers: Bandit, BeefyBandit, Healer and Knight
  * 
- * @author Benny Wu, Angus, Caleb
+ * @author Benny Wu, Angus, Caleb, Kevin Zhu
  * @version April 28th, 2022
  */
 public abstract class Soldier extends Entity

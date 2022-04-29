@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=Projectile
-comment0.text=\r\n\ Projectile\ is\ an\ abstract\ class\ that\ incorporates\ the\ common\ characteristics\ for\ Arrow,\ \r\n\ Fireball\ and\ HealProjectile\r\n\ \r\n\ @author\ Benny\ Wu\r\n\ @version\ April\ 28th,\ 2022\r\n
+comment0.text=\n\ Projectile\ is\ an\ abstract\ class\ that\ incorporates\ the\ common\ characteristics\ for\ Arrow,\ \n\ Fireball\ and\ HealProjectile\n\ \n\ @author\ Benny\ Wu\n\ @version\ April\ 28th,\ 2022\n
 comment1.params=target
 comment1.target=Projectile(Soldier)
-comment1.text=\r\n\ This\ creates\ a\ new\ instance\ of\ projectile\r\n\ \r\n\ @param\ target\ \ Pass\ in\ the\ target\ as\ a\ soldier\r\n
+comment1.text=\n\ This\ creates\ a\ new\ instance\ of\ projectile\n\ \n\ @param\ target\ \ Pass\ in\ the\ target\ as\ a\ soldier\n
 comment2.params=tower
 comment2.target=Projectile(Tower)
-comment2.text=\r\n\ This\ creates\ a\ new\ instance\ of\ projectile\r\n\ \r\n\ @param\ target\ \ Pass\ in\ the\ target\ as\ a\ tower\r\n
+comment2.text=\n\ This\ creates\ a\ new\ instance\ of\ projectile\n\ \n\ @param\ target\ \ Pass\ in\ the\ target\ as\ a\ tower\n
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\r\n\ Act\ method\ for\ projectile\r\n
+comment3.text=\n\ Act\ method\ for\ projectile\n
 numComments=4

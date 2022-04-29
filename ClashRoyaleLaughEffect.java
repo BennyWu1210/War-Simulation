@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ClashRoyaleLaughEffect here.
+ * This class will present the clash royale laughing gif
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Kevin Zhu) 
+ * @version (April 28, 2022)
  */
 public class ClashRoyaleLaughEffect extends Effect
 {

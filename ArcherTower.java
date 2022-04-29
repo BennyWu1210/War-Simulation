@@ -6,7 +6,7 @@ import java.util.List;
  * The Archer Tower is a tower which shoots arrows when soldiers are in their
  * range. They are also able to upgrade to a higher level, making them stronger.
  * 
- * @author Benny, Angus, Caleb
+ * @author Benny, Angus, Caleb, Kevin Zhu
  * @version April 28th, 2022
  */
 public class ArcherTower extends Tower

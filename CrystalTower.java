@@ -5,7 +5,7 @@ import java.util.List;
  * range. It is also the most important tower as whichever side is able to kill
  * their opponent's crystal tower first wins.
  * 
- * @author Benny Wu, Angus Feng
+ * @author Benny Wu, Angus Feng, Kevin Zhu
  * @version April 28th, 2022
  */
 public class CrystalTower extends Tower

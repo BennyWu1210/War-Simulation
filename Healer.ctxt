@@ -1,15 +1,15 @@
 #BlueJ class context
 comment0.target=Healer
-comment0.text=\r\n\ The\ healer\ heals\ its\ allies\ and\ attacks\ its\ enemies\ while\ shooting\ different\ projectiles\!\ \r\n\ She\ is\ very\ useful\ in\ the\ team\r\n\ \r\n\ \r\n\ @author\ Benny\ Wu,\ Angus\ Feng,\ Caleb\r\n\ @version\ April\ 28th,\ 2022\r\n
+comment0.text=\n\ The\ healer\ heals\ its\ allies\ and\ attacks\ its\ enemies\ while\ shooting\ different\ projectiles\!\ \n\ She\ is\ very\ useful\ in\ the\ team\n\ \n\ \n\ @author\ Benny\ Wu,\ Angus\ Feng,\ Caleb,\ Kevin\ Zhu\n\ @version\ April\ 28th,\ 2022\n
 comment1.params=direction
 comment1.target=Healer(int)
-comment1.text=\r\n\ Creates\ a\ new\ Healer\ with\ a\ given\ direction\r\n\ \r\n\ @param\ direction\ \ the\ direction\ this\ Healer\ is\ facing\r\n
+comment1.text=\n\ Creates\ a\ new\ Healer\ with\ a\ given\ direction\n\ \n\ @param\ direction\ \ the\ direction\ this\ Healer\ is\ facing\n
 comment2.params=
 comment2.target=void\ die()
-comment2.text=\r\n\ The\ die\ method\ for\ Healer\:\ \r\n\ \r\n\ It\ leaves\ a\ corpse\ behind\ and\ remove\ itself\ from\ the\ world\r\n
+comment2.text=\n\ The\ die\ method\ for\ Healer\:\ \n\ \n\ It\ leaves\ a\ corpse\ behind\ and\ remove\ itself\ from\ the\ world\n
 comment3.params=
 comment3.target=void\ getHit()
 comment4.params=
 comment4.target=void\ attack()
-comment4.text=\r\n\ The\ attack\ method\ for\ Healer\r\n\ \r\n\ It\ uses\ a\ sword\ with\ special\ effects\ to\ attack\ its\ target\r\n
+comment4.text=\n\ The\ attack\ method\ for\ Healer\n\ \n\ It\ uses\ a\ sword\ with\ special\ effects\ to\ attack\ its\ target\n
 numComments=5

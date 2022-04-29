@@ -5,7 +5,7 @@ import java.util.List;
  * She is very useful in the team
  * 
  * 
- * @author Benny Wu, Angus Feng, Caleb
+ * @author Benny Wu, Angus Feng, Caleb, Kevin Zhu
  * @version April 28th, 2022
  */
 public class Healer extends Soldier

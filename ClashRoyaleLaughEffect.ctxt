@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ClashRoyaleLaughEffect
-comment0.text=\n\ Write\ a\ description\ of\ class\ ClashRoyaleLaughEffect\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ This\ class\ will\ present\ the\ clash\ royale\ laughing\ gif\n\ \n\ @author\ (Kevin\ Zhu)\ \n\ @version\ (April\ 28,\ 2022)\n
 comment1.params=
 comment1.target=ClashRoyaleLaughEffect()
 comment2.params=

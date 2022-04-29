@@ -3,7 +3,7 @@ import java.util.List;
 /**
  * The effect class, minimum changes from the original
  * 
- * @author Benny
+ * @author Benny, Kevin Zhu
  * @version April 25th, 2022
  */
 public class Effect extends Actor

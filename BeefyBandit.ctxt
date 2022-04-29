@@ -1,13 +1,14 @@
 #BlueJ class context
 comment0.target=BeefyBandit
-comment0.text=\r\n\ Beefy\ Bandit\ is\ not\ only\ strong,\ but\ he\ can\ also\ shoots\ arrow\ very\ well\!\ \r\n\ \r\n\ @author\ Benny\ Wu,\ Angus\ Feng,\ Caleb\r\n\ @version\ April\ 28th,\ 2022\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ BeefyBandit\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=direction
 comment1.target=BeefyBandit(int)
-comment1.text=\r\n\ Creates\ a\ new\ Beefy\ Bandit\ with\ a\ given\ direction\r\n\ \r\n\ @param\ direction\ \ the\ direction\ this\ Beefy\ Bandit\ is\ facing\r\n
 comment2.params=
-comment2.target=void\ die()
-comment2.text=\r\n\ The\ die\ method\ for\ Beefy\ Bandit\:\ \r\n\ \r\n\ It\ leaves\ a\ corpse\ behind\ and\ remove\ itself\ from\ the\ world\r\n
+comment2.target=void\ act()
 comment3.params=
-comment3.target=void\ attack()
-comment3.text=\r\n\ The\ attack\ method\ for\ Beefy\ Bandit\:\ \r\n\ \r\n\ It\ uses\ a\ sword\ with\ special\ effects\ to\ attack\ its\ target\r\n
-numComments=4
+comment3.target=void\ die()
+comment4.params=
+comment4.target=void\ getHit()
+comment5.params=
+comment5.target=void\ attack()
+numComments=6

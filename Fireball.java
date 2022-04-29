@@ -4,7 +4,7 @@ import java.util.List;
  * Fireball is the projectile of the crystal and Inferno tower. 
  * It deals the most damage out of the 3 projectiles
  * 
- * @author Benny
+ * @author Benny, Kevin Zhu
  * @version April 28th, 2022
  */
 public class Fireball extends Projectile
