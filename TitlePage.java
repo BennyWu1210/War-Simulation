@@ -10,11 +10,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class TitlePage extends World
 {
     //initialize the variable
-    public Modifier mw;
-    public MyWorld mworld;
+    private Modifier mw;
+    private MyWorld mworld;
     private static GreenfootImage backgroundImage = new GreenfootImage("BeginningPage.jpg");
     /**
-     * Constructor for objects of class TitlePage.
+     * Constructor for TitlePage - sets the screen size and creates the background
      * 
      */
     public TitlePage()
@@ -23,7 +23,7 @@ public class TitlePage extends World
         super(1200, 700, 1); 
         
         //initialize the variable
-        mw=new Modifier(this);
+        mw = new Modifier(this);
         backgroundImage.scale(1200, 700);
         setBackground(backgroundImage);
 
@@ -32,7 +32,7 @@ public class TitlePage extends World
 
     /**
      * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
+     * Specifically, it creates the initial objects and add them to the world.
      */
     private void prepare()
     {
@@ -43,12 +43,16 @@ public class TitlePage extends World
         addObject(settingButton,1130,650);
     }
     
-    //open the modifier world 
+    /**
+     * This method switches the current world to the modifier
+     */
     public void openModifier(){
         Greenfoot.setWorld(mw);
     }
     
-    //open the MyWorld world
+    /**
+     * This method starts the simulation
+     */
     public void startGame(){
         Greenfoot.setWorld(new MyWorld(mw));
     }

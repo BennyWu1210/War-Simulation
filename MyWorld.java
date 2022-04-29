@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class MyWorld extends World
 {
-    // Initialize variables
+    // Initialize image and timer variables
     
     private GreenfootImage backgroundImage;
     private SimpleTimer timeCycle = new SimpleTimer(); // Timer that keep tracks of the counter
@@ -27,11 +27,11 @@ public class MyWorld extends World
     private Statistic statLeft ;
     private Statistic statRight ;
     
-    // Creates two crystals on both ends (direction 1 and -1)
+    // Create two crystals on both ends (direction 1 and -1)
     private CrystalTower crystalRed = new CrystalTower(1);
     private CrystalTower crystalBlue = new CrystalTower(-1);
     
-    // Variables to keep track of the available soldiers for both sides
+    // Variables to keep track of the available soldiers for both sides (different controls and states)
     private List<Integer> redSpawnControl, blueSpawnControl;
     private int redListLength, blueListLength;
     private int gameStatus;
@@ -75,9 +75,10 @@ public class MyWorld extends World
         totalElapsedTime.mark();
     
         // calculate the total time
-        for(int i=0;i<length;i++){
-            time=time*10+modifier.getTimeList().get(i);
+        for(int i = 0; i < length; i++){
+            time = time * 10 + modifier.getTimeList().get(i);
         }
+        
         // add the time in the world
         addObject(timeCount, 1100, 50);
         
@@ -89,13 +90,13 @@ public class MyWorld extends World
             timeCount.setValue(time);
         }
         
-        //to find out how many soldier do the user turn on
+        // find out how many soldier(s) the user turned on
         existSoldier();
         
-        //play the music
+        // sets the volume for the music
         backgroundMusic.setVolume(25);
         
-        //make the stat bar on top
+        // make sure the stat bar is always on the top
         this.setPaintOrder(StatBar.class);
     }
     
@@ -117,7 +118,8 @@ public class MyWorld extends World
     }
     
     /**
-     * This method will spawn both team soldiers
+     * This method will spawn the soldiers on both side randomly based on the time
+     * passed within the simulation
      */
     private void spawner(int yDirection){
         //set the spawn speed depend on the time
@@ -138,16 +140,16 @@ public class MyWorld extends World
             int choice = direction == 1 ? redSpawnControl.get(index) : blueSpawnControl.get(index);
             Soldier soldier;
         
-            if (choice == 0){//Bandit 
+            if (choice == 0){ //Bandit 
                 soldier = new Bandit(direction);
                 addObject(soldier, xSpawn, ySpawn);
-            }else if (choice == 1 ){//BeefyBandit
+            }else if (choice == 1 ){ //BeefyBandit
                 soldier = new BeefyBandit(direction);
                 addObject(soldier, xSpawn, ySpawn);
-            }else if (choice == 2){//Healer
+            }else if (choice == 2){ //Healer
                 soldier = new Healer(direction);
                 addObject(soldier, xSpawn, ySpawn);
-            }else if (choice == 3){//Knight
+            }else if (choice == 3){ //Knight
                 soldier = new Knight(direction);
                 addObject(soldier, xSpawn, ySpawn);
             }
@@ -155,7 +157,7 @@ public class MyWorld extends World
     }
     
     /**
-     * Method that is responsible for spawning towers
+     * Method that is responsible for spawning towers 
      */
     public void spawnTower(){
         int yCoord = (Greenfoot.getRandomNumber(8)+2)*70;
@@ -280,7 +282,7 @@ public class MyWorld extends World
     }
     
     /**
-     * This method returns the targetted crystal
+     * This method returns the targetted crystal that a side is currently attacking
      * 
      * @return CrystalTower  the crystal that a certain side is targetting
      */
@@ -306,7 +308,8 @@ public class MyWorld extends World
     }
     
     /**
-     * Returns the total time passed as a percentage
+     * Returns the total time passed as a percentage 
+     * (number of milliseconds left / total milliseconds since the clock started)
      * 
      * @return double  total time passed
      */

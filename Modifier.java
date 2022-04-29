@@ -2,20 +2,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
  * 
- * This Modifier World allows user to modify the features of the game
+ * This Modifier World allows the user to modify the features of the game
+ * (The soldiers chosen & the initial coin value)
  * @author Kevin Zhu, Benny Wu
  * @version April 28, 2022
  */
 public class Modifier extends World
 {
 
-    //Inialize the vairable
+    // Inialize variables for images and state
     private GreenfootImage backgroundImage;
     private int count = 0;
     private boolean keyDown;
     private Stack<Integer> timeList = new Stack<Integer>();;
     
-    // The idx for the two team
+    // The index for the two team
     // Bandit is 0
     // BeffyBandit is 1
     // Healer is 2
@@ -42,9 +43,9 @@ public class Modifier extends World
     private TitlePage tp;
     
     /**
-     * This Constructor will be initalizing the backgorund and button in the Modifier world
+     * This Constructor will initialize the background and button in the Modifier world
      * 
-     * @param tp   the TitlePage world to follow around
+     * @param tp   the reference of its title page
      */
     public Modifier(TitlePage tp)
     {    
@@ -60,16 +61,16 @@ public class Modifier extends World
     }
     
     /**
-     * This method will return the timeList
+     * This method will return the timeList (the time that the user has entered) 
      * 
-     * @return the stack value of timeList
+     * @return a stack copy of the time list
      */
     public Stack<Integer> getTimeList(){
         return timeList;
     }
     
     /**
-     * This method will return the rCoin 
+     * This method will return the total number of coins the red team has
      * 
      * @return the int value of rCoin
      */
@@ -78,7 +79,7 @@ public class Modifier extends World
     }
     
     /**
-     * This method will return the bCoin 
+     * This method will return the total number of coins the blue team has
      * 
      * @return the int value of bCoin
      */
@@ -87,7 +88,7 @@ public class Modifier extends World
     }
     
     /**
-     * This method will return the state of one of the redSwitch 
+     * This method will return the state of the i-th red switch
      * 
      * @param idx  the index of that soldier
      * @return the boolean value of that soldier
@@ -97,7 +98,7 @@ public class Modifier extends World
     }
     
     /**
-     * This method will return the state of one of the blueSwitch 
+     * This method will return the state of the i-th blue switch
      * 
      * @param idx  the index of that soldier
      * @return the boolean value of that soldier
@@ -106,6 +107,9 @@ public class Modifier extends World
         return BlueSwitch[idx];
     }
     
+    /**
+     * This method will instantiate all the buttons and add them to the modifer page
+     */
     private void prepare()
     {
         //create a backbutton
@@ -202,41 +206,46 @@ public class Modifier extends World
     /**
      * This method will minus 10 gold for that value
      * 
-     * @param mb   the MinusButton to follow around
-     * @param coin the int value to minus the 10 gold to
-     * return      the result after subtracting the coins
+     * @param mb    a reference to the minus button
+     * @param coin  the original value of the coin to be subtracted
+     * @return int  the new coin value after subtracting
      */
     public int clickMinus(MinusButton mb, int coin){
         if(Greenfoot.mouseClicked(mb)){
-            coin-=10;
+            coin -= 10;
         }
         return coin;
     }
 
     /**
-     * This method will updating the status of the 8 buttons
+     * This method will updating the status of the 8 buttons based on user interactions
      */
     public void updateButton(){
-        RedSwitch[0]=onClick(RedSwitch[0],redSoldier[0]);
-        RedSwitch[1]=onClick(RedSwitch[1],redSoldier[1]);
-        RedSwitch[2]=onClick(RedSwitch[2],redSoldier[2]);
-        RedSwitch[3]=onClick(RedSwitch[3],redSoldier[3]);
+        RedSwitch[0] = onClick(RedSwitch[0],redSoldier[0]);
+        RedSwitch[1] = onClick(RedSwitch[1],redSoldier[1]);
+        RedSwitch[2] = onClick(RedSwitch[2],redSoldier[2]);
+        RedSwitch[3] = onClick(RedSwitch[3],redSoldier[3]);
         
-        BlueSwitch[0]=onClick(BlueSwitch[0],blueSoldier[0]);
-        BlueSwitch[1]=onClick(BlueSwitch[1],blueSoldier[1]);
-        BlueSwitch[2]=onClick(BlueSwitch[2],blueSoldier[2]);
-        BlueSwitch[3]=onClick(BlueSwitch[3],blueSoldier[3]);
+        BlueSwitch[0] = onClick(BlueSwitch[0],blueSoldier[0]);
+        BlueSwitch[1] = onClick(BlueSwitch[1],blueSoldier[1]);
+        BlueSwitch[2] = onClick(BlueSwitch[2],blueSoldier[2]);
+        BlueSwitch[3] = onClick(BlueSwitch[3],blueSoldier[3]);
     }
     
     /**
-     * This method will updating the value of the coins from both team
+     * This method will updating the value of the coins from both team 
      */
     public void updateCoin(){
-        rCoin=clickAdd(abRed, rCoin);
-        bCoin=clickAdd(abBlue, bCoin);
-        rCoin=clickMinus(mbRed, rCoin);
-        bCoin=clickMinus(mbBlue, bCoin);
+        rCoin = clickAdd(abRed, rCoin);
+        bCoin = clickAdd(abBlue, bCoin);
+        rCoin = clickMinus(mbRed, rCoin);
+        bCoin = clickMinus(mbBlue, bCoin);
     }
+    
+    /**
+     * The act method for the modifier that keeps track of the user interactions
+     * (button clicks, coin updates, etc.)
+     */
     public void act()
     {
         //the time input from the user
@@ -249,15 +258,15 @@ public class Modifier extends World
         updateCoin();
         
         //the value of the gold could not be less than 0
-        if(rCoin<0) rCoin=0;
+        if(rCoin<0) rCoin = 0;
         redCoins.setValue(rCoin);//update the gold value
         
-        if(bCoin<0) bCoin=0;
+        if(bCoin<0) bCoin = 0;
         blueCoins.setValue(bCoin);//update the gold value
     }
     
     /**
-     * This method will play the sound when the user type the time
+     * This method will play a sound effect when the user inputs the time
      */
     public void typesSound(){
         //set up and initalize for the sound preparation

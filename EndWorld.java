@@ -11,7 +11,7 @@ public class EndWorld extends World
     private GreenfootImage backgroundImage;
     private int status;
     /**
-     * Constructor for objects of class EndWorld.
+     * Constructor for objects of class EndWorld (End screen)
      * 
      * @param status  this paremeter determines the result of the game
      */
@@ -41,7 +41,8 @@ public class EndWorld extends World
     }
     
     /**
-     * To prepare the button on the screen
+     * This method initializes all the necessary buttons onto the screen, including
+     * the play again button and the exit button
      */
     public void prepare(){
         PlayAgainButton pb = new PlayAgainButton();
