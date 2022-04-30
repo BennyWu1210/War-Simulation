@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Statistic
+comment0.text=\n\ This\ class\ keeps\ track\ of\ all\ the\ statistics\ \n
 comment1.params=side\ gold
 comment1.target=Statistic(boolean,\ int)
 comment2.params=

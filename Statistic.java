@@ -1,11 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
+/**
+ * This class keeps track of all the statistics 
+ */
 
 public class Statistic extends Actor
 {
     /**
      * The Counter Bar: The Bar in the top middle of the screen
-     * Angus Feng
+     * Angus Feng 
      */
     int score;
     int money;

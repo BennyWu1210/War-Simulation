@@ -44,7 +44,7 @@ public class MyWorld extends World
     private GreenfootSound backgroundMusic = new GreenfootSound("BackgroundMusic.mp3");
     
     /**
-     * Constructor for objects of class MyWorld. Intializing the time, statistics, and set the background
+     * Constructor for objects of class MyWorld - Intializing the time, statistics, and setting the background
      * 
      * @param modifier  the modifier object that contains the modified information for the simulation
      */
@@ -186,7 +186,7 @@ public class MyWorld extends World
         }
     }
     /**
-     * Gold feature (not used yet)
+     * Gold feature (unused feature that could be implemented in the future)
      */
     public void spawnGold(){
         int yCoord = (Greenfoot.getRandomNumber(6) + 1) * 70;
