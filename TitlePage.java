@@ -12,6 +12,7 @@ public class TitlePage extends World
     //initialize the variable
     private Modifier mw;
     private MyWorld mworld;
+    
     private static GreenfootImage backgroundImage = new GreenfootImage("BeginningPage.jpg");
     /**
      * Constructor for TitlePage - sets the screen size and creates the background

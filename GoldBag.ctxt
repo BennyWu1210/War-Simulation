@@ -1,15 +1,15 @@
 #BlueJ class context
 comment0.target=GoldBag
-comment0.text=\n\ Gold\ Bag\ that\ is\ spawned\ on\ the\ map\ that\ increases\ gold\ by\ 50\n\ We\ ended\ up\ not\ using\ this\ because\ it\ caused\ the\ game\ to\ be\ too\ unbalanced\n\ Causes\ the\ game\ to\ spawn\ too\ many\ Archer\ Towers\ with\ the\ surplus\ of\ gold\n\n\ @author\ Angus\ Feng\n
+comment0.text=\r\n\ Gold\ Bag\ that\ is\ spawned\ on\ the\ map\ that\ increases\ gold\ by\ 50\r\n\ We\ ended\ up\ not\ using\ this\ because\ it\ caused\ the\ game\ to\ be\ too\ unbalanced\r\n\ Causes\ the\ game\ to\ spawn\ too\ many\ Archer\ Towers\ with\ the\ surplus\ of\ gold\r\n\r\n\ @author\ Angus\ Feng\r\n
 comment1.params=
 comment1.target=GoldBag()
-comment1.text=\n\ Constructor\ for\ GoldBag\n
+comment1.text=\r\n\ Constructor\ for\ GoldBag\r\n
 comment2.params=
 comment2.target=void\ addedToWorld()
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\n\ Act\ method\ for\ GoldBag\n
+comment3.text=\r\n\ Act\ method\ for\ GoldBag\r\n
 comment4.params=
 comment4.target=void\ checkPickedUp()
-comment4.text=\n\ Check\ if\ it\ has\ been\ picked\ up\n
+comment4.text=\r\n\ Check\ if\ it\ has\ been\ picked\ up\r\n
 numComments=5

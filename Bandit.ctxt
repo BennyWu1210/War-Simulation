@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Bandit
-comment0.text=\n\ Bandit\ is\ a\ soldier\ that\ moves\ incredibly\ fast.\ Even\ though\ they\ are\ not\ the\ strongest\ one\ among\ the\ 4,\n\ the\ are\ undoubtedly\ the\ bravest\ and\ attacks\ incredibly\ quickly\!\n\ \n\ \n\ @author\ Benny\ Wu,\ Angus\ Feng\n\ @version\ April\ 28th,\ 2022\n
+comment0.text=\r\n\ Bandit\ is\ a\ soldier\ that\ moves\ incredibly\ fast.\ Even\ though\ they\ are\ not\ the\ strongest\ one\ among\ the\ 4,\r\n\ the\ are\ undoubtedly\ the\ bravest\ and\ attacks\ incredibly\ quickly\!\r\n\ \r\n\ \r\n\ @author\ Benny\ Wu,\ Angus\ Feng\r\n\ @version\ April\ 28th,\ 2022\r\n
 comment1.params=direction
 comment1.target=Bandit(int)
-comment1.text=\n\ Creates\ a\ new\ Bandit\ with\ a\ given\ direction\n\ \n\ @param\ direction\ \ the\ direction\ this\ Bandit\ is\ facing\n
+comment1.text=\r\n\ Creates\ a\ new\ Bandit\ with\ a\ given\ direction\r\n\ \r\n\ @param\ direction\ \ the\ direction\ this\ Bandit\ is\ facing\r\n
 comment2.params=
 comment2.target=void\ attack()
-comment2.text=\n\ The\ attack\ method\ for\ Bandit\:\ \n\ \n\ It\ uses\ a\ sword\ with\ special\ effects\ to\ attack\ its\ target\n
+comment2.text=\r\n\ The\ attack\ method\ for\ Bandit\:\ \r\n\ \r\n\ It\ uses\ a\ sword\ with\ special\ effects\ to\ attack\ its\ target\r\n
 numComments=3

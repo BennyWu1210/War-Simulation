@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=ExitButton
-comment0.text=\r\n\ \r\n\ The\ Exist\ Button\ is\ used\ to\ end\ the\ game\r\n\ @author\ (Kevin\ Zhu)\ \r\n\ @version\ (April\ 28,\ 2022)\r\n
+comment0.text=\n\ \n\ The\ Exist\ Button\ is\ used\ to\ end\ the\ game\n\ @author\ (Kevin\ Zhu)\ \n\ @version\ (April\ 28,\ 2022)\n
 comment1.params=
 comment1.target=ExitButton()
-comment1.text=\r\n\ This\ set\ the\ default\ value\ for\ the\ exist\ button.\r\n
+comment1.text=\n\ This\ set\ the\ default\ value\ for\ the\ exist\ button.\n
 comment2.params=
 comment2.target=void\ initExitButton()
-comment2.text=\r\n\ Initializing\ the\ exit\ button\ image\r\n
+comment2.text=\n\ Initializing\ the\ exit\ button\ image\n
 comment3.params=
 comment3.target=void\ onClick()
-comment3.text=\r\n\ Check\ if\ mouse\ clicks\ this\ button\r\n
+comment3.text=\n\ Check\ if\ mouse\ clicks\ this\ button\n
 comment4.params=
 comment4.target=void\ onHover()
-comment4.text=\r\n\ Check\ if\ mouse\ hovers\ on\ this\ button\r\n
+comment4.text=\n\ Check\ if\ mouse\ hovers\ on\ this\ button\n
 numComments=5
