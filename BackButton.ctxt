@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=BackButton
-comment0.text=\n\ Write\ a\ description\ of\ class\ BackButton\ here.\n\ This\ back\ button\ is\ used\ to\ return\ from\ the\ Modifier\ world\ to\ TitlePage\ world.\n\ @author\ (Kevin)\ \n\ @version\ (April\ 28,\ 2022)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ BackButton\ here.\r\n\ This\ back\ button\ is\ used\ to\ return\ from\ the\ Modifier\ world\ to\ TitlePage\ world.\r\n\ @author\ (Kevin)\ \r\n\ @version\ (April\ 28,\ 2022)\r\n
 comment1.params=page
 comment1.target=BackButton(Modifier)
-comment1.text=\n\ This\ set\ the\ default\ value\ for\ the\ back\ button.\n\ \n\ @param\ page\ \ The\ Modifier\ world\ to\ follow\ around\n
+comment1.text=\r\n\ This\ set\ the\ default\ value\ for\ the\ back\ button.\r\n\ \r\n\ @param\ page\ \ The\ Modifier\ world\ to\ follow\ around\r\n
 comment2.params=
 comment2.target=void\ initBackButton()
-comment2.text=\n\ Initializing\ the\ back\ button\ image\n
+comment2.text=\r\n\ Initializing\ the\ back\ button\ image\r\n
 comment3.params=
 comment3.target=void\ onClick()
-comment3.text=\n\ Check\ if\ mouse\ clicks\ this\ button\n
+comment3.text=\r\n\ Check\ if\ mouse\ clicks\ this\ button\r\n
 comment4.params=
 comment4.target=void\ onHover()
-comment4.text=\n\ Check\ if\ mouse\ hovers\ on\ this\ button\n
+comment4.text=\r\n\ Check\ if\ mouse\ hovers\ on\ this\ button\r\n
 numComments=5

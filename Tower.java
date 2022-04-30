@@ -56,6 +56,8 @@ public abstract class Tower extends Entity
      * This method makes the towers lose hp when they are hit
      * 
      * It expects the damage it took as well as the effect (can be null)
+     * @param hp The amount of hp that will damage the soldier
+     * @param effect The effect that is spawned when hit
      */
     public void getHit(double hp, Effect effect){
         

@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=SettingButton
-comment0.text=\n\ Write\ a\ description\ of\ class\ SettingButton\ here.\n\ The\ setting\ button\ is\ used\ to\ switch\ from\ the\ title\ page\ to\ the\ modifier\n\ @author\ (Kevin\ Zhu)\ \n\ @version\ (April\ 28,\ 2022)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ SettingButton\ here.\r\n\ The\ setting\ button\ is\ used\ to\ switch\ from\ the\ title\ page\ to\ the\ modifier\r\n\ @author\ (Kevin\ Zhu)\ \r\n\ @version\ (April\ 28,\ 2022)\r\n
 comment1.params=page
 comment1.target=SettingButton(TitlePage)
-comment1.text=\n\ This\ set\ the\ default\ value\ for\ the\ setting\ button.\n\ \n\ @param\ page\ \ The\ TitlePage\ world\ to\ follow\ around\n
+comment1.text=\r\n\ This\ set\ the\ default\ value\ for\ the\ setting\ button.\r\n\ \r\n\ @param\ page\ \ The\ TitlePage\ world\ to\ follow\ around\r\n
 comment2.params=
 comment2.target=void\ initSettingButton()
-comment2.text=\n\ Initializing\ the\ setting\ button\ image\n
+comment2.text=\r\n\ Initializing\ the\ setting\ button\ image\r\n
 comment3.params=
 comment3.target=void\ onClick()
-comment3.text=\n\ Check\ if\ mouse\ clicks\ this\ button\n
+comment3.text=\r\n\ Check\ if\ mouse\ clicks\ this\ button\r\n
 comment4.params=
 comment4.target=void\ onHover()
-comment4.text=\n\ Check\ if\ mouse\ hovers\ on\ this\ button\n
+comment4.text=\r\n\ Check\ if\ mouse\ hovers\ on\ this\ button\r\n
 numComments=5

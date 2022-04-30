@@ -34,7 +34,7 @@ public class Entity extends Actor
     * The superclass for all entities inside the game. They share common features such as moving and dealing damage.
     * It can be seen as a modified (optimized) version of the actor class.
     * 
-    * @direction  the direction this sodlier is facing  
+    * @param direction  the direction this sodlier is facing  
     */
     
     public Entity(int direction){
@@ -46,7 +46,7 @@ public class Entity extends Actor
     /**
     * An alternate constructor for entities with gifs
     * 
-    * @isGif  the direction this sodlier is facing  
+    * @param isGif  the direction this sodlier is facing  
     */
     public Entity(boolean isGif){
         this.direction = 1;
@@ -56,7 +56,7 @@ public class Entity extends Actor
     /**
     * An alternate constructor for entities 
     * 
-    * @target  the target of this entity
+    * @param target  the target of this entity
     */
     public Entity(Soldier target){
         this.target = target;
@@ -80,7 +80,7 @@ public class Entity extends Actor
     /**
      * Returns distance from a coordinate 
      * 
-     * @return double  the distance from a location, as a double
+     * return double  the distance from a location, as a double
      */
     public double getDistance(double x, double y){
         double xDif = getX() - x, yDif = getY() - y;
@@ -90,7 +90,7 @@ public class Entity extends Actor
     /**
      * Returns distance from an actor 
      * 
-     * @return double  the distance from another actor, as a double
+     * @param return double  the distance from another actor, as a double
      */
     public double getDistance(Actor actor){
         return getDistance(actor.getX(), actor.getY());
@@ -99,7 +99,7 @@ public class Entity extends Actor
     /**
      * Move toward a coordinate
      * 
-     * x, y - the coordinates of the destination
+     * param x, y - the coordinates of the destination
      */
     public void move(double x, double y){
         // Basic calculations to get the distance in both directions
@@ -142,7 +142,7 @@ public class Entity extends Actor
     /**
      * Returns direction of this soldier
      * 
-     * @return int  the direction this enetity is facing
+     * @param return int  the direction this enetity is facing
      */
     public int getDirection(){
         return this.direction;

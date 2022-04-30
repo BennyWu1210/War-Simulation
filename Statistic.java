@@ -5,7 +5,7 @@ public class Statistic extends Actor
 {
     /**
      * The Counter Bar: The Bar in the top middle of the screen
-     * Angus Feng
+     * @author Angus Feng
      */
     int score;
     int money;
